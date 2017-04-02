@@ -1,0 +1,4 @@
+<!--success.wxml-->
+<view class="container">
+  成功
+</view>

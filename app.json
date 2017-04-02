@@ -1,0 +1,34 @@
+{
+  "tabBar": {
+    "color": "#999",
+    "selectedColor": "#f44",
+    "borderStyle": "white",
+    "backgroundColor": "#ffffff",
+    "list": [
+        {
+        "pagePath": "pages/fill/fill",
+        "text": "首页"
+        },
+        {
+        "pagePath": "pages/fill/fill",
+        "text": "消息"
+        },
+        {
+        "pagePath": "pages/logs/logs",
+        "text": "收藏"
+        }
+    ]
+  },
+  "pages":[
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/success/success",
+    "pages/fill/fill"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "-_-",
+    "navigationBarTextStyle":"black"
+  }
+}
