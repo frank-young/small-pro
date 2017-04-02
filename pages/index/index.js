@@ -1,42 +1,22 @@
 //index.js
-//获取应用实例
-var app = getApp()
 Page({
   data: {
-    motto: '每天都有好心情',
-    userInfo: {},
-    share: {
-      title: '这是标题',
-      desc: '这是一些描述',
-      path: '/pages/index/index'
-    },
-    array: [
-        {
-          'age': 90,
-          'message': 'foo'
-        },
-        {
-          'age': 80,
-          'message': 'save'
-        },
-        {
-          'age': 45,
-          'message': 'sdahdsak'
-        }
-      ]
+    motto: 'index',
   },
-  bindViewTap: function() {
+  test: function() {
+    wx.showModal({
+      title: '提示',
+      content: '这是一个模态弹窗',
+      success: function(res) {
+        if (res.confirm) {
+          console.log('用户点击确定')
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
   },
   onLoad: function () {
-    console.log('onLoad')
-    var that = this
-    //调用应用实例的方法获取全局数据
-    app.getUserInfo(function(userInfo){
-      //更新数据
-      that.setData({
-        userInfo:userInfo
-      })
-    })
     
   },
   onReady:function(){
