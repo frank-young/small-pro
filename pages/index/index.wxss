@@ -1,6 +1,6 @@
 /**index.wxss**/
 .container {
-  padding: 24rpx;
+  /*padding: 24rpx;*/
 }
 .form {
   width: 100%;
