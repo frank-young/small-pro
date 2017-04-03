@@ -11,7 +11,7 @@ icon {
   margin-top: 1.17647059em;
   background-color: #FFFFFF;
   line-height: 1.41176471;
-  font-size: 17px;
+  font-size: 16px;
 }
 .weui-cells:before {
   content: " ";
@@ -156,7 +156,7 @@ icon {
 }
 .weui-cell_input {
   /*padding-top: 0;*/
-  padding-bottom: 0;
+  padding-bottom: 2px;
 }
 .weui-label {
   width: 105px;
@@ -327,7 +327,7 @@ icon {
   color: #0BB20C;
 }
 .weui-cell_select {
-  padding: 4px 0 0 0;
+  padding: 4px 0 2px 0;
 }
 .weui-select {
   position: relative;

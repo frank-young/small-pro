@@ -23,12 +23,13 @@
     "pages/index/index",
     "pages/logs/logs",
     "pages/success/success",
-    "pages/fill/fill"
+    "pages/fill/fill",
+    "pages/share/share"
   ],
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "-_-",
+    "navigationBarTitleText": "",
     "navigationBarTextStyle":"black"
   }
 }

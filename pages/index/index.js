@@ -5,20 +5,15 @@ Page({
   data: {
     motto: 'index',
     date: "1996-01-01",
-    share: {
-      title: '加入我们',
-      desc: '这是一些简单的描述～',
-      path: '/pages/logs/logs'
-    },
 
     sex: ['男', '女'],
     sexIndex: 0,
 
     constellationArray: ['水瓶座', '双鱼座', '白羊座', '金牛座', '双子座', '巨蟹座', '狮子座', '处女座', '天秤座', '天蝎座', '射手座', '魔羯座'],
-    constellationIndex: null,
+    constellationIndex: 0,
 
-    provinceIndex: null,
-    cityIndex: null,
+    provinceIndex: 0,
+    cityIndex: 0,
     provinceName: '北京市',
     cityName: '北京市',
     provinceArray : City.province,
@@ -85,6 +80,14 @@ Page({
     })
   },
   formSubmit (e) {
+    wx.showToast({
+      title: '提交成功',
+      icon: 'success',
+      duration: 1000
+    })
+    wx.navigateTo({
+      url: '../share/share'
+    })
     console.log('form发生了submit事件，携带数据为：', e.detail.value)
   },
   onLoad () {
@@ -107,30 +110,5 @@ Page({
   },
   onReachBottom () {
     // 页面上拉触底事件的处理函数
-  },
-  onShareAppMessage () {
-    // 用户点击右上角分享
-    return {
-      title: this.data.share.title,
-      path: this.data.share.path,
-      success (res) {
-        wx.showToast({
-          title: '分享成功',
-          icon: 'success',
-          duration: 2000
-        })
-        console.log('success')
-        wx.navigateTo({
-          url: '../success/success'
-        })
-      },
-      fail (res) {
-        // 分享失败
-        wx.showToast({
-          title: '分享失败',
-          duration: 2000
-        })
-      }
-    }
   }
 })

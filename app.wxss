@@ -2,7 +2,7 @@
 
 page{
     background-color: #F8F8F8;
-    font-size: 16px;
+    font-size: 15px;
     font-family: -apple-system-font,Helvetica Neue,Helvetica,sans-serif;
 }
 input {
@@ -35,4 +35,8 @@ input {
     color: #888888;
     text-align: left;
     font-size: 14px;
+}
+
+.pt-0 {
+  padding-top: 0 !important;
 }

@@ -1,0 +1,29 @@
+<view class="page">
+    <view class="weui-msg pt-0">
+        <view class="page__bd">
+            <view class="section section_gap">
+                <view class="section__ctn">
+                    <image style="width: 100%;" mode="scaleToFill" src="{{src}}"></image>
+                </view>
+            </view>
+        </view>
+        <view class="weui-msg__text-area">
+            <view class="weui-msg__title">还差一步</view>
+            <view class="weui-msg__desc">点击右上角菜单转发到40人以上微信群后将自动完成报名</view>
+        </view>
+        <view class="weui-msg__opr-area">
+            <view class="weui-btn-area">
+                <button class="weui-btn" bindtap="back" type="default">返回修改</button>
+            </view>
+            <contact-button type="default-light" size="20" session-from="weapp"></contact-button>
+        </view>
+        <view class="weui-msg__extra-area">
+            <view class="weui-footer">
+                <view class="weui-footer__links">
+                    <navigator url="" class="weui-footer__link">呐呐科技</navigator>
+                </view>
+                <view class="weui-footer__text">Copyright © 20016-2017 nanafly.com</view>
+            </view>
+        </view>
+    </view>
+</view>

@@ -1,7 +1,7 @@
 <!--index.wxml-->
 <view class="container">
   <form bindsubmit="formSubmit" class="form">
-    <view class="weui-cells__title">基础资料</view>
+    <view class="weui-cells__title">基础资料（必填）</view>
     <view class="weui-cells weui-cells_after-title">
         <view class="weui-cell weui-cell_input">
             <view class="weui-cell__hd">
