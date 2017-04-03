@@ -191,6 +191,7 @@ icon {
   width: 100%;
 }
 .weui-textarea-counter {
+  font-size: 12px;
   color: #B2B2B2;
   text-align: right;
 }
@@ -326,7 +327,7 @@ icon {
   color: #0BB20C;
 }
 .weui-cell_select {
-  padding: 5px 0 0 0;
+  padding: 4px 0 0 0;
 }
 .weui-select {
   position: relative;

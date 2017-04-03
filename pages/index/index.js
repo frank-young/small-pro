@@ -10,12 +10,26 @@ Page({
       desc: '这是一些简单的描述～',
       path: '/pages/logs/logs'
     },
+
     sex: ['男', '女'],
     sexIndex: 0,
-    provinceIndex:0,
-    cityIndex:0,
+
+    constellationArray: ['水瓶座', '双鱼座', '白羊座', '金牛座', '双子座', '巨蟹座', '狮子座', '处女座', '天秤座', '天蝎座', '射手座', '魔羯座'],
+    constellationIndex: null,
+
+    provinceIndex: null,
+    cityIndex: null,
+    provinceName: '北京市',
+    cityName: '北京市',
     provinceArray : City.province,
-    cityArray  : City.city
+    cityObj: City.city,
+    provinceId: City.province[0].id,
+
+    areaIndex: 0,
+    areaArray: ['只接受同城', '只接受异地', '都可以接受'],
+
+    ageIndex: 0,
+    ageArray: ['都可以接受', '只接受比自己大的', '只接受比自己小的']
   },
   test () {
     wx.showModal({
@@ -40,16 +54,38 @@ Page({
         date: e.detail.value
     })
   },
+  bindConstellationChange (e) {
+    this.setData({
+        constellationIndex: e.detail.value
+    })
+  },
   bindProvinceChange (e) {
     this.setData({
         provinceIndex: e.detail.value,
-        cityIndex: 0
+        cityIndex: 0,
+        provinceId: City.province[e.detail.value].id,
+        provinceName: City.province[e.detail.value].name
     })
   },
   bindCityChange (e) {
+    let id = this.data.provinceId
     this.setData({
-        cityIndex: e.detail.value
+        cityIndex: e.detail.value,
+        cityName: City.city[id][e.detail.value].name
     })
+  },
+  bindAreaChange (e) {
+    this.setData({
+        areaIndex: e.detail.value
+    })
+  },
+  bindAgeChange (e) {
+    this.setData({
+        ageIndex: e.detail.value
+    })
+  },
+  formSubmit (e) {
+    console.log('form发生了submit事件，携带数据为：', e.detail.value)
   },
   onLoad () {
 
