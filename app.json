@@ -15,7 +15,7 @@
         "pagePath": "pages/fill/fill",
         "iconPath": "resources/icons/form.png",
         "selectedIconPath": "resources/icons/form_hover.png",
-        "text": "表单"
+        "text": "报名"
         },
         {
         "pagePath": "pages/logs/logs",
