@@ -47,6 +47,7 @@ icon {
 }
 .weui-cells_after-title {
   margin-top: 0;
+  margin-bottom: 15px;
 }
 .weui-cells__tips {
   margin-top: .3em;
@@ -56,7 +57,7 @@ icon {
   font-size: 14px;
 }
 .weui-cell {
-  padding: 5px 15px;
+  padding: 15px 20px;
   position: relative;
   display: -webkit-box;
   display: -webkit-flex;
@@ -110,7 +111,7 @@ icon {
   display: inline-block;
   height: 6px;
   width: 6px;
-  border-width: 2px 2px 0 0;
+  border-width: 1px 1px 0 0;
   border-color: #C8C8CD;
   border-style: solid;
   -webkit-transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
