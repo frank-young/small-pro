@@ -4,7 +4,7 @@
             <image src="../../resources/logo.png" style="width: 80px; height: 80px;"></image>
         </view>
         <view class="weui-msg__text-area">
-            <view class="weui-msg__title">小呐CP</view>
+            <view class="weui-msg__title">小呐一周CP</view>
             <view class="weui-msg__desc">谈一场不一样的恋爱</view>
         </view>
         <view class="weui-msg__opr-area">
