@@ -3,11 +3,11 @@
   <view class="weui-panel weui-panel_access">
     <swiper indicator-dots="true"
       autoplay="true" interval="5000" duration="500" circular="true">
-      <block wx:for="{{imgUrls}}">
+      <view wx:for="{{imgUrls}}">
         <swiper-item>
           <image src="{{item}}" class="slide-image"/>
         </swiper-item>
-      </block>
+      </view>
     </swiper>
       <view class="weui-panel__hd">晚期回顾</view>
       <view class="weui-panel__bd">
