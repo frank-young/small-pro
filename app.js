@@ -7,32 +7,56 @@ App({
     // logs.unshift(Date.now())
     // wx.setStorageSync('logs', logs)
 
-    wx.login({
-      success: function(res) {
-        if (res.code) {
-          wx.request({
-            url: Config.host + 'login',
-            data: {
-              code: res.code
-            },
-            success: function(res) {
-              // 这里需要存储 3rd_session
-              wx.setStorageSync('session_key', res.data.bizContent)
-            }
-          })
+    wx.checkSession({
+      success: function(){
+        wx.request({
+          url: Config.host + 'getopenid',
+          data: {
+            session_key: wx.getStorageSync('session_key')
+          },
+          method: 'POST',
+          header: {'content-type':'application/x-www-form-urlencoded'},
+          success: function(res){
+            console.log(res.data.openid)
+          }
+        })
+      },
+      fail: function(){
+        this.login()
+      }
+    })
+    // this.login()
 
+  },
+  login: function() {
+    wx.login({
+      success: function(loginData) {
+        if (loginData.code) {
           wx.getUserInfo({
-            success: function (res) {
+            success: function (userData) {
               wx.request({
                 url: Config.host + 'getuserinfo',
                 data: {
-                  userinfo: JSON.stringify(res),
-                  key: wx.getStorageSync('session_key')
+                  userinfo: JSON.stringify(userData),
+                  code: loginData.code
                 },
                 method: 'POST',
-                header: {'content-type':'application/json'},
+                header: {'content-type':'application/x-www-form-urlencoded'},
                 success: function(res){
-                  console.log(res.data)
+                  wx.setStorageSync('session_key', res.data.bizContent)
+                }
+              })
+            },
+            fail: function () {
+              wx.request({
+                url: Config.host + 'login',
+                data: {
+                  code: loginData.code
+                },
+                method: 'POST',
+                header: {'content-type':'application/x-www-form-urlencoded'},
+                success: function(res) {
+                  wx.setStorageSync('session_key', res.data.bizContent)
                 }
               })
             }
@@ -41,21 +65,7 @@ App({
           console.log('获取用户登录态失败！' + res.errMsg)
         }
       }
-    });
-    // wx.checkSession({
-    //   success: function(){
-    //     //session 未过期，并且在本生命周期一直有效
-    //     wx.showToast({
-    //       title: '未过期',
-    //       duration: 1000
-    //     })
-    //   },
-    //   fail: function(){
-    //     //登录态过期
-    //
-    //   }
-    // })
-
+    })
   },
   getUserInfo:function(cb){
     var that = this
