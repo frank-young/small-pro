@@ -7,7 +7,7 @@
   <view class="icon-box">
       <icon type="warn" size="22"></icon>
       <view class="icon-box__ctn">
-          <view class="icon-box__desc">用户资料将严格保密，请放心填写</view>
+          <view class="icon-box__desc">您的资料将严格保密，请放心填写</view>
       </view>
   </view>
   <form bindsubmit="formSubmit" class="form">
@@ -139,7 +139,7 @@
 
     <view class="weui-btn-area">
       <button class="weui-btn" formType="submit" type="primary">确认</button>
-      <button class="weui-btn" bindtap="test" type="primary" plain="true">弹窗</button>
+      <!-- <button class="weui-btn" bindtap="test" type="primary" plain="true">弹窗</button> -->
     </view>
   </form>
 </view>

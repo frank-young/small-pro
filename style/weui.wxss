@@ -157,7 +157,7 @@ icon {
 }
 .weui-cell_input {
   /*padding-top: 0;*/
-  padding-bottom: 2px;
+  padding: 4px 20px 2px 20px;
 }
 .weui-label {
   width: 105px;
