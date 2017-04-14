@@ -1,5 +1,7 @@
 //index.js
 import City from '../../utils/city.js'
+import Config from '../../utils/config.js'
+
 var app = getApp()
 
 Page({
@@ -8,7 +10,7 @@ Page({
     userInfo: {},
     date: "1996-01-01",
 
-    sex: ['男', '女'],
+    sex: ['未知', '男', '女'],
     sexIndex: 0,
 
     constellationArray: ['水瓶座', '双鱼座', '白羊座', '金牛座', '双子座', '巨蟹座', '狮子座', '处女座', '天秤座', '天蝎座', '射手座', '魔羯座'],
@@ -78,14 +80,23 @@ Page({
     })
   },
   formSubmit (e) {
-    wx.showToast({
-      title: '提交成功',
-      icon: 'success',
-      duration: 1000
+    e.detail.value.session_key = wx.getStorageSync('session_key')
+    wx.request({
+      url: Config.host + 'info',
+      data: e.detail.value,
+      method: 'POST',
+      header: {'content-type':'application/x-www-form-urlencoded'},
+      success: function(res){
+        wx.showToast({
+          title: '提交成功',
+          icon: 'success',
+          duration: 1000
+        })
+      }
     })
-    wx.navigateTo({
-      url: '../share/share'
-    })
+    // wx.navigateTo({
+    //   url: '../share/share'
+    // })
     console.log('form发生了submit事件，携带数据为：', e.detail.value)
   },
   onLoad () {
@@ -93,12 +104,12 @@ Page({
     app.getUserInfo(function(userInfo){
       //更新数据
       that.setData({
-        userInfo:userInfo
+        userInfo:userInfo,
+        sexIndex:userInfo.gender
       })
     })
   },
   onReady (){
-    // 生命周期函数--监听页面初次渲染完成
   },
   onShow (){
     // 生命周期函数--监听页面显示

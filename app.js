@@ -17,7 +17,7 @@ App({
           method: 'POST',
           header: {'content-type':'application/x-www-form-urlencoded'},
           success: function(res){
-            console.log(res.data.openid)
+            console.log(res.data.bizContent)
           }
         })
       },
@@ -25,7 +25,7 @@ App({
         this.login()
       }
     })
-    // this.login()
+    this.login()
 
   },
   login: function() {
