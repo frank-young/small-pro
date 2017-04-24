@@ -6,7 +6,7 @@ App({
     // var logs = wx.getStorageSync('logs') || []
     // logs.unshift(Date.now())
     // wx.setStorageSync('logs', logs)
-
+    let that = this
     wx.checkSession({
       success: function(){
         wx.request({
@@ -22,7 +22,7 @@ App({
         })
       },
       fail: function(){
-        this.login()
+        that.login()
       }
     })
     this.login()

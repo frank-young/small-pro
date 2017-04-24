@@ -10,23 +10,46 @@ Page({
     userInfo: {},
     date: "1996-01-01",
 
+    /*
+     * 性别
+     */
     sex: ['未知', '男', '女'],
     sexIndex: 0,
 
+    /*
+     * 星座
+     */
     constellationArray: ['水瓶座', '双鱼座', '白羊座', '金牛座', '双子座', '巨蟹座', '狮子座', '处女座', '天秤座', '天蝎座', '射手座', '魔羯座'],
     constellationIndex: 0,
 
+    /*
+     * 城市选择
+     */
     provinceIndex: 0,
     cityIndex: 0,
     provinceArray : City.province,
     cityObj: City.city,
     provinceId: City.province[0].id,
 
+    /*
+     * 区域规则
+     */
     areaIndex: 0,
     areaArray: ['只接受同城', '只接受异地', '都可以接受'],
 
+    /*
+     * 年龄规则
+     */
     ageIndex: 0,
-    ageArray: ['都可以接受', '只接受比自己大的', '只接受比自己小的']
+    ageArray: ['都可以接受', '只接受比自己大的', '只接受比自己小的'],
+
+    /*
+     * 问卷部分
+     */
+    radioItems: [
+        {name: '第一个答案', value: '0'},
+        {name: '第二个答案', value: '1', checked: true}
+    ],
   },
   test () {
     wx.showModal({
@@ -78,6 +101,18 @@ Page({
     this.setData({
         ageIndex: e.detail.value
     })
+  },
+  radioChange: function (e) {
+      console.log('radio发生change事件，携带value值为：', e.detail.value);
+
+      var radioItems = this.data.radioItems;
+      for (var i = 0, len = radioItems.length; i < len; ++i) {
+          radioItems[i].checked = radioItems[i].value == e.detail.value;
+      }
+
+      this.setData({
+          radioItems: radioItems
+      });
   },
   formSubmit (e) {
     e.detail.value.session_key = wx.getStorageSync('session_key')
