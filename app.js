@@ -34,6 +34,8 @@ App({
         if (loginData.code) {
           wx.getUserInfo({
             success: function (userData) {
+              console.log(loginData.code)
+              console.log(userData)
               wx.request({
                 url: Config.host + 'getuserinfo',
                 data: {

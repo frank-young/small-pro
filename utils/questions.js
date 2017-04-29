@@ -4,24 +4,24 @@ let questions = [
     'label': '健谈的',
     'answers': [
       {
-        'value': 1,
-        'label': '极不同意'
+        'score': 1,
+        'text': '极不同意'
       },
       {
-        'value': 2,
-        'label': '不同意'
+        'score': 2,
+        'text': '不同意'
       },
       {
-        'value': 3,
-        'label': '不知道'
+        'score': 3,
+        'text': '不知道'
       },
       {
-        'value': 4,
-        'label': '同意'
+        'score': 4,
+        'text': '同意'
       },
       {
-        'value': 5,
-        'label': '非常同意'
+        'score': 5,
+        'text': '非常同意'
       }
     ]
   },
@@ -30,24 +30,24 @@ let questions = [
     'label': '容易发现他人的错误，有点吹毛求疵的',
     'answers': [
       {
-        'value': 5,
-        'label': '极不同意'
+        'score': 5,
+        'text': '极不同意'
       },
       {
-        'value': 4,
-        'label': '不同意'
+        'score': 4,
+        'text': '不同意'
       },
       {
-        'value': 3,
-        'label': '不知道'
+        'score': 3,
+        'text': '不知道'
       },
       {
-        'value': 2,
-        'label': '同意'
+        'score': 2,
+        'text': '同意'
       },
       {
-        'value': 1,
-        'label': '非常同意'
+        'score': 1,
+        'text': '非常同意'
       }
     ]
   },
@@ -56,24 +56,24 @@ let questions = [
     'label': '工作中尽职尽责的',
     'answers': [
   {
-    'value': 1,
-    'label': '极不同意'
+    'score': 1,
+    'text': '极不同意'
   },
   {
-    'value': 2,
-    'label': '不同意'
+    'score': 2,
+    'text': '不同意'
   },
   {
-    'value': 3,
-    'label': '不知道'
+    'score': 3,
+    'text': '不知道'
   },
   {
-    'value': 4,
-    'label': '同意'
+    'score': 4,
+    'text': '同意'
   },
   {
-    'value': 5,
-    'label': '非常同意'
+    'score': 5,
+    'text': '非常同意'
   }
 ]
   },
@@ -82,24 +82,24 @@ let questions = [
     'label': '有点忧郁的',
     'answers': [
   {
-    'value': 1,
-    'label': '极不同意'
+    'score': 1,
+    'text': '极不同意'
   },
   {
-    'value': 2,
-    'label': '不同意'
+    'score': 2,
+    'text': '不同意'
   },
   {
-    'value': 3,
-    'label': '不知道'
+    'score': 3,
+    'text': '不知道'
   },
   {
-    'value': 4,
-    'label': '同意'
+    'score': 4,
+    'text': '同意'
   },
   {
-    'value': 5,
-    'label': '非常同意'
+    'score': 5,
+    'text': '非常同意'
   }
 ]
   },
@@ -108,24 +108,24 @@ let questions = [
     'label': '总是有一些新点子的',
     'answers': [
   {
-    'value': 1,
-    'label': '极不同意'
+    'score': 1,
+    'text': '极不同意'
   },
   {
-    'value': 2,
-    'label': '不同意'
+    'score': 2,
+    'text': '不同意'
   },
   {
-    'value': 3,
-    'label': '不知道'
+    'score': 3,
+    'text': '不知道'
   },
   {
-    'value': 4,
-    'label': '同意'
+    'score': 4,
+    'text': '同意'
   },
   {
-    'value': 5,
-    'label': '非常同意'
+    'score': 5,
+    'text': '非常同意'
   }
 ]
   },
@@ -134,24 +134,24 @@ let questions = [
     'label': '矜持的	',
     'answers': [
   {
-    'value': 5,
-    'label': '极不同意'
+    'score': 5,
+    'text': '极不同意'
   },
   {
-    'value': 4,
-    'label': '不同意'
+    'score': 4,
+    'text': '不同意'
   },
   {
-    'value': 3,
-    'label': '不知道'
+    'score': 3,
+    'text': '不知道'
   },
   {
-    'value': 2,
-    'label': '同意'
+    'score': 2,
+    'text': '同意'
   },
   {
-    'value': 1,
-    'label': '非常同意'
+    'score': 1,
+    'text': '非常同意'
   }
 ]
   },
@@ -160,24 +160,24 @@ let questions = [
     'label': '无私帮助他人的',
     'answers': [
   {
-    'value': 1,
-    'label': '极不同意'
+    'score': 1,
+    'text': '极不同意'
   },
   {
-    'value': 2,
-    'label': '不同意'
+    'score': 2,
+    'text': '不同意'
   },
   {
-    'value': 3,
-    'label': '不知道'
+    'score': 3,
+    'text': '不知道'
   },
   {
-    'value': 4,
-    'label': '同意'
+    'score': 4,
+    'text': '同意'
   },
   {
-    'value': 5,
-    'label': '非常同意'
+    'score': 5,
+    'text': '非常同意'
   }
 ]
   },
@@ -186,24 +186,24 @@ let questions = [
     'label': '会有点粗心的',
     'answers': [
   {
-    'value': 5,
-    'label': '极不同意'
+    'score': 5,
+    'text': '极不同意'
   },
   {
-    'value': 4,
-    'label': '不同意'
+    'score': 4,
+    'text': '不同意'
   },
   {
-    'value': 3,
-    'label': '不知道'
+    'score': 3,
+    'text': '不知道'
   },
   {
-    'value': 2,
-    'label': '同意'
+    'score': 2,
+    'text': '同意'
   },
   {
-    'value': 1,
-    'label': '非常同意'
+    'score': 1,
+    'text': '非常同意'
   }
 ]
   },
@@ -212,24 +212,24 @@ let questions = [
     'label': '放松的，善于应对压力的',
     'answers': [
   {
-    'value': 5,
-    'label': '极不同意'
+    'score': 5,
+    'text': '极不同意'
   },
   {
-    'value': 4,
-    'label': '不同意'
+    'score': 4,
+    'text': '不同意'
   },
   {
-    'value': 3,
-    'label': '不知道'
+    'score': 3,
+    'text': '不知道'
   },
   {
-    'value': 2,
-    'label': '同意'
+    'score': 2,
+    'text': '同意'
   },
   {
-    'value': 1,
-    'label': '非常同意'
+    'score': 1,
+    'text': '非常同意'
   }
 ]
   },
@@ -238,24 +238,24 @@ let questions = [
     'label': '对许多事物感到好奇的',
     'answers': [
   {
-    'value': 1,
-    'label': '极不同意'
+    'score': 1,
+    'text': '极不同意'
   },
   {
-    'value': 2,
-    'label': '不同意'
+    'score': 2,
+    'text': '不同意'
   },
   {
-    'value': 3,
-    'label': '不知道'
+    'score': 3,
+    'text': '不知道'
   },
   {
-    'value': 4,
-    'label': '同意'
+    'score': 4,
+    'text': '同意'
   },
   {
-    'value': 5,
-    'label': '非常同意'
+    'score': 5,
+    'text': '非常同意'
   }
 ]
   },
@@ -264,24 +264,24 @@ let questions = [
     'label': '充满了能量、生机勃勃的',
     'answers': [
   {
-    'value': 1,
-    'label': '极不同意'
+    'score': 1,
+    'text': '极不同意'
   },
   {
-    'value': 2,
-    'label': '不同意'
+    'score': 2,
+    'text': '不同意'
   },
   {
-    'value': 3,
-    'label': '不知道'
+    'score': 3,
+    'text': '不知道'
   },
   {
-    'value': 4,
-    'label': '同意'
+    'score': 4,
+    'text': '同意'
   },
   {
-    'value': 5,
-    'label': '非常同意'
+    'score': 5,
+    'text': '非常同意'
   }
 ]
   },
@@ -290,24 +290,24 @@ let questions = [
     'label': '爱与他人争吵的',
     'answers': [
   {
-    'value': 5,
-    'label': '极不同意'
+    'score': 5,
+    'text': '极不同意'
   },
   {
-    'value': 4,
-    'label': '不同意'
+    'score': 4,
+    'text': '不同意'
   },
   {
-    'value': 3,
-    'label': '不知道'
+    'score': 3,
+    'text': '不知道'
   },
   {
-    'value': 2,
-    'label': '同意'
+    'score': 2,
+    'text': '同意'
   },
   {
-    'value': 1,
-    'label': '非常同意'
+    'score': 1,
+    'text': '非常同意'
   }
 ]
   },
@@ -316,24 +316,24 @@ let questions = [
     'label': '朋友都觉得可靠的',
     'answers': [
   {
-    'value': 1,
-    'label': '极不同意'
+    'score': 1,
+    'text': '极不同意'
   },
   {
-    'value': 2,
-    'label': '不同意'
+    'score': 2,
+    'text': '不同意'
   },
   {
-    'value': 3,
-    'label': '不知道'
+    'score': 3,
+    'text': '不知道'
   },
   {
-    'value': 4,
-    'label': '同意'
+    'score': 4,
+    'text': '同意'
   },
   {
-    'value': 5,
-    'label': '非常同意'
+    'score': 5,
+    'text': '非常同意'
   }
 ]
   },
@@ -342,24 +342,24 @@ let questions = [
     'label': '易于紧张的',
     'answers': [
   {
-    'value': 1,
-    'label': '极不同意'
+    'score': 1,
+    'text': '极不同意'
   },
   {
-    'value': 2,
-    'label': '不同意'
+    'score': 2,
+    'text': '不同意'
   },
   {
-    'value': 3,
-    'label': '不知道'
+    'score': 3,
+    'text': '不知道'
   },
   {
-    'value': 4,
-    'label': '同意'
+    'score': 4,
+    'text': '同意'
   },
   {
-    'value': 5,
-    'label': '非常同意'
+    'score': 5,
+    'text': '非常同意'
   }
 ]
   },
@@ -368,24 +368,24 @@ let questions = [
     'label': '有独特而深刻思想的	',
     'answers': [
   {
-    'value': 1,
-    'label': '极不同意'
+    'score': 1,
+    'text': '极不同意'
   },
   {
-    'value': 2,
-    'label': '不同意'
+    'score': 2,
+    'text': '不同意'
   },
   {
-    'value': 3,
-    'label': '不知道'
+    'score': 3,
+    'text': '不知道'
   },
   {
-    'value': 4,
-    'label': '同意'
+    'score': 4,
+    'text': '同意'
   },
   {
-    'value': 5,
-    'label': '非常同意'
+    'score': 5,
+    'text': '非常同意'
   }
 ]
   },
@@ -394,24 +394,24 @@ let questions = [
     'label': '热情大方的',
     'answers': [
   {
-    'value': 1,
-    'label': '极不同意'
+    'score': 1,
+    'text': '极不同意'
   },
   {
-    'value': 2,
-    'label': '不同意'
+    'score': 2,
+    'text': '不同意'
   },
   {
-    'value': 3,
-    'label': '不知道'
+    'score': 3,
+    'text': '不知道'
   },
   {
-    'value': 4,
-    'label': '同意'
+    'score': 4,
+    'text': '同意'
   },
   {
-    'value': 5,
-    'label': '非常同意'
+    'score': 5,
+    'text': '非常同意'
   }
 ]
   },
@@ -420,24 +420,24 @@ let questions = [
     'label': '宽容体谅的',
     'answers': [
   {
-    'value': 1,
-    'label': '极不同意'
+    'score': 1,
+    'text': '极不同意'
   },
   {
-    'value': 2,
-    'label': '不同意'
+    'score': 2,
+    'text': '不同意'
   },
   {
-    'value': 3,
-    'label': '不知道'
+    'score': 3,
+    'text': '不知道'
   },
   {
-    'value': 4,
-    'label': '同意'
+    'score': 4,
+    'text': '同意'
   },
   {
-    'value': 5,
-    'label': '非常同意'
+    'score': 5,
+    'text': '非常同意'
   }
 ]
   },
@@ -446,24 +446,24 @@ let questions = [
     'label': '生活一团糟、杂乱无章的',
     'answers': [
   {
-    'value': 5,
-    'label': '极不同意'
+    'score': 5,
+    'text': '极不同意'
   },
   {
-    'value': 4,
-    'label': '不同意'
+    'score': 4,
+    'text': '不同意'
   },
   {
-    'value': 3,
-    'label': '不知道'
+    'score': 3,
+    'text': '不知道'
   },
   {
-    'value': 2,
-    'label': '同意'
+    'score': 2,
+    'text': '同意'
   },
   {
-    'value': 1,
-    'label': '非常同意'
+    'score': 1,
+    'text': '非常同意'
   }
 ]
   },
@@ -472,24 +472,24 @@ let questions = [
     'label': '顾虑重重的',
     'answers': [
   {
-    'value': 1,
-    'label': '极不同意'
+    'score': 1,
+    'text': '极不同意'
   },
   {
-    'value': 2,
-    'label': '不同意'
+    'score': 2,
+    'text': '不同意'
   },
   {
-    'value': 3,
-    'label': '不知道'
+    'score': 3,
+    'text': '不知道'
   },
   {
-    'value': 4,
-    'label': '同意'
+    'score': 4,
+    'text': '同意'
   },
   {
-    'value': 5,
-    'label': '非常同意'
+    'score': 5,
+    'text': '非常同意'
   }
 ]
   },
@@ -498,24 +498,24 @@ let questions = [
     'label': '有丰富想象力的',
     'answers': [
   {
-    'value': 1,
-    'label': '极不同意'
+    'score': 1,
+    'text': '极不同意'
   },
   {
-    'value': 2,
-    'label': '不同意'
+    'score': 2,
+    'text': '不同意'
   },
   {
-    'value': 3,
-    'label': '不知道'
+    'score': 3,
+    'text': '不知道'
   },
   {
-    'value': 4,
-    'label': '同意'
+    'score': 4,
+    'text': '同意'
   },
   {
-    'value': 5,
-    'label': '非常同意'
+    'score': 5,
+    'text': '非常同意'
   }
 ]
   },
@@ -524,24 +524,24 @@ let questions = [
     'label': '安静的',
     'answers': [
   {
-    'value': 5,
-    'label': '极不同意'
+    'score': 5,
+    'text': '极不同意'
   },
   {
-    'value': 4,
-    'label': '不同意'
+    'score': 4,
+    'text': '不同意'
   },
   {
-    'value': 3,
-    'label': '不知道'
+    'score': 3,
+    'text': '不知道'
   },
   {
-    'value': 2,
-    'label': '同意'
+    'score': 2,
+    'text': '同意'
   },
   {
-    'value': 1,
-    'label': '非常同意'
+    'score': 1,
+    'text': '非常同意'
   }
 ]
   },
@@ -550,24 +550,24 @@ let questions = [
     'label': '通常信任他人的',
     'answers': [
   {
-    'value': 1,
-    'label': '极不同意'
+    'score': 1,
+    'text': '极不同意'
   },
   {
-    'value': 2,
-    'label': '不同意'
+    'score': 2,
+    'text': '不同意'
   },
   {
-    'value': 3,
-    'label': '不知道'
+    'score': 3,
+    'text': '不知道'
   },
   {
-    'value': 4,
-    'label': '同意'
+    'score': 4,
+    'text': '同意'
   },
   {
-    'value': 5,
-    'label': '非常同意'
+    'score': 5,
+    'text': '非常同意'
   }
 ]
   },
@@ -576,24 +576,24 @@ let questions = [
     'label': '有些懒散的',
     'answers': [
   {
-    'value': 5,
-    'label': '极不同意'
+    'score': 5,
+    'text': '极不同意'
   },
   {
-    'value': 4,
-    'label': '不同意'
+    'score': 4,
+    'text': '不同意'
   },
   {
-    'value': 3,
-    'label': '不知道'
+    'score': 3,
+    'text': '不知道'
   },
   {
-    'value': 2,
-    'label': '同意'
+    'score': 2,
+    'text': '同意'
   },
   {
-    'value': 1,
-    'label': '非常同意'
+    'score': 1,
+    'text': '非常同意'
   }
 ]
   },
@@ -602,24 +602,24 @@ let questions = [
     'label': '情绪稳定、不容易心烦意乱的',
     'answers': [
   {
-    'value': 5,
-    'label': '极不同意'
+    'score': 5,
+    'text': '极不同意'
   },
   {
-    'value': 4,
-    'label': '不同意'
+    'score': 4,
+    'text': '不同意'
   },
   {
-    'value': 3,
-    'label': '不知道'
+    'score': 3,
+    'text': '不知道'
   },
   {
-    'value': 2,
-    'label': '同意'
+    'score': 2,
+    'text': '同意'
   },
   {
-    'value': 1,
-    'label': '非常同意'
+    'score': 1,
+    'text': '非常同意'
   }
 ]
   },
@@ -628,24 +628,24 @@ let questions = [
     'label': '创新的',
     'answers': [
   {
-    'value': 1,
-    'label': '极不同意'
+    'score': 1,
+    'text': '极不同意'
   },
   {
-    'value': 2,
-    'label': '不同意'
+    'score': 2,
+    'text': '不同意'
   },
   {
-    'value': 3,
-    'label': '不知道'
+    'score': 3,
+    'text': '不知道'
   },
   {
-    'value': 4,
-    'label': '同意'
+    'score': 4,
+    'text': '同意'
   },
   {
-    'value': 5,
-    'label': '非常同意'
+    'score': 5,
+    'text': '非常同意'
   }
 ]
   },
@@ -654,24 +654,24 @@ let questions = [
     'label': '自信的',
     'answers': [
   {
-    'value': 1,
-    'label': '极不同意'
+    'score': 1,
+    'text': '极不同意'
   },
   {
-    'value': 2,
-    'label': '不同意'
+    'score': 2,
+    'text': '不同意'
   },
   {
-    'value': 3,
-    'label': '不知道'
+    'score': 3,
+    'text': '不知道'
   },
   {
-    'value': 4,
-    'label': '同意'
+    'score': 4,
+    'text': '同意'
   },
   {
-    'value': 5,
-    'label': '非常同意'
+    'score': 5,
+    'text': '非常同意'
   }
 ]
   },
@@ -680,24 +680,24 @@ let questions = [
     'label': '冷若冰霜的',
     'answers': [
   {
-    'value': 5,
-    'label': '极不同意'
+    'score': 5,
+    'text': '极不同意'
   },
   {
-    'value': 4,
-    'label': '不同意'
+    'score': 4,
+    'text': '不同意'
   },
   {
-    'value': 3,
-    'label': '不知道'
+    'score': 3,
+    'text': '不知道'
   },
   {
-    'value': 2,
-    'label': '同意'
+    'score': 2,
+    'text': '同意'
   },
   {
-    'value': 1,
-    'label': '非常同意'
+    'score': 1,
+    'text': '非常同意'
   }
 ]
   },
@@ -706,24 +706,24 @@ let questions = [
     'label': '坚持不懈、有毅力的',
     'answers': [
   {
-    'value': 1,
-    'label': '极不同意'
+    'score': 1,
+    'text': '极不同意'
   },
   {
-    'value': 2,
-    'label': '不同意'
+    'score': 2,
+    'text': '不同意'
   },
   {
-    'value': 3,
-    'label': '不知道'
+    'score': 3,
+    'text': '不知道'
   },
   {
-    'value': 4,
-    'label': '同意'
+    'score': 4,
+    'text': '同意'
   },
   {
-    'value': 5,
-    'label': '非常同意'
+    'score': 5,
+    'text': '非常同意'
   }
 ]
   },
@@ -732,24 +732,24 @@ let questions = [
     'label': '喜怒无常的',
     'answers': [
   {
-    'value': 1,
-    'label': '极不同意'
+    'score': 1,
+    'text': '极不同意'
   },
   {
-    'value': 2,
-    'label': '不同意'
+    'score': 2,
+    'text': '不同意'
   },
   {
-    'value': 3,
-    'label': '不知道'
+    'score': 3,
+    'text': '不知道'
   },
   {
-    'value': 4,
-    'label': '同意'
+    'score': 4,
+    'text': '同意'
   },
   {
-    'value': 5,
-    'label': '非常同意'
+    'score': 5,
+    'text': '非常同意'
   }
 ]
   },
@@ -758,24 +758,24 @@ let questions = [
     'label': '重视艺术和审美体验的',
     'answers': [
   {
-    'value': 1,
-    'label': '极不同意'
+    'score': 1,
+    'text': '极不同意'
   },
   {
-    'value': 2,
-    'label': '不同意'
+    'score': 2,
+    'text': '不同意'
   },
   {
-    'value': 3,
-    'label': '不知道'
+    'score': 3,
+    'text': '不知道'
   },
   {
-    'value': 4,
-    'label': '同意'
+    'score': 4,
+    'text': '同意'
   },
   {
-    'value': 5,
-    'label': '非常同意'
+    'score': 5,
+    'text': '非常同意'
   }
 ]
   },
@@ -784,24 +784,24 @@ let questions = [
     'label': '有时羞怯、拘谨的',
     'answers': [
   {
-    'value': 5,
-    'label': '极不同意'
+    'score': 5,
+    'text': '极不同意'
   },
   {
-    'value': 4,
-    'label': '不同意'
+    'score': 4,
+    'text': '不同意'
   },
   {
-    'value': 3,
-    'label': '不知道'
+    'score': 3,
+    'text': '不知道'
   },
   {
-    'value': 2,
-    'label': '同意'
+    'score': 2,
+    'text': '同意'
   },
   {
-    'value': 1,
-    'label': '非常同意'
+    'score': 1,
+    'text': '非常同意'
   }
 ]
   },
@@ -810,24 +810,24 @@ let questions = [
     'label': '善良体贴的	',
     'answers': [
   {
-    'value': 1,
-    'label': '极不同意'
+    'score': 1,
+    'text': '极不同意'
   },
   {
-    'value': 2,
-    'label': '不同意'
+    'score': 2,
+    'text': '不同意'
   },
   {
-    'value': 3,
-    'label': '不知道'
+    'score': 3,
+    'text': '不知道'
   },
   {
-    'value': 4,
-    'label': '同意'
+    'score': 4,
+    'text': '同意'
   },
   {
-    'value': 5,
-    'label': '非常同意'
+    'score': 5,
+    'text': '非常同意'
   }
 ]
   },
@@ -836,24 +836,24 @@ let questions = [
     'label': '做事极有效率的',
     'answers': [
   {
-    'value': 1,
-    'label': '极不同意'
+    'score': 1,
+    'text': '极不同意'
   },
   {
-    'value': 2,
-    'label': '不同意'
+    'score': 2,
+    'text': '不同意'
   },
   {
-    'value': 3,
-    'label': '不知道'
+    'score': 3,
+    'text': '不知道'
   },
   {
-    'value': 4,
-    'label': '同意'
+    'score': 4,
+    'text': '同意'
   },
   {
-    'value': 5,
-    'label': '非常同意'
+    'score': 5,
+    'text': '非常同意'
   }
 ]
   },
@@ -862,24 +862,24 @@ let questions = [
     'label': '晏然自若的（在紧张的情况下依然能保持平静的）',
     'answers': [
   {
-    'value': 5,
-    'label': '极不同意'
+    'score': 5,
+    'text': '极不同意'
   },
   {
-    'value': 4,
-    'label': '不同意'
+    'score': 4,
+    'text': '不同意'
   },
   {
-    'value': 3,
-    'label': '不知道'
+    'score': 3,
+    'text': '不知道'
   },
   {
-    'value': 2,
-    'label': '同意'
+    'score': 2,
+    'text': '同意'
   },
   {
-    'value': 1,
-    'label': '非常同意'
+    'score': 1,
+    'text': '非常同意'
   }
 ]
   },
@@ -888,24 +888,24 @@ let questions = [
     'label': '喜欢的按部就班工作方式的',
     'answers': [
   {
-    'value': 5,
-    'label': '极不同意'
+    'score': 5,
+    'text': '极不同意'
   },
   {
-    'value': 4,
-    'label': '不同意'
+    'score': 4,
+    'text': '不同意'
   },
   {
-    'value': 3,
-    'label': '不知道'
+    'score': 3,
+    'text': '不知道'
   },
   {
-    'value': 2,
-    'label': '同意'
+    'score': 2,
+    'text': '同意'
   },
   {
-    'value': 1,
-    'label': '非常同意'
+    'score': 1,
+    'text': '非常同意'
   }
 ]
   },
@@ -914,24 +914,24 @@ let questions = [
     'label': '外向,善于交际的',
     'answers': [
   {
-    'value': 1,
-    'label': '极不同意'
+    'score': 1,
+    'text': '极不同意'
   },
   {
-    'value': 2,
-    'label': '不同意'
+    'score': 2,
+    'text': '不同意'
   },
   {
-    'value': 3,
-    'label': '不知道'
+    'score': 3,
+    'text': '不知道'
   },
   {
-    'value': 4,
-    'label': '同意'
+    'score': 4,
+    'text': '同意'
   },
   {
-    'value': 5,
-    'label': '非常同意'
+    'score': 5,
+    'text': '非常同意'
   }
 ]
   },
@@ -940,24 +940,24 @@ let questions = [
     'label': '有时对他人很粗鲁的',
     'answers': [
   {
-    'value': 5,
-    'label': '极不同意'
+    'score': 5,
+    'text': '极不同意'
   },
   {
-    'value': 4,
-    'label': '不同意'
+    'score': 4,
+    'text': '不同意'
   },
   {
-    'value': 3,
-    'label': '不知道'
+    'score': 3,
+    'text': '不知道'
   },
   {
-    'value': 2,
-    'label': '同意'
+    'score': 2,
+    'text': '同意'
   },
   {
-    'value': 1,
-    'label': '非常同意'
+    'score': 1,
+    'text': '非常同意'
   }
 ]
   },
@@ -966,24 +966,24 @@ let questions = [
     'label': '喜欢制定计划并依此执行的',
     'answers': [
   {
-    'value': 1,
-    'label': '极不同意'
+    'score': 1,
+    'text': '极不同意'
   },
   {
-    'value': 2,
-    'label': '不同意'
+    'score': 2,
+    'text': '不同意'
   },
   {
-    'value': 3,
-    'label': '不知道'
+    'score': 3,
+    'text': '不知道'
   },
   {
-    'value': 4,
-    'label': '同意'
+    'score': 4,
+    'text': '同意'
   },
   {
-    'value': 5,
-    'label': '非常同意'
+    'score': 5,
+    'text': '非常同意'
   }
 ]
   },
@@ -992,24 +992,24 @@ let questions = [
     'label': '很容易紧张的',
     'answers': [
   {
-    'value': 1,
-    'label': '极不同意'
+    'score': 1,
+    'text': '极不同意'
   },
   {
-    'value': 2,
-    'label': '不同意'
+    'score': 2,
+    'text': '不同意'
   },
   {
-    'value': 3,
-    'label': '不知道'
+    'score': 3,
+    'text': '不知道'
   },
   {
-    'value': 4,
-    'label': '同意'
+    'score': 4,
+    'text': '同意'
   },
   {
-    'value': 5,
-    'label': '非常同意'
+    'score': 5,
+    'text': '非常同意'
   }
 ]
   },
@@ -1018,24 +1018,24 @@ let questions = [
     'label': '喜欢反省、思考各种想法	',
     'answers': [
   {
-    'value': 1,
-    'label': '极不同意'
+    'score': 1,
+    'text': '极不同意'
   },
   {
-    'value': 2,
-    'label': '不同意'
+    'score': 2,
+    'text': '不同意'
   },
   {
-    'value': 3,
-    'label': '不知道'
+    'score': 3,
+    'text': '不知道'
   },
   {
-    'value': 4,
-    'label': '同意'
+    'score': 4,
+    'text': '同意'
   },
   {
-    'value': 5,
-    'label': '非常同意'
+    'score': 5,
+    'text': '非常同意'
   }
 ]
   },
@@ -1044,24 +1044,24 @@ let questions = [
     'label': '没有什么艺术兴趣',
     'answers': [
   {
-    'value': 5,
-    'label': '极不同意'
+    'score': 5,
+    'text': '极不同意'
   },
   {
-    'value': 4,
-    'label': '不同意'
+    'score': 4,
+    'text': '不同意'
   },
   {
-    'value': 3,
-    'label': '不知道'
+    'score': 3,
+    'text': '不知道'
   },
   {
-    'value': 2,
-    'label': '同意'
+    'score': 2,
+    'text': '同意'
   },
   {
-    'value': 1,
-    'label': '非常同意'
+    'score': 1,
+    'text': '非常同意'
   }
 ]
   },
@@ -1070,24 +1070,24 @@ let questions = [
     'label': '喜欢与他人合作',
     'answers': [
   {
-    'value': 1,
-    'label': '极不同意'
+    'score': 1,
+    'text': '极不同意'
   },
   {
-    'value': 2,
-    'label': '不同意'
+    'score': 2,
+    'text': '不同意'
   },
   {
-    'value': 3,
-    'label': '不知道'
+    'score': 3,
+    'text': '不知道'
   },
   {
-    'value': 4,
-    'label': '同意'
+    'score': 4,
+    'text': '同意'
   },
   {
-    'value': 5,
-    'label': '非常同意'
+    'score': 5,
+    'text': '非常同意'
   }
 ]
   },
@@ -1096,24 +1096,24 @@ let questions = [
     'label': '容易分心走神',
     'answers': [
   {
-    'value': 5,
-    'label': '极不同意'
+    'score': 5,
+    'text': '极不同意'
   },
   {
-    'value': 4,
-    'label': '不同意'
+    'score': 4,
+    'text': '不同意'
   },
   {
-    'value': 3,
-    'label': '不知道'
+    'score': 3,
+    'text': '不知道'
   },
   {
-    'value': 2,
-    'label': '同意'
+    'score': 2,
+    'text': '同意'
   },
   {
-    'value': 1,
-    'label': '非常同意'
+    'score': 1,
+    'text': '非常同意'
   }
 ]
   },
@@ -1122,24 +1122,24 @@ let questions = [
     'label': '精通美术、音乐或文学',
     'answers': [
   {
-    'value': 1,
-    'label': '极不同意'
+    'score': 1,
+    'text': '极不同意'
   },
   {
-    'value': 2,
-    'label': '不同意'
+    'score': 2,
+    'text': '不同意'
   },
   {
-    'value': 3,
-    'label': '不知道'
+    'score': 3,
+    'text': '不知道'
   },
   {
-    'value': 4,
-    'label': '同意'
+    'score': 4,
+    'text': '同意'
   },
   {
-    'value': 5,
-    'label': '非常同意'
+    'score': 5,
+    'text': '非常同意'
   }
 ]
   },
@@ -1148,24 +1148,24 @@ let questions = [
     'label': '政治立场开放',
     'answers': [
   {
-    'value': 1,
-    'label': '极不同意'
+    'score': 1,
+    'text': '极不同意'
   },
   {
-    'value': 2,
-    'label': '不同意'
+    'score': 2,
+    'text': '不同意'
   },
   {
-    'value': 3,
-    'label': '不知道'
+    'score': 3,
+    'text': '不知道'
   },
   {
-    'value': 4,
-    'label': '同意'
+    'score': 4,
+    'text': '同意'
   },
   {
-    'value': 5,
-    'label': '非常同意'
+    'score': 5,
+    'text': '非常同意'
   }
 ]
   }

@@ -66,21 +66,25 @@ Page({
       }
     })
   },
+  // 设置性别
   bindSexChange (e) {
     this.setData({
         sexIndex: e.detail.value
     })
   },
+  // 出生日期设置
   bindDateChange (e) {
     this.setData({
         date: e.detail.value
     })
   },
+  // 星座设置
   bindConstellationChange (e) {
     this.setData({
         constellationIndex: e.detail.value
     })
   },
+  // 省份设置
   bindProvinceChange (e) {
     this.setData({
         provinceIndex: e.detail.value,
@@ -88,36 +92,38 @@ Page({
         provinceId: City.province[e.detail.value].id,
     })
   },
+  // 城市设置
   bindCityChange (e) {
     let id = this.data.provinceId
     this.setData({
         cityIndex: e.detail.value,
     })
   },
+  // 地域规则
   bindAreaChange (e) {
     this.setData({
         areaIndex: e.detail.value
     })
   },
+  // 年龄规则
   bindAgeChange (e) {
     this.setData({
         ageIndex: e.detail.value
     })
   },
-  radioChange: function (e) {
-      console.log('radio发生change事件，携带value值为：', e.detail.value);
-
-      var radioItems = this.data.radioItems;
-      for (var i = 0, len = radioItems.length; i < len; ++i) {
-          radioItems[i].checked = radioItems[i].value == e.detail.value;
-      }
-
-      this.setData({
-          radioItems: radioItems
-      });
+  // 关于aco
+  openAlert: function () {
+    wx.showModal({
+      content: 'Aco测评是由小呐独创的性格测试，我们将根据此测试并且结合我们的专业算法来匹配一个和你性格最合适的人。有木有很激动？',
+      showCancel: false,
+      confirmText: '激动'
+    })
   },
   formSubmit (e) {
     e.detail.value.session_key = wx.getStorageSync('session_key')
+    wx.showLoading({
+      title: '提交中',
+    })
     wx.request({
       url: Config.host + 'info',
       data: e.detail.value,

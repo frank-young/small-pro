@@ -16,7 +16,7 @@ icon{
     margin-right: 13px;
 }
 .icon-box{
-    margin: 8px 0;
+    margin: 8px 0 15px 0;
     padding: 8px 15px;
     display: flex;
     align-items: center;
@@ -73,4 +73,22 @@ icon{
 
 .text-center {
   text-align: center;
+}
+
+.help-tips {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  line-height: 18px;
+  margin-left: 5px;
+  vertical-align: middle;
+  border: 1px solid #aaa;
+  border-radius: 50%;
+  font-size: 12px;
+  color: #aaa;
+  text-align: center;
+}
+
+.radio-ctrl {
+  margin-right: 5px;
 }

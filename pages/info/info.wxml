@@ -10,7 +10,8 @@
           <view class="icon-box__desc">您的资料将严格保密，请放心填写</view>
       </view>
   </view>
-  <form bindsubmit="formSubmit" class="form">
+  <form bindsubmit="formSubmit" class="form-wrap">
+    <view class="head-title">基础资料填写</view>
     <view class="weui-cells__title">基础资料（必填）</view>
     <view class="weui-cells weui-cells_after-title">
         <view class="weui-cell weui-cell_input">
@@ -127,27 +128,14 @@
       </view>
     </view>
 
-    <!-- <view class="weui-cells__title">爱好</view>
-    <view class="weui-cells weui-cells_after-title">
-        <view class="weui-cell">
-            <view class="weui-cell__bd">
-                <textarea class="weui-textarea" placeholder="请输入文本" style="height: 6.3em" />
-                <view class="weui-textarea-counter">0/200</view>
-            </view>
-        </view>
-    </view> -->
-    <view class="head-title">以下根据Aco测评进行测试</view>
+    <view class="head-title" bindtap="openAlert">以下根据Aco测评进行测试<text class="help-tips">?</text></view>
     <view wx:for="{{questions}}" wx:key="{{item.value}}">
-      <view class="weui-cells__title">{{item.label}}</view>
+      <view class="weui-cells__title">{{item.value}}.{{item.label}}</view>
       <view class="weui-cells weui-cells_after-title">
-          <radio-group bindchange="radioChange">
+          <radio-group name="{{'questions[' + item.value + ']' }}">
               <label class="weui-cell weui-check__label" wx:for="{{item.answers}}" wx:key="{{item}}">
-                  <radio class="weui-check" value="{{item}}" checked="{{item.checked}}"/>
-                  <view class="weui-cell__hd weui-check__hd_in-checkbox">
-                      <icon class="weui-icon-checkbox_circle" type="circle" size="23" wx:if="{{!item.checked}}"></icon>
-                      <icon class="weui-icon-checkbox_success" type="success" size="23" wx:if="{{item.checked}}"></icon>
-                  </view>
-                  <view class="weui-cell__bd">{{item.label}}</view>
+                  <radio class="radio-ctrl" value="{{item.score}}"/>
+                  <view class="weui-cell__bd">{{item.text}}</view>
               </label>
           </radio-group>
       </view>
