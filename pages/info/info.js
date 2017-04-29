@@ -1,6 +1,7 @@
 //index.js
 import City from '../../utils/city.js'
 import Config from '../../utils/config.js'
+import Questions from '../../utils/questions.js'
 
 var app = getApp()
 
@@ -50,6 +51,7 @@ Page({
         {name: '第一个答案', value: '0'},
         {name: '第二个答案', value: '1', checked: true}
     ],
+    questions: Questions.questions
   },
   test () {
     wx.showModal({

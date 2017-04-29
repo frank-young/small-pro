@@ -136,19 +136,21 @@
             </view>
         </view>
     </view> -->
-    <view class="head-title">以下根据XXX测评进行测试</view>
-    <view class="weui-cells__title">单选列表项</view>
-    <view class="weui-cells weui-cells_after-title">
-        <radio-group bindchange="radioChange">
-            <label class="weui-cell weui-check__label" wx:for="{{radioItems}}" wx:key="{{item.value}}">
-                <radio class="weui-check" value="{{item.value}}" checked="{{item.checked}}"/>
-                <view class="weui-cell__hd weui-check__hd_in-checkbox">
-                    <icon class="weui-icon-checkbox_circle" type="circle" size="23" wx:if="{{!item.checked}}"></icon>
-                    <icon class="weui-icon-checkbox_success" type="success" size="23" wx:if="{{item.checked}}"></icon>
-                </view>
-                <view class="weui-cell__bd">{{item.name}}</view>
-            </label>
-        </radio-group>
+    <view class="head-title">以下根据Aco测评进行测试</view>
+    <view wx:for="{{questions}}" wx:key="{{item.value}}">
+      <view class="weui-cells__title">{{item.label}}</view>
+      <view class="weui-cells weui-cells_after-title">
+          <radio-group bindchange="radioChange">
+              <label class="weui-cell weui-check__label" wx:for="{{item.answers}}" wx:key="{{item}}">
+                  <radio class="weui-check" value="{{item}}" checked="{{item.checked}}"/>
+                  <view class="weui-cell__hd weui-check__hd_in-checkbox">
+                      <icon class="weui-icon-checkbox_circle" type="circle" size="23" wx:if="{{!item.checked}}"></icon>
+                      <icon class="weui-icon-checkbox_success" type="success" size="23" wx:if="{{item.checked}}"></icon>
+                  </view>
+                  <view class="weui-cell__bd">{{item.label}}</view>
+              </label>
+          </radio-group>
+      </view>
     </view>
 
     <view class="weui-btn-area">
