@@ -9,6 +9,7 @@ App({
     let that = this
     wx.checkSession({
       success: function(){
+        // 应该是不采取操作
         wx.request({
           url: Config.host + 'getopenid',
           data: {
@@ -34,8 +35,6 @@ App({
         if (loginData.code) {
           wx.getUserInfo({
             success: function (userData) {
-              console.log(loginData.code)
-              console.log(userData)
               wx.request({
                 url: Config.host + 'getuserinfo',
                 data: {

@@ -14,7 +14,7 @@ Page({
     /*
      * 性别
      */
-    sex: ['未知', '男', '女'],
+    sex: ['男', '女'],
     sexIndex: 0,
 
     /*
@@ -47,10 +47,6 @@ Page({
     /*
      * 问卷部分
      */
-    radioItems: [
-        {name: '第一个答案', value: '0'},
-        {name: '第二个答案', value: '1', checked: true}
-    ],
     questions: Questions.questions
   },
   test () {
@@ -147,8 +143,8 @@ Page({
     app.getUserInfo(function(userInfo){
       //更新数据
       that.setData({
-        userInfo:userInfo,
-        sexIndex:userInfo.gender
+        userInfo: userInfo,
+        sexIndex: userInfo.gender - 1
       })
     })
   },

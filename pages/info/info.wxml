@@ -102,8 +102,13 @@
             </view>
         </view>
     </view>
-    <view class="weui-cells__title">可接受怎样的区域匹配</view>
-    <view class="weui-cells weui-cells_after-title">
+    <view class="icon-box">
+        <icon type="info" size="22"></icon>
+        <view class="icon-box__ctn">
+            <view class="icon-box__info">我们将优先进行同城市匹配</view>
+        </view>
+    </view>
+    <!-- <view class="weui-cells weui-cells_after-title">
       <view class="weui-cell weui-cell_select">
           <view class="weui-cell__hd weui-cell__hd_in-select-after">
           </view>
@@ -113,9 +118,9 @@
               </picker>
           </view>
       </view>
-    </view>
+    </view> -->
 
-    <view class="weui-cells__title">可接受怎样的年龄匹配</view>
+    <!-- <view class="weui-cells__title">可接受怎样的年龄匹配</view>
     <view class="weui-cells weui-cells_after-title">
       <view class="weui-cell weui-cell_select">
           <view class="weui-cell__hd weui-cell__hd_in-select-after">
@@ -126,9 +131,15 @@
               </picker>
           </view>
       </view>
-    </view>
+    </view> -->
 
     <view class="head-title" bindtap="openAlert">以下根据Aco测评进行测试<text class="help-tips">?</text></view>
+    <view class="icon-box">
+        <icon type="info" size="22" color="#06c003"></icon>
+        <view class="icon-box__ctn">
+            <view class="icon-box__success">测试大概需要5分钟，坚持填写哟～</view>
+        </view>
+    </view>
     <view wx:for="{{questions}}" wx:key="{{item.value}}">
       <view class="weui-cells__title">{{item.value}}.{{item.label}}</view>
       <view class="weui-cells weui-cells_after-title">
@@ -141,9 +152,11 @@
       </view>
     </view>
 
-    <view class="weui-btn-area">
-      <button class="weui-btn" formType="submit" type="primary">确认</button>
-      <!-- <button class="weui-btn" bindtap="test" type="primary" plain="true">弹窗</button> -->
+    <view class="weui-msg__opr-area">
+      <view class="weui-btn-area">
+        <button class="weui-btn" formType="submit" type="primary">确认</button>
+        <!-- <button class="weui-btn" bindtap="test" type="primary" plain="true">弹窗</button> -->
+      </view>
     </view>
   </form>
 </view>

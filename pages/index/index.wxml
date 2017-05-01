@@ -9,7 +9,12 @@
         </view>
         <view class="weui-msg__opr-area">
             <view class="weui-btn-area">
-                <button class="weui-btn" bindtap="signUp" type="primary">立即报名</button>
+                <button class="weui-btn" bindtap="apply" type="primary">立即报名</button>
+            </view>
+        </view>
+        <view class="weui-msg__opr-area">
+            <view class="weui-btn-area">
+                <button class="weui-btn btn-line" bindtap="matchQuery" type="primary">匹配查询</button>
             </view>
         </view>
         <!-- <view class="weui-msg__extra-area">

@@ -1,24 +1,35 @@
-//index.js
+import Config from '../../utils/config.js'
+
 Page({
   data: {
     motto: '还差一步',
     share: {
       title: '这是标题档～',
       desc: '这是一些描述',
-      path: '/pages/index/index'
+      path: '/pages/index/index',
+      matchInfo: {}
     }
   },
-  apply () {
-    wx.navigateTo({
-      url: '../info/info'
-    })
-  },
-  matchQuery () {
-    wx.navigateTo({
-      url: '../match/match'
-    })
-  },
   onLoad () {
+    let that = this;
+    wx.showLoading({
+      title: '加载中',
+    })
+    wx.request({
+      url: Config.host + 'match',
+      data: {
+        session_key: wx.getStorageSync('session_key')
+      },
+      method: 'POST',
+      header: {'content-type':'application/x-www-form-urlencoded'},
+      success: function(res){
+        console.log(res.data.bizContent)
+        that.setData({
+          matchInfo: res.data.bizContent
+        })
+        wx.hideLoading()
+      }
+    })
   },
   onReady (){
     // 生命周期函数--监听页面初次渲染完成
