@@ -49,19 +49,6 @@ Page({
      */
     questions: Questions.questions
   },
-  test () {
-    wx.showModal({
-      title: '提示',
-      content: '这是一个模态弹窗',
-      success (res) {
-        if (res.confirm) {
-          console.log('用户点击确定')
-        } else if (res.cancel) {
-          console.log('用户点击取消')
-        }
-      }
-    })
-  },
   // 设置性别
   bindSexChange (e) {
     this.setData({
@@ -140,12 +127,16 @@ Page({
   },
   onLoad () {
     let that = this
+    wx.showLoading({
+      title: '加载中',
+    })
     app.getUserInfo(function(userInfo){
       //更新数据
       that.setData({
         userInfo: userInfo,
         sexIndex: userInfo.gender - 1
       })
+      wx.hideLoading()
     })
   },
   onReady (){

@@ -7,6 +7,8 @@
             <view class="weui-msg__desc">生日：{{matchInfo.birthday}}</view>
             <view class="weui-msg__desc">城市：{{matchInfo.province}}-{{matchInfo.city}}</view>
             <view class="weui-msg__desc">学校：{{matchInfo.school}}</view>
+            <view class="weui-msg__desc">房间号：{{matchInfo.room_num}}</view>
+            <view class="weui-msg__desc">个人匹配号：{{matchInfo.self_num}}</view>
         </view>
     </view>
 </view>
