@@ -2,6 +2,7 @@
 import City from '../../utils/city.js'
 import Config from '../../utils/config.js'
 import Questions from '../../utils/questions.js'
+import Verify from '../../utils/verify.js'
 
 var app = getApp()
 
@@ -103,26 +104,43 @@ Page({
     })
   },
   formSubmit (e) {
+    const SUCCESS = true
     e.detail.value.session_key = wx.getStorageSync('session_key')
-    wx.showLoading({
-      title: '提交中',
-    })
-    wx.request({
-      url: Config.host + 'info',
-      data: e.detail.value,
-      method: 'POST',
-      header: {'content-type':'application/x-www-form-urlencoded'},
-      success: function(res){
-        wx.showToast({
-          title: '提交成功',
-          icon: 'success',
-          duration: 1000
-        })
-      }
-    })
-    // wx.navigateTo({
-    //   url: '../share/share'
-    // })
+    let verify = Verify.verify(e.detail.value)
+    if (verify.status === SUCCESS) {
+      wx.showLoading({
+        title: '提交中',
+      })
+      wx.request({
+        url: Config.host + 'info',
+        data: e.detail.value,
+        method: 'POST',
+        header: {'content-type':'application/x-www-form-urlencoded'},
+        success: function(res){
+          if (res.success === SUCCESS) {
+            wx.showToast({
+              title: '提交成功',
+              icon: 'success',
+              duration: 1000
+            })
+            // wx.navigateTo({
+            //   url: '../share/share'
+            // })
+          } else {
+            wx.showToast({
+              title: '失败',
+              duration: 1000
+            })
+          }
+        }
+      })
+    } else {
+      wx.showToast({
+        title: verify.text,
+        duration: 2000
+      })
+    }
+
     console.log('form发生了submit事件，携带数据为：', e.detail.value)
   },
   onLoad () {
@@ -130,6 +148,7 @@ Page({
     wx.showLoading({
       title: '加载中',
     })
+
     app.getUserInfo(function(userInfo){
       //更新数据
       that.setData({
