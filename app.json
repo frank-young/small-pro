@@ -29,6 +29,7 @@
     "pages/index/index",
     "pages/myself/myself",
     "pages/info/info",
+    "pages/editinfo/editinfo",
     "pages/success/success",
     "pages/share/share",
     "pages/match/match",

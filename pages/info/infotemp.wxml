@@ -1,0 +1,20 @@
+<template name="infotemp">
+    <view class="icon-box">
+        <icon type="info" size="22" color="#06c003"></icon>
+        <view class="icon-box__ctn">
+            <view class="icon-box__success">测试大概需要5分钟，坚持填写哟～</view>
+        </view>
+    </view>
+    <view wx:for="{{questions}}" wx:key="{{item.value}}">
+      <view class="weui-cells__title">{{item.value}}.{{item.label}}</view>
+      <view class="weui-cells weui-cells_after-title">
+          <radio-group name="{{'questions[' + item.value + ']' }}">
+              <label class="weui-cell weui-check__label" wx:for="{{item.answers}}" wx:key="{{item}}">
+                  <radio class="radio-ctrl" value="{{item.score}}"/>
+                  <view class="weui-cell__bd">{{item.text}}</view>
+              </label>
+          </radio-group>
+      </view>
+    </view>
+
+</template>

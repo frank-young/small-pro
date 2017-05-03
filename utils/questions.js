@@ -445,27 +445,27 @@ let questions = [
     'value': 18,
     'label': '生活一团糟、杂乱无章的',
     'answers': [
-  {
-    'score': 5,
-    'text': '极不同意'
-  },
-  {
-    'score': 4,
-    'text': '不同意'
-  },
-  {
-    'score': 3,
-    'text': '不知道'
-  },
-  {
-    'score': 2,
-    'text': '同意'
-  },
-  {
-    'score': 1,
-    'text': '非常同意'
-  }
-]
+      {
+        'score': 5,
+        'text': '极不同意'
+      },
+      {
+        'score': 4,
+        'text': '不同意'
+      },
+      {
+        'score': 3,
+        'text': '不知道'
+      },
+      {
+        'score': 2,
+        'text': '同意'
+      },
+      {
+        'score': 1,
+        'text': '非常同意'
+      }
+    ]
   },
   {
     'value': 19,

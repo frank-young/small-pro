@@ -10,23 +10,12 @@ App({
     wx.checkSession({
       success: function(){
         // 应该是不采取操作
-        wx.request({
-          url: Config.host + 'getopenid',
-          data: {
-            session_key: wx.getStorageSync('session_key')
-          },
-          method: 'POST',
-          header: {'content-type':'application/x-www-form-urlencoded'},
-          success: function(res){
-            console.log(res.data.bizContent)
-          }
-        })
       },
       fail: function(){
         that.login()
       }
     })
-    this.login()
+    // this.login()
 
   },
   login: function() {

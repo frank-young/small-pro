@@ -28,8 +28,8 @@ Page({
     /*
      * 城市选择
      */
-    provinceIndex: 0,
-    cityIndex: 0,
+    provinceIndex: 4,
+    cityIndex: 1,
     provinceArray : City.province,
     cityObj: City.city,
     provinceId: City.province[0].id,
@@ -50,18 +50,10 @@ Page({
      * 问卷部分
      */
     questions: Questions.questions,
-
     /*
      * 获取默认信息
      */
-    info: {
-      'name': '',
-      'phone': '',
-      'wechat_id': '',
-      'school': '',
-      'dislike': '',
-      'evaluate': ''
-    }
+    info: {}
   },
   // 设置性别
   bindSexChange (e) {
@@ -93,7 +85,7 @@ Page({
   bindCityChange (e) {
     let id = this.data.provinceId
     this.setData({
-        cityIndex: e.detail.value,
+        cityIndex: e.detail.value
     })
   },
   // 地域规则
@@ -119,16 +111,14 @@ Page({
   getDefaultInfo () {
     let that = this
     wx.request({
-      url: Config.host + 'info/show/again',
+      url: Config.host + 'info/show',
       data: {
         session_key: wx.getStorageSync('session_key')
       },
       method: 'POST',
       header: {'content-type':'application/x-www-form-urlencoded'},
       success: function(res){
-        console.log(res.data)
-        if (res.data.success === SUCCESS) {
-          console.log('成功调用')
+        if (res.data.success = SUCCESS) {
           let info = res.data.bizContent
           that.setData({
             info: info,
@@ -164,9 +154,9 @@ Page({
         title: '提交中',
       })
       wx.request({
-        url: Config.host + 'info',
+        url: Config.host + 'info/update',
         data: e.detail.value,
-        method: 'POST',
+        method: 'PUT',
         header: {'content-type':'application/x-www-form-urlencoded'},
         success: function(res){
           if (res.data.success === SUCCESS) {
