@@ -1,0 +1,37 @@
+.share-wrap {
+  position: fixed;
+  bottom: -15px;
+  width: 100%;
+}
+.page__bd {
+  padding-bottom: 20px;
+}
+.share-tips {
+  position: relative;
+  padding: 10px 15px;
+  margin: 0 15px 20px 15px;
+  line-height: 1.7em;
+  background-color: #fff;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: 400;
+  text-align: left;
+  box-shadow: 0 0 10px #eee;
+}
+
+.share-tips .share-tips-dot {
+  font-size: 40px;
+}
+
+.share-tips:after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -20px;
+  width: 0;
+  height: 0;
+  margin-left: -10px;
+  border-color: #fff transparent transparent transparent;
+  border-style: solid;
+  border-width: 10px;
+}

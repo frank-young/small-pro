@@ -10,12 +10,13 @@ App({
     wx.checkSession({
       success: function(){
         // 应该是不采取操作
+        console.log('success')
       },
       fail: function(){
         that.login()
       }
     })
-    // this.login()
+    this.login()
 
   },
   login: function() {

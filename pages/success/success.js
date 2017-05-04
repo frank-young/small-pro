@@ -11,7 +11,7 @@ Page({
   },
   editInfo () {
     wx.navigateTo({
-      url: '../index/index'
+      url: '../editinfo/editinfo'
     })
   },
   onLoad () {

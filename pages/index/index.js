@@ -11,12 +11,18 @@ Page({
     },
 
     text: '',
-    url: ''
+    url: '../info/info'
   },
   apply () {
     let url = this.data.url
     wx.navigateTo({
-      url
+      url: '../info/info'
+    })
+  },
+  share () {
+    let url = this.data.url
+    wx.navigateTo({
+      url: '../share/share'
     })
   },
   onLoad () {

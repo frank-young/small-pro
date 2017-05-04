@@ -4,7 +4,7 @@
             <icon type="success" size="93"></icon>
         </view>
         <view class="weui-msg__text-area">
-            <view class="weui-msg__title">分享成功</view>
+            <view class="weui-msg__title">报名成功</view>
             <view class="weui-msg__desc">您已经报名成功，将在4月15号查询匹配信息</view>
         </view>
         <view class="weui-msg__opr-area">
