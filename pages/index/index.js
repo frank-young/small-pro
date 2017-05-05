@@ -25,7 +25,7 @@ Page({
       url: '../share/share'
     })
   },
-  onLoad () {
+  onReady () {
     this.termStatus()
   },
   termStatus (){
