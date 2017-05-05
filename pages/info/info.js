@@ -126,7 +126,6 @@ Page({
       method: 'POST',
       header: {'content-type':'application/x-www-form-urlencoded'},
       success: function(res){
-        console.log(res.data)
         if (res.data.success === SUCCESS) {
           console.log('成功调用')
           let info = res.data.bizContent
@@ -141,6 +140,7 @@ Page({
             questions: that.questionsChecked(info.questions)
           })
         }
+        wx.hideLoading()
       }
     })
   },
@@ -198,14 +198,14 @@ Page({
     wx.showLoading({
       title: '加载中',
     })
-    this.getDefaultInfo()
     app.getUserInfo(function(userInfo){
       //更新数据
       that.setData({
         userInfo: userInfo,
         sexIndex: userInfo.gender - 1
       })
-      wx.hideLoading()
     })
+    this.getDefaultInfo()
+
   }
 })

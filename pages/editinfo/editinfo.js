@@ -165,9 +165,10 @@ Page({
               icon: 'success',
               duration: 1000
             })
-            // wx.navigateTo({
-            //   url: '../share/share'
-            // })
+            wx.navigateTo({
+              url: '../success/success'
+            })
+            wx.hideLoading()
           } else {
             wx.showToast({
               title: '失败',
@@ -190,14 +191,13 @@ Page({
     wx.showLoading({
       title: '加载中',
     })
-    this.getDefaultInfo()
     app.getUserInfo(function(userInfo){
       //更新数据
       that.setData({
         userInfo: userInfo,
         sexIndex: userInfo.gender - 1
       })
-      wx.hideLoading()
     })
+    this.getDefaultInfo()
   }
 })

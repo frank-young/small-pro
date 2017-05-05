@@ -3,12 +3,7 @@ import Config from '../../utils/config.js'
 Page({
   data: {
     motto: '还差一步',
-    share: {
-      title: '这是标题档～',
-      desc: '这是一些描述',
-      path: '/pages/index/index',
-      matchInfo: {}
-    }
+    matchInfo: {}
   },
   onLoad () {
     let that = this;
@@ -31,6 +26,36 @@ Page({
       }
     })
   },
+  copyWxid () {
+    let that = this
+    wx.setClipboardData({
+      data: that.data.matchInfo.wechat_id,
+      success: function(res) {
+        wx.getClipboardData({
+          success: function(res) {
+            wx.showToast({
+              title: '复制成功',
+              icon: 'success',
+              duration: 1000
+            })
+          }
+        })
+      }
+    })
+  },
+  gowx () {
+    wx.openSetting({
+      success: (res) => {
+        res.authSetting = {
+          "scope.userInfo": true,
+          // "scope.userLocation": true
+          'scope.address': true
+        }
+
+      }
+    })
+
+  },
   onReady (){
     // 生命周期函数--监听页面初次渲染完成
   },
@@ -48,26 +73,5 @@ Page({
   },
   onReachBottom () {
     // 页面上拉触底事件的处理函数
-  },
-  onShareAppMessage () {
-    // 用户点击右上角分享
-    return {
-      title: this.data.share.title,
-      path: this.data.share.path,
-      success (res) {
-        wx.showToast({
-          title: '分享成功',
-          icon: 'success',
-          duration: 1000
-        })
-      },
-      fail (res) {
-        // 分享失败
-        wx.showToast({
-          title: '分享失败',
-          duration: 2000
-        })
-      }
-    }
   }
 })

@@ -19,13 +19,25 @@ Page({
       url: '../info/info'
     })
   },
+  editInfo () {
+    let url = this.data.url
+    wx.navigateTo({
+      url: '../editinfo/editinfo'
+    })
+  },
+  matchQuery () {
+    let url = this.data.url
+    wx.navigateTo({
+      url: '../match/match'
+    })
+  },
   share () {
     let url = this.data.url
     wx.navigateTo({
       url: '../share/share'
     })
   },
-  onReady () {
+  onLoad () {
     this.termStatus()
   },
   termStatus (){

@@ -4,6 +4,13 @@
             <view class="weui-msg__title">匹配对象</view>
             <view class="weui-msg__title">匹配度：{{100-matchInfo.offset}}%</view>
             <view class="weui-msg__desc">姓名：{{matchInfo.name}}</view>
+            <view class="weui-msg__title">
+              {{matchInfo.wechat_id}}
+              <button class="weui-btn" bindtap="copyWxid" type="primary">复制微信号</button>
+              <button class="weui-btn" bindtap="gowx" type="primary">进群</button>
+              
+            </view>
+
             <view class="weui-msg__desc">生日：{{matchInfo.birthday}}</view>
             <view class="weui-msg__desc">城市：{{matchInfo.province}}-{{matchInfo.city}}</view>
             <view class="weui-msg__desc">学校：{{matchInfo.school}}</view>
