@@ -9,12 +9,12 @@
         </view>
         <view class="weui-msg__opr-area">
             <view class="weui-btn-area">
-                <button class="weui-btn" bindtap="apply" type="primary">立即报名</button>
+                <button class="weui-btn" bindtap="apply" type="primary" hover-class="btn-hover">立即报名</button>
             </view>
         </view>
         <view class="weui-msg__opr-area">
             <view class="weui-btn-area">
-                <button class="weui-btn" bindtap="editInfo" type="primary">修改资料</button>
+                <button class="weui-btn" bindtap="editInfo" type="primary" hover-class="btn-hover">修改资料</button>
             </view>
         </view>
         <view class="weui-msg__opr-area">

@@ -156,7 +156,7 @@
 
     <view class="weui-msg__opr-area">
       <view class="weui-btn-area">
-        <button class="weui-btn" formType="submit" type="primary">确认</button>
+        <button class="weui-btn" formType="submit" type="primary" hover-class="btn-hover">确认</button>
         <!-- <button class="weui-btn" bindtap="test" type="primary" plain="true">弹窗</button> -->
       </view>
     </view>

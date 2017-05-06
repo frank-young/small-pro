@@ -14,7 +14,7 @@
         <view class="weui-msg__opr-area share-wrap">
             <view class="share-tips" wx:if="{{isShow}}">点击右上角<text class="share-tips-dot"> ... </text>转发到40人以上微信群，转发成功后将完成报名。</view>
             <view class="weui-btn-area">
-                <button class="weui-btn" bindtap="shareTip" type="primary">立即分享，完成报名</button>
+                <button class="weui-btn" bindtap="shareTip" type="primary" hover-class="btn-hover">立即分享，完成报名</button>
             </view>
         </view>
     </view>

@@ -561,6 +561,23 @@ icon {
   -webkit-flex: 1;
           flex: 1;
 }
+button[type="primary"] {
+  background-color: #f8614a;
+  border: #e05743;
+  color: #fff;
+}
+
+.btn-hover[type="primary"]{
+  background-color: #e05743 !important;
+  color: #fff;
+
+}
+.btn-line {
+  background-color: transparent!important;
+  border: 1px solid #f8614a !important;
+  color: #f8614a!important;
+}
+
 .weui-btn {
   margin-top: 15px;
 }
