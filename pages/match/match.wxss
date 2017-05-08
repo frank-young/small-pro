@@ -3,7 +3,7 @@
 }
 .userinfo {
   padding: 20px;
-  height: 400px;
+  height: 300px;
   margin-bottom: 30px;
   background-color: #f8614a;
   color: #fff;
@@ -55,4 +55,17 @@
 .canvas {
   width: 200px;
   margin: 0 auto;
+}
+
+.weui-msg__text-area {
+  padding-bottom: 60px;
+}
+
+.signin-wrap {
+  position: fixed;
+  bottom: -25px;
+  width: 100%;
+  padding-bottom: 10px;
+  background-color: #fff;
+  box-shadow: 0 0 1px #ddd;
 }
