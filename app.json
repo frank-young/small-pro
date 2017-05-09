@@ -33,8 +33,9 @@
     "pages/success/success",
     "pages/share/share",
     "pages/match/match",
+    "pages/attendance/attendance",
+    "pages/detail/detail",
     "pages/fill/fill"
-
   ],
   "window":{
     "backgroundTextStyle":"light",

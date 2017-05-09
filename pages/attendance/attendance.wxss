@@ -1,32 +1,5 @@
-.weui-msg {
-  padding-top: 0;
-}
-.userinfo {
+.attendance {
   padding: 20px;
-  height: 180px;
-  background-color: #fff;
-  color: #fff;
-}
-.userinfo-avatar {
-  width: 95px;
-  height: 95px;
-  margin-top: 25px;
-  border-radius: 50%;
-  border: 4rpx solid #ddd;
-}
-.nickname {
-  text-align: center;
-}
-
-.weui-msg__title {
-  color: #555;
-  font-size: 18px;
-  text-align: center;
-}
-
-.message-wrap {
-  padding: 20px;
-  padding-bottom: 100px;
 }
 .shadow-box {
   padding: 20px;
@@ -35,17 +8,16 @@
 }
 
 .item-text {
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   font-size: 16px;
   color: #666;
-  text-align: left;
 }
 
 .head-title {
   position: relative;
   margin-bottom: 30px;
   font-size: 18px;
-  color: #666;
+  color: #333;
   text-align: center;
 }
 .head-title:before {
@@ -73,12 +45,21 @@
   -webkit-transform: scale3d(1,.3, 1);
   transform: scale3d(1,.3, 1);
 }
-.canvas {
-  width: 200px;
-  margin: 0 auto;
+
+.agree-wrap {
+  position: fixed;
+  bottom: 100px;
+  width: 100%;
+  text-align: center;
 }
 
-.signin-wrap {
+.agree-text {
+  margin-left: 10px;
+  font-size: 14px;
+  color: #888;
+}
+
+.agree-btn-wrap {
   position: fixed;
   bottom: -25px;
   width: 100%;

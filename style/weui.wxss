@@ -570,8 +570,12 @@ button[type="primary"] {
 .btn-hover[type="primary"]{
   background-color: #e05743 !important;
   color: #fff;
-
 }
+
+button[disabled][type="primary"] {
+  background-color:#fda99c;
+}
+
 .btn-line {
   background-color: transparent!important;
   border: 1px solid #f8614a !important;

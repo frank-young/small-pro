@@ -1,0 +1,29 @@
+<view class="page">
+    <view class="detail-wrap">
+      <view class="shadow-box">
+          <view class="userinfo-wrap">
+            <image class="userinfo-avatar" src="{{matchInfo.avatarUrl}}" background-size="cover"></image>
+            <view class="userinfo-text">
+              <text class="userinfo-tip">你的CP</text>
+              <text class="userinfo-nike-name">{{matchInfo.nickName}}</text>
+              <text class="userinfo-age">21</text>
+            </view>
+          </view>
+          <view class="weui-msg__desc">姓名：{{matchInfo.name}}</view>
+          <view class="weui-msg__title">
+            {{matchInfo.wechat_id}}
+            <button class="weui-btn" bindtap="copyWxid" type="primary" hover-class="btn-hover">复制微信号</button>
+            <button class="weui-btn" bindtap="gowx" type="primary" hover-class="btn-hover">进群</button>
+
+          </view>
+
+      </view>
+    </view>
+    <view class="weui-msg__opr-area task-wrap">
+        <view class="weui-btn-area">
+            <navigator url="../attendance/attendance" hover-class="navigator-hover">
+              <button class="weui-btn" type="primary" hover-class="btn-hover">做任务</button>
+            </navigator>
+        </view>
+    </view>
+</view>
