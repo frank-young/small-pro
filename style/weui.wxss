@@ -419,8 +419,8 @@ icon {
 }
 .weui-uploader__img {
   display: block;
-  width: 79px;
-  height: 79px;
+  width: 75px;
+  height: 75px;
 }
 .weui-uploader__file_status {
   position: relative;
@@ -447,8 +447,8 @@ icon {
   position: relative;
   margin-right: 9px;
   margin-bottom: 9px;
-  width: 77px;
-  height: 77px;
+  width: 73px;
+  height: 73px;
   border: 1px solid #D9D9D9;
 }
 .weui-uploader__input-box:before,

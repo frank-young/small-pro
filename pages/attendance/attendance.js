@@ -1,3 +1,7 @@
+import Config from '../../utils/config.js'
+
+const SUCCESS = true
+
 let app = getApp()
 Page({
   data: {
@@ -20,8 +24,24 @@ Page({
     e.detail.value == true ? this.setData({isDisabled: false}) : this.setData({isDisabled: true})
   },
   agreeBtn (e) {
-    wx.navigateTo({
-      url: '../detail/detail'
+    wx.showLoading({
+      title: '操作中'
+    })
+    wx.request({
+      url: Config.host + 'match/attendance',
+      data: {
+        session_key: wx.getStorageSync('session_key')
+      },
+      method: 'POST',
+      header: {'content-type':'application/x-www-form-urlencoded'},
+      success: function(res){
+        if(res.data.success === SUCCESS) {
+          wx.redirectTo({
+            url: '../detail/detail'
+          })
+          wx.hideLoading()
+        }
+      }
     })
   }
 })

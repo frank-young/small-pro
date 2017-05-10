@@ -1,27 +1,27 @@
 <view class="attendance">
   <view class="shadow-box">
-    <view class="head-title">小呐霸王条款</view>
+    <view class="head-title">小呐合约条款</view>
     <view class="item-text">
-      1.单身贵族
+      1.单身贵族🐶
     </view>
     <view class="item-text">
-      2.不过分的用颜值去衡量一切
+      2.不过分的用颜值去衡量一切😒
     </view>
     <view class="item-text">
-      3.相信你与CP之间的合适度
+      3.相信你与CP之间的合适度✊
     </view>
     <view class="item-text">
-      4.走心不走肾
+      4.走心不走肾😓
     </view>
     <view class="item-text">
-      5.如果不喜欢CP，可以提出并和平解散
+      5.如果不喜欢CP，可以提出并和平解散😓
     </view>
   </view>
 </view>
 
 <view class="agree-wrap">
     <switch class="switch" bindchange="switchChange" color="#f8614a" />
-    <text class="agree-text">同意以上要求</text>
+    <text class="agree-text">同意以上条款</text>
 </view>
 <view class="weui-msg__opr-area agree-btn-wrap">
     <view class="weui-btn-area">

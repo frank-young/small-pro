@@ -37,6 +37,12 @@ Page({
       url: '../share/share'
     })
   },
+  task () {
+    let url = this.data.url
+    wx.navigateTo({
+      url: '../task/task'
+    })
+  },
   onLoad () {
     this.termStatus()
   },

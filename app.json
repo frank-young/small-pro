@@ -35,6 +35,7 @@
     "pages/match/match",
     "pages/attendance/attendance",
     "pages/detail/detail",
+    "pages/task/task",
     "pages/fill/fill"
   ],
   "window":{
