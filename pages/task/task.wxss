@@ -1,0 +1,128 @@
+.shadow-box {
+  position: relative;
+  margin: 20px;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 3px 3px 8px #eee;
+}
+
+.success-box {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  text-align: center;
+}
+
+.success-text {
+  margin-top: 10px;
+  font-size: 18px;
+  color: #09BB07;
+  text-align: center;
+}
+
+.head-title {
+  position: relative;
+  margin-bottom: 30px;
+  font-size: 18px;
+  color: #666;
+  text-align: center;
+}
+.head-title:before {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  width: 0;
+  height: 0;
+  left: 50%;
+  margin-left: -5px;
+  border-color: #ddd #fff  #fff #fff;
+  border-style: solid;
+  border-width: 5px;
+  background-color: #ddd;
+}
+.head-title:after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -5px;
+  width: 30%;
+  height: 1px;
+  margin-left: -15%;
+  background-color: #ddd;
+  -webkit-transform: scale3d(1,.3, 1);
+  transform: scale3d(1,.3, 1);
+}
+
+.item-text {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 5px;
+  line-height: 1.7em;
+}
+
+.upload-box {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.weui-uploader__file {
+  position: relative;
+}
+.icon-box {
+  position: absolute;
+  top: 0;
+  right: 1px;
+  width: 50px;
+  height: 50px;
+  text-align: right;
+}
+
+.text-tips {
+  font-size: 13px;
+  color: #666;
+}
+
+.ctrl-box {
+  position: relative;
+  padding: 15px;
+  font-size: 16px;
+  color: #666;
+  text-align: center;
+  box-shadow: 0 0 1px #eee;
+}
+
+.ctrl-left,
+.ctrl-right {
+  position: absolute;
+  top: 0;
+  width: 50px;
+  height: 52px;
+}
+.ctrl-left {
+  left: 0;
+}
+
+.ctrl-right {
+  right: 0;
+}
+.arrow-left,
+.arrow-right {
+  position: absolute;
+  top: 18px;
+  width: 15px;
+  height: 15px;
+  border-top: 1rpx solid #999;
+  border-right: 1rpx solid #999;
+}
+
+.arrow-left {
+  left: 20px;
+  transform: rotate(-135deg);
+}
+
+.arrow-right {
+  right: 20px;
+  transform: rotate(45deg);
+}

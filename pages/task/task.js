@@ -6,10 +6,44 @@ const SUCCESS = true
 Page({
   data: {
       files: [],
-      uptoken: ''
+      uptoken: '',
+      disabledUpload: false,
+      task: '',
+      id: 1,
+      isDelete: true,
+      isComplete: true
   },
-  onLoad: function () {
+  onLoad (options) {
     this.getQiniuToken()
+    console.log(options.id)
+    this.setData({
+      id: options.id
+    })
+  },
+  previewImage(e){
+      wx.previewImage({
+          current: e.currentTarget.id, // 当前显示图片的http链接
+          urls: this.data.files // 需要预览的图片http链接列表
+      })
+  },
+  showDeleteBox () {
+    this.setData({
+      isDelete: false
+    })
+  },
+  deleteImage (e) {
+    wx.showModal({
+      title: '提示',
+      content: '是否删除图片',
+      confirmColor: '#f8614a',
+      success: function(res) {
+        if (res.confirm) {
+          console.log('用户点击确定')
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
   },
   getQiniuToken () {
     let that = this
@@ -32,32 +66,36 @@ Page({
   chooseImage: function (e) {
       var that = this
       wx.chooseImage({
-      count: 1,
+      count: 9,
       sizeType: ['compressed'],
       sourceType: ['album'],
       success: function (res) {
         let filePath = res.tempFilePaths[0];
-        QiniuUploader.upload(filePath, (qiniuRes) => {
-          that.setData({
-            files: that.data.files.concat(qiniuRes.imageURL)
-          });
-        },
-        (error) => {
-		        console.log('error: ' + error);
-        },
-        {
-          uploadURL: 'https://upload-z1.qbox.me',
-          domain: 'http://images.nanafly.com/',
-          uptoken: that.data.uptoken
-        });
+        that.setData({
+          files: that.data.files.concat(res.tempFilePaths),
+          isComplete: false
+        })
+        // QiniuUploader.upload(filePath, (qiniuRes) => {
+        //   that.setData({
+        //     files: that.data.files.concat(qiniuRes.imageURL)
+        //   })
+        //
+        //   if (that.data.files.length >= 9) {
+        //     that.setData({
+        //       disabledUpload: true
+        //     })
+        //   }
+        // },
+        // (error) => {
+		    //     console.log('error: ' + error);
+        // },
+        // {
+        //   uploadURL: 'https://upload-z1.qbox.me',
+        //   domain: 'http://images.nanafly.com/',
+        //   uptoken: that.data.uptoken
+        // });
       }
     })
-  },
-  previewImage: function(e){
-      wx.previewImage({
-          current: e.currentTarget.id, // 当前显示图片的http链接
-          urls: this.data.files // 需要预览的图片http链接列表
-      })
   },
   upload(page, path) {
     wx.showToast({
@@ -98,6 +136,18 @@ Page({
       complete: function () {
         wx.hideToast();
       }
+    })
+  },
+  previousTask () {
+    let that = this
+    wx.reLaunch({
+      url: '../task/task?id=' + (Number(that.data.id) - 1)
+    })
+  },
+  nextTask () {
+    let that = this
+    wx.reLaunch({
+      url: '../task/task?id=' + (Number(that.data.id) + 1)
     })
   }
 })
