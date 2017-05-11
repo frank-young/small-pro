@@ -17,7 +17,7 @@ Page({
       },
       method: 'POST',
       header: {'content-type':'application/x-www-form-urlencoded'},
-      success: function(res){
+      success (res){
         that.setData({
           matchInfo: res.data.bizContent
         })
@@ -29,9 +29,9 @@ Page({
     let that = this
     wx.setClipboardData({
       data: that.data.matchInfo.wechat_id,
-      success: function(res) {
+      success (res) {
         wx.getClipboardData({
-          success: function(res) {
+          success (res) {
             wx.showModal({
               title: '复制成功👌',
               showCancel: false,
@@ -48,9 +48,9 @@ Page({
     let that = this
     wx.setClipboardData({
       data: that.data.roomWxId,
-      success: function(res) {
+      success (res) {
         wx.getClipboardData({
-          success: function(res) {
+          success (res) {
             wx.showModal({
               title: '复制成功👌',
               showCancel: false,

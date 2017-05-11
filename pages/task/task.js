@@ -5,19 +5,81 @@ const SUCCESS = true
 
 Page({
   data: {
+      /*
+       * 任务获取
+       */
+      task: {},
+      id: null,
+      prevId: null,
+      nextId: null,
+      taskArr: [],
+
+      /*
+       * 文件上传操作
+       */
       files: [],
       uptoken: '',
       disabledUpload: false,
-      task: '',
-      id: 1,
       isDelete: true,
+
+      /*
+       * 任务完成状态
+       */
       isComplete: true
   },
   onLoad (options) {
-    this.getQiniuToken()
-    console.log(options.id)
+    wx.showLoading({
+      title: '加载中',
+    })
     this.setData({
       id: options.id
+    })
+    this.getQiniuToken()
+    this._getSelfTask()
+  },
+  _getSelfTask () {
+    let that = this
+    wx.request({
+      url: Config.host + 'task/list',
+      method: 'POST',
+      data: {
+        session_key: wx.getStorageSync('session_key')
+      },
+      header: {'content-type':'application/x-www-form-urlencoded'},
+      success (res){
+        if (res.data.success === SUCCESS) {
+          let taskArr = JSON.parse(res.data.bizContent.task_arr)
+          that.setData({
+            id: taskArr[0],
+            prevId: taskArr[0],
+            nextId: taskArr[1],
+            taskArr: taskArr
+          })
+          that._getTask(that.data.id)
+        }
+      }
+    })
+  },
+  _getTask (id) {
+    let that = this
+    wx.request({
+      url: Config.host + 'task/show',
+      method: 'POST',
+      data: {
+        session_key: wx.getStorageSync('session_key'),
+        id: id
+      },
+      header: {'content-type':'application/x-www-form-urlencoded'},
+      success (res){
+        if (res.data.success === SUCCESS) {
+          that.setData({
+            task: res.data.bizContent
+          })
+        }
+      },
+      complete () {
+        wx.hideLoading()
+      }
     })
   },
   previewImage(e){
@@ -36,7 +98,7 @@ Page({
       title: '提示',
       content: '是否删除图片',
       confirmColor: '#f8614a',
-      success: function(res) {
+      success(res) {
         if (res.confirm) {
           console.log('用户点击确定')
         } else if (res.cancel) {
@@ -54,7 +116,7 @@ Page({
         session_key: wx.getStorageSync('session_key')
       },
       header: {'content-type':'application/x-www-form-urlencoded'},
-      success: function(res){
+      success (res){
         if (res.data.success === SUCCESS) {
           that.setData({
             uptoken: res.data.bizContent
@@ -63,13 +125,13 @@ Page({
       }
     })
   },
-  chooseImage: function (e) {
+  chooseImage (e) {
       var that = this
       wx.chooseImage({
       count: 9,
       sizeType: ['compressed'],
       sourceType: ['album'],
-      success: function (res) {
+      success (res) {
         let filePath = res.tempFilePaths[0];
         that.setData({
           files: that.data.files.concat(res.tempFilePaths),
@@ -111,7 +173,7 @@ Page({
       formData: {
         session_key: wx.getStorageSync('session_key')
       },
-      success: function (res) {
+      success (res) {
         if (res.statusCode != 200) {
           wx.showModal({
             title: '提示',
@@ -125,7 +187,7 @@ Page({
           src: path[0]
         })
       },
-      fail: function (e) {
+      fail (e) {
         console.log(e);
         wx.showModal({
           title: '提示',
@@ -133,21 +195,22 @@ Page({
           showCancel: false
         })
       },
-      complete: function () {
+      complete () {
         wx.hideToast();
       }
     })
   },
   previousTask () {
     let that = this
+
     wx.reLaunch({
-      url: '../task/task?id=' + (Number(that.data.id) - 1)
+      url: '../task/task?id=' + that.data.prevId
     })
   },
   nextTask () {
     let that = this
     wx.reLaunch({
-      url: '../task/task?id=' + (Number(that.data.id) + 1)
+      url: '../task/task?id=' + that.data.nextId
     })
   }
 })

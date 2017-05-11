@@ -109,7 +109,7 @@ Page({
     })
   },
   // 关于aco
-  openAlert: function () {
+  openAlert () {
     wx.showModal({
       content: 'Aco测评是由小呐独创的性格测试，我们将根据此测试并且结合我们的专业算法来匹配一个和你性格最合适的人。有木有很激动？',
       showCancel: false,
@@ -125,7 +125,7 @@ Page({
       },
       method: 'POST',
       header: {'content-type':'application/x-www-form-urlencoded'},
-      success: function(res){
+      success (res){
         if (res.data.success === SUCCESS) {
           console.log('成功调用')
           let info = res.data.bizContent
@@ -168,7 +168,7 @@ Page({
         data: e.detail.value,
         method: 'POST',
         header: {'content-type':'application/x-www-form-urlencoded'},
-        success: function(res){
+        success (res){
           if (res.data.success === SUCCESS) {
             wx.showToast({
               title: '提交成功',

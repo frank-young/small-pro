@@ -34,7 +34,7 @@ Page({
       },
       method: 'POST',
       header: {'content-type':'application/x-www-form-urlencoded'},
-      success: function(res){
+      success (res){
         if(res.data.success === SUCCESS) {
           wx.redirectTo({
             url: '../detail/detail'

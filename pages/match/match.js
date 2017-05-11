@@ -24,7 +24,7 @@ Page({
       },
       method: 'POST',
       header: {'content-type':'application/x-www-form-urlencoded'},
-      success: function(res){
+      success (res){
         that.setData({
           matchInfo: res.data.bizContent
         })
@@ -42,7 +42,7 @@ Page({
       },
       method: 'POST',
       header: {'content-type':'application/x-www-form-urlencoded'},
-      success: function(res){
+      success (res){
         if (res.data.success === SUCCESS) {
           that.setData({
             isAttendance: true

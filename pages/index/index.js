@@ -40,7 +40,7 @@ Page({
   task () {
     let url = this.data.url
     wx.navigateTo({
-      url: '../task/task?task=第一天&id=1'
+      url: '../task/task?id=0'
     })
   },
   onLoad () {
