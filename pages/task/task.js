@@ -39,6 +39,9 @@ Page({
     this._isShowPrevBtn()
     this._isShowNextBtn()
   },
+  /*
+   * 获取任务信息
+   */
   _getTask () {
     let that = this
     wx.request({
@@ -61,31 +64,35 @@ Page({
       }
     })
   },
-  previewImage(e){
-      wx.previewImage({
-          current: e.currentTarget.id, // 当前显示图片的http链接
-          urls: this.data.files // 需要预览的图片http链接列表
-      })
-  },
-  showDeleteBox () {
-    this.setData({
-      isDelete: false
-    })
-  },
-  deleteImage (e) {
-    wx.showModal({
-      title: '提示',
-      content: '是否删除图片',
-      confirmColor: '#f8614a',
-      success(res) {
-        if (res.confirm) {
-          console.log('用户点击确定')
-        } else if (res.cancel) {
-          console.log('用户点击取消')
+
+  /*
+   * 用户做任务，上传任务
+   */
+  _doTask (files) {
+    let that = this
+    wx.request({
+      url: Config.host + 'taskahead/create',
+      method: 'POST',
+      data: {
+        session_key: wx.getStorageSync('session_key'),
+        group_id: wx.getStorageSync('group_id'),
+        term: wx.getStorageSync('term'),
+        taskmanager_id: that.data.taskArr[that.data.index],
+        image_path: JSON.stringify(files)
+      },
+      header: {'content-type':'application/x-www-form-urlencoded'},
+      success (res){
+        if (res.data.success === SUCCESS) {
+          that.setData({
+            isComplete: false
+          })
         }
       }
     })
   },
+  /*
+   * 获取图片上传 uptoken
+   */
   getQiniuToken () {
     let that = this
     wx.request({
@@ -116,6 +123,7 @@ Page({
           files: that.data.files.concat(res.tempFilePaths),
           isComplete: false
         })
+        that._doTask(that.data.files)
         // QiniuUploader.upload(filePath, (qiniuRes) => {
         //   that.setData({
         //     files: that.data.files.concat(qiniuRes.imageURL)
@@ -179,6 +187,35 @@ Page({
       }
     })
   },
+  previewImage(e){
+      wx.previewImage({
+          current: e.currentTarget.id, // 当前显示图片的http链接
+          urls: this.data.files // 需要预览的图片http链接列表
+      })
+  },
+  showDeleteBox () {
+    this.setData({
+      isDelete: false
+    })
+  },
+  deleteImage (e) {
+    wx.showModal({
+      title: '提示',
+      content: '是否删除图片',
+      confirmColor: '#f8614a',
+      success(res) {
+        if (res.confirm) {
+          console.log('用户点击确定')
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
+  },
+
+  /*
+   * 上一天任务和下一天任务操作
+   */
   _isShowPrevBtn () {
     if (Number(this.data.index) === 0) {
       this.setData({

@@ -61,6 +61,8 @@ Page({
         if (res.data.success === SUCCESS) {
           let taskArr = JSON.parse(res.data.bizContent.task_arr)
           wx.setStorageSync('task_arr', taskArr)
+          wx.setStorageSync('group_id', res.data.bizContent.group_id)
+          wx.setStorageSync('term', res.data.bizContent.term)
           that.setData({
             index: taskArr.length - 1
           })

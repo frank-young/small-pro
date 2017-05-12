@@ -16,7 +16,7 @@ App({
         that.login()
       }
     })
-    this.login()
+    // this.login()
 
   },
   login: function() {
