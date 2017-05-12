@@ -40,10 +40,10 @@
         </view>
         <view class="ctrl-box">
             文字
-            <view class="ctrl-left" bindtap="previousTask" hover-class="weui-cell_active">
+            <view class="ctrl-left" bindtap="previousTask" hover-class="weui-cell_active" hidden="{{isShowPrev}}">
               <text class="arrow-left"></text>
             </view>
-            <view class="ctrl-right" bindtap="nextTask" hover-class="weui-cell_active">
+            <view class="ctrl-right" bindtap="nextTask" hover-class="weui-cell_active" hidden="{{isShowNext}}">
               <text class="arrow-right"></text>
             </view>
         </view>

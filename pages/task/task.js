@@ -9,11 +9,10 @@ Page({
        * 任务获取
        */
       task: {},
-      id: null,
-      prevId: null,
-      nextId: null,
       taskArr: [],
-
+      index: null,
+      isShowPrev: true,
+      isShowNext: false,
       /*
        * 文件上传操作
        */
@@ -32,42 +31,22 @@ Page({
       title: '加载中',
     })
     this.setData({
-      id: options.id
+      index: options.index,
+      taskArr: wx.getStorageSync('task_arr')
     })
     this.getQiniuToken()
-    this._getSelfTask()
+    this._getTask()
+    this._isShowPrevBtn()
+    this._isShowNextBtn()
   },
-  _getSelfTask () {
-    let that = this
-    wx.request({
-      url: Config.host + 'task/list',
-      method: 'POST',
-      data: {
-        session_key: wx.getStorageSync('session_key')
-      },
-      header: {'content-type':'application/x-www-form-urlencoded'},
-      success (res){
-        if (res.data.success === SUCCESS) {
-          let taskArr = JSON.parse(res.data.bizContent.task_arr)
-          that.setData({
-            id: taskArr[0],
-            prevId: taskArr[0],
-            nextId: taskArr[1],
-            taskArr: taskArr
-          })
-          that._getTask(that.data.id)
-        }
-      }
-    })
-  },
-  _getTask (id) {
+  _getTask () {
     let that = this
     wx.request({
       url: Config.host + 'task/show',
       method: 'POST',
       data: {
         session_key: wx.getStorageSync('session_key'),
-        id: id
+        id: that.data.taskArr[that.data.index]
       },
       header: {'content-type':'application/x-www-form-urlencoded'},
       success (res){
@@ -200,17 +179,38 @@ Page({
       }
     })
   },
+  _isShowPrevBtn () {
+    if (Number(this.data.index) === 0) {
+      this.setData({
+        isShowPrev: true
+      })
+    } else {
+      this.setData({
+        isShowPrev: false
+      })
+    }
+  },
+  _isShowNextBtn () {
+    if (Number(this.data.index) === Number(this.data.taskArr.length - 1)) {
+      this.setData({
+        isShowNext: true
+      })
+    } else {
+      this.setData({
+        isShowNext: false
+      })
+    }
+  },
   previousTask () {
     let that = this
-
-    wx.reLaunch({
-      url: '../task/task?id=' + that.data.prevId
+    wx.redirectTo({
+      url: '../task/task?index=' + (Number(that.data.index) - 1)
     })
   },
   nextTask () {
     let that = this
-    wx.reLaunch({
-      url: '../task/task?id=' + that.data.nextId
+    wx.redirectTo({
+      url: '../task/task?index=' + (Number(that.data.index) + 1)
     })
   }
 })

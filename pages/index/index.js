@@ -3,15 +3,15 @@ const SUCCESS = true
 
 Page({
   data: {
-    motto: '还差一步',
-    share: {
-      title: '这是标题档～',
-      desc: '这是一些描述',
-      path: '/pages/index/index'
-    },
-
+    /*
+     * 按钮部分
+     */
     text: '',
-    url: '../info/info'
+    url: '../info/info',
+    /*
+     * 跳转任务链接
+     */
+    index: 0
   },
   apply () {
     let url = this.data.url
@@ -38,13 +38,35 @@ Page({
     })
   },
   task () {
+    let that = this
     let url = this.data.url
     wx.navigateTo({
-      url: '../task/task?id=0'
+      url: '../task/task?index=' + that.data.index
     })
   },
   onLoad () {
     this.termStatus()
+    this._getSelfTask()
+  },
+  _getSelfTask () {
+    let that = this
+    wx.request({
+      url: Config.host + 'task/list',
+      method: 'POST',
+      data: {
+        session_key: wx.getStorageSync('session_key')
+      },
+      header: {'content-type':'application/x-www-form-urlencoded'},
+      success (res){
+        if (res.data.success === SUCCESS) {
+          let taskArr = JSON.parse(res.data.bizContent.task_arr)
+          wx.setStorageSync('task_arr', taskArr)
+          that.setData({
+            index: taskArr.length - 1
+          })
+        }
+      }
+    })
   },
   termStatus (){
     let that = this
