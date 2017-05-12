@@ -34,15 +34,16 @@ Page({
       index: options.index,
       taskArr: wx.getStorageSync('task_arr')
     })
+    this._getCompleteTask()
     this.getQiniuToken()
-    this._getTask()
+    this._getTaskInfo()
     this._isShowPrevBtn()
     this._isShowNextBtn()
   },
   /*
    * 获取任务信息
    */
-  _getTask () {
+  _getTaskInfo () {
     let that = this
     wx.request({
       url: Config.host + 'task/show',
@@ -86,6 +87,32 @@ Page({
           that.setData({
             isComplete: false
           })
+        }
+      }
+    })
+  },
+  _getCompleteTask () {
+    let that = this
+    wx.request({
+      url: Config.host + 'taskahead/show',
+      method: 'POST',
+      data: {
+        session_key: wx.getStorageSync('session_key'),
+        group_id: wx.getStorageSync('group_id'),
+        taskmanager_id: that.data.taskArr[that.data.index],
+        term: wx.getStorageSync('term')
+      },
+      header: {'content-type':'application/x-www-form-urlencoded'},
+      success (res){
+        if (res.data.success === SUCCESS) {
+          let image_path = res.data.bizContent.image_path
+          if (image_path !== null) {
+            console.log(res.data.bizContent.image_path)
+            that.setData({
+              files: image_path,
+              isComplete: false
+            })
+          }
         }
       }
     })

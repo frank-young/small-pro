@@ -562,13 +562,17 @@ icon {
           flex: 1;
 }
 button[type="primary"] {
-  background-color: #f8614a;
-  border: #e05743;
-  color: #fff;
+  background-color: #ff605d;
+  /*border: #e05743;*/
+  border: none;
+  /*background-image: linear-gradient(90deg, #faa775,#fd6359);*/
+  box-shadow: 0 5px 15px #fcbfbf!important;
+  color: #f9f9f9;
+  border-radius: 30px;
 }
 
 .btn-hover[type="primary"]{
-  background-color: #e05743 !important;
+  background-color: #f65b59 !important;
   color: #fff;
 }
 
@@ -578,8 +582,11 @@ button[disabled][type="primary"] {
 
 .btn-line {
   background-color: transparent!important;
-  border: 1px solid #f8614a !important;
-  color: #f8614a!important;
+  border: 1px solid #ff605d !important;
+  color: #ff605d!important;
+  /*color: #f8614a!important;*/
+  background-image: none!important;
+  box-shadow:none!important;
 }
 
 .weui-btn {
