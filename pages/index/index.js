@@ -47,6 +47,7 @@ Page({
   onLoad () {
     this.termStatus()
     this._getSelfTask()
+    this.defaultTaskArr()
   },
   _getSelfTask () {
     let that = this
@@ -69,6 +70,13 @@ Page({
         }
       }
     })
+  },
+  defaultTaskArr () {
+    if (wx.getStorageSync('task_arr').length !== 0) {
+      this.setData({
+        index: wx.getStorageSync('task_arr').length - 1
+      })
+    }
   },
   termStatus (){
     let that = this

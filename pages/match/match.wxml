@@ -4,12 +4,6 @@
         <view class="weui-flex">
             <view class="weui-flex__item">
               <view class="placeholder">
-                <view class="weui-msg__title">匹配对象</view>
-                <image class="userinfo-avatar" src="{{matchInfo.avatarUrl}}" background-size="cover"></image>
-              </view>
-            </view>
-            <view class="weui-flex__item">
-              <view class="placeholder">
                 <view class="weui-msg__title">匹配指数</view>
                 <canvas canvas-id="myCanvas" class="canvas"/>
               </view>

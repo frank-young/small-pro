@@ -1,3 +1,4 @@
+<view class="head-spilt-box"></view>
 <view class="attendance">
   <view class="shadow-box">
     <view class="head-title">小呐合约条款</view>
@@ -25,6 +26,6 @@
 </view>
 <view class="weui-msg__opr-area agree-btn-wrap">
     <view class="weui-btn-area">
-        <button bindtap="agreeBtn" class="weui-btn" disabled="{{isDisabled}}" type="primary" hover-class="btn-hover">确定</button>
+        <button bindtap="agreeBtn" class="weui-btn" disabled="{{isDisabled}}" hover-class="btn-hover" type="primary">确定</button>
     </view>
 </view>

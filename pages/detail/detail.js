@@ -33,7 +33,7 @@ Page({
         wx.getClipboardData({
           success (res) {
             wx.showModal({
-              title: '复制成功👌',
+              title: '复制CP微信号成功👌',
               showCancel: false,
               confirmText: '知道啦',
               confirmColor: '#f8614a',
@@ -52,7 +52,7 @@ Page({
         wx.getClipboardData({
           success (res) {
             wx.showModal({
-              title: '复制成功👌',
+              title: '复制房主微信号成功👌',
               showCancel: false,
               confirmText: '知道啦',
               confirmColor: '#f8614a',

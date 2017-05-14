@@ -40,3 +40,8 @@ input {
 .pt-0 {
   padding-top: 0 !important;
 }
+
+.head-spilt-box {
+  background-color: #ff605d;
+  height: 60px;
+}

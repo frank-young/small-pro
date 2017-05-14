@@ -566,18 +566,22 @@ button[type="primary"] {
   /*border: #e05743;*/
   border: none;
   /*background-image: linear-gradient(90deg, #faa775,#fd6359);*/
-  box-shadow: 0 5px 15px #fcbfbf!important;
+  box-shadow: 0 5px 15px #fcbfbf;
   color: #f9f9f9;
   border-radius: 30px;
+  margin: 0 50px;
 }
 
 .btn-hover[type="primary"]{
   background-color: #f65b59 !important;
+  margin: 0 50px;
+  border-radius: 30px;
   color: #fff;
 }
 
 button[disabled][type="primary"] {
   background-color:#fda99c;
+  box-shadow:none !important;
 }
 
 .btn-line {
@@ -586,7 +590,7 @@ button[disabled][type="primary"] {
   color: #ff605d!important;
   /*color: #f8614a!important;*/
   background-image: none!important;
-  box-shadow:none!important;
+  box-shadow:none !important;
 }
 
 .weui-btn {
