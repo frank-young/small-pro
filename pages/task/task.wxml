@@ -3,7 +3,7 @@
     <view class="shadow-box">
       <view class="head-title">{{task.title}}</view>
       <view class="item-text">{{task.body}}</view>
-      <view class="success-box" hidden="{{}}">
+      <view class="success-box" hidden="{{isComplete}}">
         <!-- <icon type="success" size="52"></icon> -->
         <view class="success-text">完成</view>
       </view>
