@@ -7,7 +7,7 @@
             <view class="weui-msg__title">小呐一周CP</view>
             <view class="weui-msg__desc">谈一场不一样的恋爱</view>
         </view>
-        <view class="weui-msg__opr-area">
+        <!-- <view class="weui-msg__opr-area">
             <view class="weui-btn-area">
                 <button class="weui-btn" bindtap="apply" type="primary" hover-class="btn-hover">立即报名</button>
             </view>
@@ -31,14 +31,11 @@
             <view class="weui-btn-area">
                 <button class="weui-btn btn-line" bindtap="task" type="primary">任务</button>
             </view>
-        </view>
-        <!-- <view class="weui-msg__extra-area">
-            <view class="weui-footer">
-                <view class="weui-footer__links">
-                    <navigator url="" class="weui-footer__link">呐呐科技</navigator>
-                </view>
-                <view class="weui-footer__text">Copyright © 20016-2017 nanafly.com</view>
-            </view>
         </view> -->
+        <view class="weui-msg__opr-area">
+            <view class="weui-btn-area">
+                <button class="weui-btn" bindtap="href" type="primary" hover-class="btn-hover">{{text}}</button>
+            </view>
+        </view>
     </view>
 </view>

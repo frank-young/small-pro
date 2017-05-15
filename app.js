@@ -4,7 +4,6 @@ App({
   onLaunch: function () {
     //调用API从本地缓存中获取数据
     // var logs = wx.getStorageSync('logs') || []
-    // logs.unshift(Date.now())
     // wx.setStorageSync('logs', logs)
     let that = this
     wx.checkSession({
@@ -17,14 +16,13 @@ App({
       }
     })
     this.login()
-
   },
   login: function() {
     wx.login({
       success: function(loginData) {
         if (loginData.code) {
           wx.getUserInfo({
-            success: function (userData) {
+            success (userData) {
               wx.request({
                 url: Config.host + 'getuserinfo',
                 data: {
@@ -33,12 +31,12 @@ App({
                 },
                 method: 'POST',
                 header: {'content-type':'application/x-www-form-urlencoded'},
-                success: function(res){
+                success (res){
                   wx.setStorageSync('session_key', res.data.bizContent)
                 }
               })
             },
-            fail: function () {
+            fail () {
               wx.request({
                 url: Config.host + 'login',
                 data: {
@@ -50,6 +48,8 @@ App({
                   wx.setStorageSync('session_key', res.data.bizContent)
                 }
               })
+            },
+            complete () {
             }
           })
         } else {

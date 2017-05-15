@@ -6,7 +6,7 @@ Page({
     /*
      * 按钮部分
      */
-    text: '',
+    text: '立即报名',
     url: '../info/info',
     /*
      * 跳转任务链接
@@ -44,10 +44,18 @@ Page({
       url: '../task/task?index=' + that.data.index
     })
   },
-  onLoad () {
-    this.termStatus()
-    this._getSelfTask()
-    this.defaultTaskArr()
+  onReady () {
+    if (wx.getStorageSync('session_key') !== '') {
+      this._getSelfTask()
+      this.defaultTaskArr()
+      this.termStatus()
+    }
+  },
+  href () {
+    let that = this
+    wx.navigateTo({
+      url: that.data.url
+    })
   },
   _getSelfTask () {
     let that = this
@@ -102,11 +110,30 @@ Page({
               text: '修改资料',
               url: '../editinfo/editinfo'
             })
+          } else if (res.data.bizContent === 3) {
+            that.setData({
+              text: '立即分享',
+              url: '../share/share'
+            })
+          } else if (res.data.bizContent === 4) {
+            that.setData({
+              text: '匹配查询',
+              url: '../match/match'
+            })
+          } else if (res.data.bizContent === 5) {
+            console.log(wx.getStorageSync('task_arr').length - 1)
+            that.setData({
+              text: '查看任务',
+              url: '../task/task?index=' + that.data.index
+            })
           }
         } else {
-          that.setData({
-            text: '匹配查询',
-            url: '../match/match'
+          wx.showModal({
+            title: '加载失败😦',
+            showCancel: false,
+            confirmText: '知道啦',
+            confirmColor: '#f8614a',
+            content: '服务器开小差了，程序猿哥哥又要被扣工资啦😦，请退出后重新进入',
           })
         }
         wx.hideLoading()
