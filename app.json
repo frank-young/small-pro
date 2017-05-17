@@ -6,10 +6,10 @@
     "backgroundColor": "#ffffff",
     "list": [
         {
-        "pagePath": "pages/fill/fill",
-        "iconPath": "resources/icons/home.png",
-        "selectedIconPath": "resources/icons/home_hover.png",
-        "text": "首页"
+        "pagePath": "pages/topic/topic",
+        "iconPath": "resources/icons/topic.png",
+        "selectedIconPath": "resources/icons/topic_hover.png",
+        "text": "话题"
         },
         {
         "pagePath": "pages/index/index",
@@ -36,7 +36,8 @@
     "pages/attendance/attendance",
     "pages/detail/detail",
     "pages/task/task",
-    "pages/fill/fill"
+    "pages/topic/topic",
+    "pages/topicdetail/topicdetail"
   ],
   "window":{
     "backgroundTextStyle":"light",

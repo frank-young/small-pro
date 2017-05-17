@@ -1,0 +1,6 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="weui-panel weui-panel_access">
+      <view class="weui-panel__hd"></view>
+  </view>
+</view>

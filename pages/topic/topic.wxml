@@ -1,0 +1,46 @@
+<view class='topic'>
+  <view class="topic-item">
+    <image style="width: 100%;height:40vw" mode="scaleToFill" src="{{src}}"></image>
+    <view class="topic-text">
+      <view class="topic-title">
+        这是标题
+      </view>
+      <view class="topic-desc">
+        这是文字描述啊
+      </view>
+    </view>
+  </view>
+  <view class="topic-item">
+    <image style="width: 100%;height:40vw" mode="scaleToFill" src="{{src}}"></image>
+    <view class="topic-text">
+      <view class="topic-title">
+        这是标题
+      </view>
+      <view class="topic-desc">
+        这是文字描述啊
+      </view>
+    </view>
+  </view>
+  <view class="topic-item">
+    <image style="width: 100%;height:40vw" mode="scaleToFill" src="{{src}}"></image>
+    <view class="topic-text">
+      <view class="topic-title">
+        这是标题
+      </view>
+      <view class="topic-desc">
+        这是文字描述啊
+      </view>
+    </view>
+  </view>
+  <view class="topic-item">
+    <image style="width: 100%;height:40vw" mode="scaleToFill" src="{{src}}"></image>
+    <view class="topic-text">
+      <view class="topic-title">
+        这是标题
+      </view>
+      <view class="topic-desc">
+        这是文字描述啊
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,38 @@
+.topic {
+  padding: 40rpx;
+}
+
+.topic-item {
+  background-color: #fff;
+  box-shadow: 8rpx 8rpx 20rpx #ddd;
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 40rpx;
+}
+
+.topic-item image {
+  margin: 0;
+}
+
+.topic-text {
+  margin: -15rpx 0 0 0;
+  padding: 0 40rpx;
+  border-left: 5rpx solid #ff605d;
+}
+
+.topic-title {
+  padding: 30rpx 0 20rpx 0;
+  font-size: 16px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.topic-desc {
+  line-height: 1.7em;
+  padding: 0 0 30rpx 0;
+  font-size: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
