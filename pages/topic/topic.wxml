@@ -1,46 +1,16 @@
 <view class='topic'>
-  <view class="topic-item">
-    <image style="width: 100%;height:40vw" mode="scaleToFill" src="{{src}}"></image>
-    <view class="topic-text">
-      <view class="topic-title">
-        这是标题
+  <block wx:for="{{topics}}" wx:key="key" wx:for-item="topic">
+    <navigator url="../topicdetail/topicdetail?id={{topic.id}}" class="topic-item" >
+      <image mode="scaleToFill" src="{{topic.src}}"></image>
+      <view class="topic-text">
+        <view class="topic-title">
+          {{topic.title}}
+        </view>
+        <view class="topic-desc">
+          {{topic.desc}}
+        </view>
       </view>
-      <view class="topic-desc">
-        这是文字描述啊
-      </view>
-    </view>
-  </view>
-  <view class="topic-item">
-    <image style="width: 100%;height:40vw" mode="scaleToFill" src="{{src}}"></image>
-    <view class="topic-text">
-      <view class="topic-title">
-        这是标题
-      </view>
-      <view class="topic-desc">
-        这是文字描述啊
-      </view>
-    </view>
-  </view>
-  <view class="topic-item">
-    <image style="width: 100%;height:40vw" mode="scaleToFill" src="{{src}}"></image>
-    <view class="topic-text">
-      <view class="topic-title">
-        这是标题
-      </view>
-      <view class="topic-desc">
-        这是文字描述啊
-      </view>
-    </view>
-  </view>
-  <view class="topic-item">
-    <image style="width: 100%;height:40vw" mode="scaleToFill" src="{{src}}"></image>
-    <view class="topic-text">
-      <view class="topic-title">
-        这是标题
-      </view>
-      <view class="topic-desc">
-        这是文字描述啊
-      </view>
-    </view>
-  </view>
+    </navigator>
+  </block>
+  <view class="loading-more" hidden="{{isLoading}}">加载中...</view>
 </view>
