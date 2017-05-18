@@ -40,6 +40,61 @@ Page({
         data_time: '5-18 23:33',
         content: '人生就是如此，会经历很多人，很多事，到最后，你会发现谁还在。',
         replay_num: '343'
+      },
+      {
+        id: 3,
+        topic_id: 1,
+        user_id: 3,
+        link_num: 67,
+        praise_status: 0,
+        nick_name: '小文',
+        data_time: '5-18 23:33',
+        content: '人生就是如此，会经历很多人，很多事，到最后，你会发现谁还在。',
+        replay_num: '343'
+      },
+      {
+        id: 3,
+        topic_id: 1,
+        user_id: 3,
+        link_num: 67,
+        praise_status: 0,
+        nick_name: '小文',
+        data_time: '5-18 23:33',
+        content: '人生就是如此，会经历很多人，很多事，到最后，你会发现谁还在。',
+        replay_num: '343'
+      },
+      {
+        id: 3,
+        topic_id: 1,
+        user_id: 3,
+        link_num: 67,
+        praise_status: 0,
+        nick_name: '小文',
+        data_time: '5-18 23:33',
+        content: '人生就是如此，会经历很多人，很多事，到最后，你会发现谁还在。',
+        replay_num: '343'
+      },
+      {
+        id: 3,
+        topic_id: 1,
+        user_id: 3,
+        link_num: 67,
+        praise_status: 0,
+        nick_name: '小文',
+        data_time: '5-18 23:33',
+        content: '人生就是如此，会经历很多人，很多事，到最后，你会发现谁还在。',
+        replay_num: '343'
+      },
+      {
+        id: 3,
+        topic_id: 1,
+        user_id: 3,
+        link_num: 67,
+        praise_status: 0,
+        nick_name: '小文',
+        data_time: '5-18 23:33',
+        content: '人生就是如此，会经历很多人，很多事，到最后，你会发现谁还在。',
+        replay_num: '343'
       }
     ]
   },
