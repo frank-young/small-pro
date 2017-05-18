@@ -1,6 +1,143 @@
-<!--index.wxml-->
-<view class="container">
-  <view class="weui-panel weui-panel_access">
-      <view class="weui-panel__hd"></view>
+<view class='topic-detial'>
+  <view class="topic-item" >
+    <view class="topic-text">
+      <view class="topic-title">
+        {{topic.title}}
+      </view>
+      <view class="topic-desc">
+        {{topic.desc}}
+      </view>
+    </view>
+  </view>
+  <view class="comment-total-num">
+    <view class="comment-total-text">
+        讨论 1003
+    </view>
+  </view>
+
+  <view class="comment">
+    <view class="comment-item">
+      <view class="comment-top">
+        <view class="comment-user-face">
+          <image src="../../resources/share.jpg" background-size="cover"></image>
+        </view>
+        <view class="comment-like-btn">
+          👍
+        </view>
+        <view class="comment-replay-btn">
+          👌
+        </view>
+        <view class="comment-nickname">
+          野山椒鸡杂
+        </view>
+        <view class="comment-datatime">
+          5-18 13:13
+        </view>
+        <view class="comment-content">
+          那就开始继续的生活呗～
+        </view>
+      </view>
+      <view class="comment-bottom">
+        <view class="comment-replay-info">
+          <view class="comment-link">
+            共112条回复 >
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="comment-item">
+      <view class="comment-top">
+        <view class="comment-user-face">
+          <image src="../../resources/share.jpg" background-size="cover"></image>
+        </view>
+        <view class="comment-like-btn">
+          👍 19283
+        </view>
+        <view class="comment-replay-btn">
+          👌
+        </view>
+        <view class="comment-nickname">
+          野山椒鸡杂
+        </view>
+        <view class="comment-datatime">
+          5-18 13:13
+        </view>
+        <view class="comment-content">
+          那就开始继续的生活呗～
+        </view>
+      </view>
+      <view class="comment-bottom">
+        <view class="comment-replay-info">
+          <view class="comment-link">
+            共112条回复 >
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class="comment-item">
+      <view class="comment-top">
+        <view class="comment-user-face">
+          <image src="../../resources/share.jpg" background-size="cover"></image>
+        </view>
+        <view class="comment-like-btn">
+          👍 19283
+        </view>
+        <view class="comment-replay-btn">
+          👌
+        </view>
+        <view class="comment-nickname">
+          野山椒鸡杂
+        </view>
+        <view class="comment-datatime">
+          5-18 13:13
+        </view>
+        <view class="comment-content">
+          那就开始继续的生活呗～
+        </view>
+      </view>
+      <view class="comment-bottom">
+        <view class="comment-replay-info">
+          <view class="comment-link">
+            共112条回复 >
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class="comment-item">
+      <view class="comment-top">
+        <view class="comment-user-face">
+          <image src="../../resources/share.jpg" background-size="cover"></image>
+        </view>
+        <view class="comment-like-btn">
+          👍 19283
+        </view>
+        <view class="comment-replay-btn">
+          👌
+        </view>
+        <view class="comment-nickname">
+          野山椒鸡杂
+        </view>
+        <view class="comment-datatime">
+          5-18 13:13
+        </view>
+        <view class="comment-content">
+          那就开始继续的生活呗～
+        </view>
+      </view>
+      <view class="comment-bottom">
+        <view class="comment-replay-info">
+          <view class="comment-link">
+            共112条回复 >
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="weui-loadmore" hidden="{{isLoading}}">
+      <view class="weui-loading"></view>
+      <view class="weui-loadmore__tips">正在加载</view>
   </view>
 </view>

@@ -12,5 +12,8 @@
       </view>
     </navigator>
   </block>
-  <view class="loading-more" hidden="{{isLoading}}">加载中...</view>
+  <view class="weui-loadmore" hidden="{{isLoading}}">
+      <view class="weui-loading"></view>
+      <view class="weui-loadmore__tips">正在加载</view>
+  </view>
 </view>
