@@ -47,7 +47,7 @@
 }
 .weui-loadmore__tips {
   font-size: 12px;
-  color: #999;
+  color: #919191;
 }
 
 /*
@@ -71,7 +71,7 @@
   left: 50%;
   bottom: -20rpx;
   width: 50rpx;
-  height: 10rpx;
+  height: 8rpx;
   margin-left: -30rpx;
   border-radius: 5px;
   background-color: #ff605d;
@@ -104,24 +104,27 @@
   height: 80rpx;
 
 }
-.comment-like-btn {
-  position: absolute;
-  right: 85rpx;
-  top: 25rpx;
-}
-.comment-replay-btn {
-  position: absolute;
-  right: 30rpx;
-  top: 25rpx;
-}
 .comment-nickname {
   margin-top: 3rpx;
-  font-size: 12px;
-  color: #666;
+  font-size: 13px;
+  color: #333;
 }
 .comment-datatime {
   font-size: 11px;
-  color: #999;
+  color: #919191;
+}
+.comment-like-btn {
+  position: absolute;
+  right: 100rpx;
+  top: 25rpx;
+  z-index: 10;
+  font-size: 12px;
+  color: #919191;
+}
+.comment-replay-btn {
+  position: absolute;
+  right: 25rpx;
+  top: 25rpx;
 }
 .comment-content {
   margin-top: 10rpx;
@@ -142,7 +145,8 @@
 }
 .comment-replay-info {
   padding: 15rpx;
-  font-size: 12px;
+  font-size: 13px;
+  line-height: 13px;
   border-radius: 1px;
   background-color: #f6f6f6;
 }

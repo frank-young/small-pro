@@ -3,7 +3,7 @@
     "color": "#9a9a9a",
     "selectedColor": "#ff605d",
     "borderStyle": "white",
-    "backgroundColor": "#ffffff",
+    "backgroundColor": "#F8F8F8",
     "list": [
         {
         "pagePath": "pages/topic/topic",
@@ -37,7 +37,8 @@
     "pages/detail/detail",
     "pages/task/task",
     "pages/topic/topic",
-    "pages/topicdetail/topicdetail"
+    "pages/topicdetail/topicdetail",
+    "pages/replay/replay"
   ],
   "window":{
     "backgroundTextStyle":"light",

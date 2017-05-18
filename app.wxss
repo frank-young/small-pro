@@ -1,7 +1,7 @@
 @import 'style/weui.wxss';
 
 page{
-    background-color: #f7f7f7;
+    background-color: #F8F8F8;
     font-size: 15px;
     font-family: -apple-system-font,Helvetica Neue,Helvetica,sans-serif;
 }
@@ -44,4 +44,16 @@ input {
 .head-spilt-box {
   background-color: #ff605d;
   height: 60px;
+}
+
+/*
+ *  图标
+ */
+.icon {
+  display: inline-block;
+  width: 32rpx;
+  height: 32rpx;
+  padding: 10rpx;
+  margin-top: -8rpx;
+  vertical-align: middle;
 }

@@ -1,0 +1,6 @@
+<view class="replay">
+  <form bindsubmit="submit">
+    <textarea placeholder="回复评论" name="textarea"/>
+    <button class="btn-replay" form-type="submit"> 发送 </button>
+  </form>
+</view>

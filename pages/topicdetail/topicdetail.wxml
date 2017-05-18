@@ -16,120 +16,34 @@
   </view>
 
   <view class="comment">
-    <view class="comment-item">
-      <view class="comment-top">
+    <view class="comment-item" wx:for="{{comments}}" wx:key="key" wx:for-item="comment">
+      <view class="comment-top" catchtap="moreCtrl">
+        <!-- hover-class="weui-cell_active" -->
         <view class="comment-user-face">
           <image src="../../resources/share.jpg" background-size="cover"></image>
         </view>
-        <view class="comment-like-btn">
-          👍
-        </view>
-        <view class="comment-replay-btn">
-          👌
-        </view>
         <view class="comment-nickname">
-          野山椒鸡杂
+          {{comment.nick_name}}
         </view>
         <view class="comment-datatime">
-          5-18 13:13
+          {{comment.data_time}}
+        </view>
+        <view class="comment-like-btn">
+          <image class="icon" hidden="{{comment.praise_status === 1}}" src="../../resources/icons/praise.png" background-size="cover" catchtap="praiseCtrl"></image>
+          <image class="icon" hidden="{{comment.praise_status === 0}}" src="../../resources/icons/praise_active.png" background-size="cover" catchtap="cancelPraiseCtrl"></image>
+          {{comment.link_num}}
+        </view>
+        <view class="comment-replay-btn">
+          <image class="icon" src="../../resources/icons/comment.png" background-size="cover" catchtap="commentCtrl"></image>
         </view>
         <view class="comment-content">
-          那就开始继续的生活呗～
+          {{comment.content}}
         </view>
       </view>
       <view class="comment-bottom">
-        <view class="comment-replay-info">
+        <view class="comment-replay-info" wx:if="{{comment.replay_num > 0}}" bindtap="viewReplayCtrl">
           <view class="comment-link">
-            共112条回复 >
-          </view>
-        </view>
-      </view>
-    </view>
-    <view class="comment-item">
-      <view class="comment-top">
-        <view class="comment-user-face">
-          <image src="../../resources/share.jpg" background-size="cover"></image>
-        </view>
-        <view class="comment-like-btn">
-          👍 19283
-        </view>
-        <view class="comment-replay-btn">
-          👌
-        </view>
-        <view class="comment-nickname">
-          野山椒鸡杂
-        </view>
-        <view class="comment-datatime">
-          5-18 13:13
-        </view>
-        <view class="comment-content">
-          那就开始继续的生活呗～
-        </view>
-      </view>
-      <view class="comment-bottom">
-        <view class="comment-replay-info">
-          <view class="comment-link">
-            共112条回复 >
-          </view>
-        </view>
-      </view>
-    </view>
-
-    <view class="comment-item">
-      <view class="comment-top">
-        <view class="comment-user-face">
-          <image src="../../resources/share.jpg" background-size="cover"></image>
-        </view>
-        <view class="comment-like-btn">
-          👍 19283
-        </view>
-        <view class="comment-replay-btn">
-          👌
-        </view>
-        <view class="comment-nickname">
-          野山椒鸡杂
-        </view>
-        <view class="comment-datatime">
-          5-18 13:13
-        </view>
-        <view class="comment-content">
-          那就开始继续的生活呗～
-        </view>
-      </view>
-      <view class="comment-bottom">
-        <view class="comment-replay-info">
-          <view class="comment-link">
-            共112条回复 >
-          </view>
-        </view>
-      </view>
-    </view>
-
-    <view class="comment-item">
-      <view class="comment-top">
-        <view class="comment-user-face">
-          <image src="../../resources/share.jpg" background-size="cover"></image>
-        </view>
-        <view class="comment-like-btn">
-          👍 19283
-        </view>
-        <view class="comment-replay-btn">
-          👌
-        </view>
-        <view class="comment-nickname">
-          野山椒鸡杂
-        </view>
-        <view class="comment-datatime">
-          5-18 13:13
-        </view>
-        <view class="comment-content">
-          那就开始继续的生活呗～
-        </view>
-      </view>
-      <view class="comment-bottom">
-        <view class="comment-replay-info">
-          <view class="comment-link">
-            共112条回复 >
+            共{{comment.replay_num}}条回复 >
           </view>
         </view>
       </view>
