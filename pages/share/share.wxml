@@ -12,9 +12,10 @@
             <view class="weui-msg__desc">点击右上角菜单转发到40人以上微信群后将自动完成报名</view>
         </view>
         <view class="weui-msg__opr-area share-wrap">
-            <view class="share-tips" wx:if="{{isShow}}">点击右上角<text class="share-tips-dot"> ... </text>转发到40人以上微信群，转发成功后将完成报名。</view>
+            <!-- <view class="share-tips" wx:if="{{isShow}}">点击右上角<text class="share-tips-dot"> ... </text>转发到40人以上微信群，转发成功后将完成报名。</view> -->
             <view class="weui-btn-area">
-                <button class="weui-btn" bindtap="shareTip" type="primary" hover-class="btn-hover">立即分享，完成报名</button>
+              <!-- bindtap="shareTip" -->
+                <button class="weui-btn"  type="primary" hover-class="btn-hover" open-type="share">立即分享，完成报名</button>
             </view>
         </view>
     </view>

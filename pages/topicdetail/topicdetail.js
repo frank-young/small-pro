@@ -138,11 +138,25 @@ Page({
       }
     })
   },
-  praiseCtrl () {
-    console.log('点赞')
+  praiseCtrl (event) {
+    let index = event.target.dataset.index
+    this.data.comments[index].praise_status = 1
+    setTimeout(() => {
+      console.log('点赞成功')
+      this.setData({
+        comments: this.data.comments
+      })
+    }, 500)
   },
-  cancelPraiseCtrl () {
-    console.log('取消点赞')
+  cancelPraiseCtrl (event) {
+    let index = event.target.dataset.index
+    this.data.comments[index].praise_status = 0
+    setTimeout(() => {
+      console.log('取消点赞成功')
+      this.setData({
+        comments: this.data.comments
+      })
+    }, 500)
   },
   commentCtrl () {
     console.log('评论操作')

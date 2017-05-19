@@ -21,12 +21,13 @@
             <view class="weui-btn-area">
                 <button class="weui-btn btn-line" bindtap="matchQuery" type="primary">匹配查询</button>
             </view>
-        </view>
+        </view>-->
         <view class="weui-msg__opr-area">
             <view class="weui-btn-area">
                 <button class="weui-btn btn-line" bindtap="share" type="primary">分享</button>
             </view>
         </view>
+        <!--
         <view class="weui-msg__opr-area">
             <view class="weui-btn-area">
                 <button class="weui-btn btn-line" bindtap="task" type="primary">任务</button>

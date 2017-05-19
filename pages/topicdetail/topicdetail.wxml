@@ -16,7 +16,7 @@
   </view>
 
   <view class="comment">
-    <view class="comment-item" wx:for="{{comments}}" wx:key="key" wx:for-item="comment">
+    <view class="comment-item" wx:for="{{comments}}" wx:key="key" wx:for-item="comment" wx:for-index="index">
       <view class="comment-top" catchtap="moreCtrl">
         <!-- hover-class="weui-cell_active" -->
         <view class="comment-user-face">
@@ -29,8 +29,22 @@
           {{comment.data_time}}
         </view>
         <view class="comment-like-btn">
-          <image class="icon" hidden="{{comment.praise_status === 1}}" src="../../resources/icons/praise.png" background-size="cover" catchtap="praiseCtrl"></image>
-          <image class="icon" hidden="{{comment.praise_status === 0}}" src="../../resources/icons/praise_active.png" background-size="cover" catchtap="cancelPraiseCtrl"></image>
+          <image class="icon"
+            hidden="{{comment.praise_status === 1}}"
+            data-praise-status="{{comment.praise_status}}"
+            data-index="{{index}}"
+            src="../../resources/icons/praise.png"
+            background-size="cover"
+            catchtap="praiseCtrl">
+          </image>
+          <image class="icon"
+            hidden="{{comment.praise_status === 0}}"
+            data-praise-status="{{comment.praise_status}}"
+            data-index="{{index}}"
+            src="../../resources/icons/praise_active.png"
+            background-size="cover"
+            catchtap="cancelPraiseCtrl">
+          </image>
           {{comment.link_num}}
         </view>
         <view class="comment-replay-btn">
