@@ -7,6 +7,17 @@ Page({
       desc: '假如生活欺骗了你，不要悲伤，不要犹豫，不要心计。悲伤的日子将会过去，快乐的日子将会来临。'
     },
     isLoading: true,
+    comment: {
+      id: 1,
+      topic_id: 1,
+      user_id: 1,
+      link_num: 232,
+      praise_status: 0, // 未点赞
+      nick_name: '野山椒鸡杂',
+      data_time: '5-18 13:13',
+      content: '假如生活欺骗了你',
+      replay_num: '23'
+    },
     comments: [
       {
         id: 1,
@@ -164,12 +175,6 @@ Page({
     console.log('评论操作')
     wx.navigateTo({
       url: '../replay/replay'
-    })
-  },
-  viewReplayCtrl () {
-    console.log('查看回复操作')
-    wx.navigateTo({
-      url: '../replaylist/replaylist'
     })
   }
 })

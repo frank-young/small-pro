@@ -1,0 +1,98 @@
+<view class='topic-detial'>
+  <view class="comment-main">
+    <view class="comment-item">
+      <view class="comment-top" catchtap="moreCtrl">
+        <!-- hover-class="weui-cell_active" -->
+        <view class="comment-user-face">
+          <image src="../../resources/share.jpg" background-size="cover"></image>
+        </view>
+        <view class="comment-nickname">
+          {{comment.nick_name}}
+        </view>
+        <view class="comment-datatime">
+          {{comment.data_time}}
+        </view>
+        <view class="comment-like-btn">
+          <image class="icon"
+            hidden="{{comment.praise_status === 1}}"
+            data-praise-status="{{comment.praise_status}}"
+            data-index="{{index}}"
+            src="../../resources/icons/praise.png"
+            background-size="cover"
+            catchtap="praiseCtrl">
+          </image>
+          <image class="icon"
+            hidden="{{comment.praise_status === 0}}"
+            data-praise-status="{{comment.praise_status}}"
+            data-index="{{index}}"
+            src="../../resources/icons/praise_active.png"
+            background-size="cover"
+            catchtap="cancelPraiseCtrl">
+          </image>
+          {{comment.link_num}}
+        </view>
+        <view class="comment-replay-btn">
+          <image class="icon" src="../../resources/icons/comment.png" background-size="cover" catchtap="commentCtrl"></image>
+        </view>
+        <view class="comment-content">
+          {{comment.content}}
+        </view>
+      </view>
+      <view class="comment-bottom">
+          <view class="comment-link">
+            查看原话题
+          </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="comment">
+    <view class="comment-item" wx:for="{{comments}}" wx:key="key" wx:for-item="comment" wx:for-index="index">
+      <view class="comment-top" catchtap="moreCtrl">
+        <!-- hover-class="weui-cell_active" -->
+        <view class="comment-user-face">
+          <image src="../../resources/share.jpg" background-size="cover"></image>
+        </view>
+        <view class="comment-nickname">
+          {{comment.nick_name}}
+        </view>
+        <view class="comment-datatime">
+          {{comment.data_time}}
+        </view>
+        <view class="comment-like-btn r-40">
+          <image class="icon"
+            hidden="{{comment.praise_status === 1}}"
+            data-praise-status="{{comment.praise_status}}"
+            data-index="{{index}}"
+            src="../../resources/icons/praise.png"
+            background-size="cover"
+            catchtap="praiseCtrl">
+          </image>
+          <image class="icon"
+            hidden="{{comment.praise_status === 0}}"
+            data-praise-status="{{comment.praise_status}}"
+            data-index="{{index}}"
+            src="../../resources/icons/praise_active.png"
+            background-size="cover"
+            catchtap="cancelPraiseCtrl">
+          </image>
+          {{comment.link_num}}
+        </view>
+        <view class="comment-content">
+          {{comment.content}}
+        </view>
+      </view>
+      <view class="comment-bottom">
+      </view>
+    </view>
+    <view class="weui-loadmore" hidden="{{isLoading}}">
+        <view class="weui-loading"></view>
+        <view class="weui-loadmore__tips">正在加载</view>
+    </view>
+  </view>
+  <view class="replay-textarea-wrap">
+    <view class="replay-textarea">
+      回复评论
+    </view>
+  </view>
+</view>

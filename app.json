@@ -38,6 +38,7 @@
     "pages/task/task",
     "pages/topic/topic",
     "pages/topicdetail/topicdetail",
+    "pages/replaylist/replaylist",
     "pages/replay/replay"
   ],
   "window":{
