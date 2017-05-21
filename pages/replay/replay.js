@@ -4,6 +4,6 @@ Page({
   onLoad () {
   },
   submit () {
-    
+
   }
 })
