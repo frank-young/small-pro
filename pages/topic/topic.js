@@ -68,6 +68,13 @@ Page({
         topics: newTopics
       })
     }, 500)
-
+  },
+  move (event) {
+    console.log(event)
+  },
+  createTopic (event) {
+    wx.navigateTo({
+      url: '../addtopic/addtopic'
+    })
   }
 })

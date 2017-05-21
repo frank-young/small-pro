@@ -37,6 +37,7 @@
     "pages/detail/detail",
     "pages/task/task",
     "pages/topic/topic",
+    "pages/addtopic/addtopic",
     "pages/topicdetail/topicdetail",
     "pages/replaylist/replaylist",
     "pages/replay/replay"

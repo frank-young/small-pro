@@ -1,4 +1,4 @@
-<view class='topic'>
+<view class='topic' >
   <block wx:for="{{topics}}" wx:key="key" wx:for-item="topic">
     <navigator url="../topicdetail/topicdetail?id={{topic.id}}" class="topic-item" >
       <image mode="scaleToFill" src="{{topic.src}}"></image>
@@ -12,6 +12,9 @@
       </view>
     </navigator>
   </block>
+  <view class="create-topic" bindtap="createTopic">
+    +
+  </view>
   <view class="weui-loadmore" hidden="{{isLoading}}">
       <view class="weui-loading"></view>
       <view class="weui-loadmore__tips">正在加载</view>

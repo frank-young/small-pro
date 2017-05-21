@@ -1,0 +1,33 @@
+<view class="replay">
+  <form bindsubmit="submit">
+    <textarea class="replay-area" placeholder="这一刻的想法..." name="textarea" auto-focus="true" />
+    <view class="weui-cell">
+        <view class="weui-cell__bd">
+            <view class="weui-uploader">
+                <view class="weui-uploader__hd">
+                    <view class="weui-uploader__title">
+                        选择图片
+                    </view>
+                    <view class="weui-uploader__info">{{files.length}}/9</view>
+                </view>
+                <view class="weui-uploader__bd">
+                    <view class="weui-uploader__files" id="uploaderFiles">
+                        <block wx:for-items="{{files}}" wx:key="{{index}}">
+                            <view class="weui-uploader__file"  catchlongtap="showDeleteBox" id="{{item}}">
+                                <view class="icon-box" hidden="{{isDelete}}" catchtap="deleteImage">
+                                   <icon type="clear" size="22" color="#F43530"></icon>
+                                </view>
+                                <image class="weui-uploader__img" catchtap="previewImage" src="{{item}}" mode="aspectFill" />
+                            </view>
+                        </block>
+                    </view>
+                    <view class="weui-uploader__input-box" hidden="{{disabledUpload}}">
+                        <view class="weui-uploader__input" bindtap="chooseImage"></view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <button class="replay-btn" form-type="submit"> 发送 </button>
+  </form>
+</view>

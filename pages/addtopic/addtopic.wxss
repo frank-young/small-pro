@@ -1,0 +1,13 @@
+.replay {
+  padding: 30rpx;
+}
+.replay-area {
+  height: 340rpx;
+}
+.replay-btn {
+  width: 100%;
+  border-radius: 0;
+}
+.weui-cell {
+  padding: 30rpx 0;
+}
