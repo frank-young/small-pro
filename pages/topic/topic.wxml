@@ -1,13 +1,40 @@
 <view class='topic' >
   <block wx:for="{{topics}}" wx:key="key" wx:for-item="topic">
     <navigator url="../topicdetail/topicdetail?id={{topic.id}}" class="topic-item" >
-      <image mode="scaleToFill" src="{{topic.src}}"></image>
+      <view class="topic-user">
+        <view class="topic-face">
+          <image src="../../resources/share.jpg" background-size="cover"></image>
+        </view>
+        <view class="topic-nickname">
+          {{topic.nick_name}}
+        </view>
+        <view class="topic-sex">
+          <image mode="scaleToFill" src="../../resources/icons/boy.png" wx:if="{{topic.sex === 1}}"></image>
+          <image mode="scaleToFill" src="../../resources/icons/girl.png" wx:if="{{topic.sex === 0}}"></image>
+        </view>
+      </view>
       <view class="topic-text">
         <view class="topic-title">
           {{topic.title}}
         </view>
         <view class="topic-desc">
           {{topic.desc}}
+        </view>
+      </view>
+      <view class="topic-image">
+        <view class="topic-image-item" wx:for="{{topic.src}}" wx:key="key" wx:for-item="img">
+          <image mode="scaleToFill" src="{{img}}"></image>
+        </view>
+      </view>
+      <view class="topic-info">
+        <view class="topic-praise">
+          90赞
+        </view>
+        <view class="topic-comment">
+          108评论
+        </view>
+        <view class="topic-time">
+          3分钟前
         </view>
       </view>
     </navigator>

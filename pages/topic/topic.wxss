@@ -1,55 +1,117 @@
+/* #FF6384 */
 .topic {
-  padding: 40rpx;
+  padding: 20rpx 0;
 }
 
 .topic-item {
+  position: relative;
   background-color: #fff;
-  box-shadow: 8rpx 8rpx 20rpx #ddd;
-  border-radius: 3px;
   overflow: hidden;
-  margin-bottom: 40rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2px 5px #eee;
+}
+.topic-item:before,
+.topic-item:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2rpx;
+  background-color: #ddd;
+  -webkit-transform: scale3d(1,.3, 1);
+  transform: scale3d(1,.3, 1);
+}
+.topic-item:before {
+  top: 0;
+}
+.topic-item:after {
+  bottom: 0;
 }
 
-.topic-item image {
+.topic-user {
+  padding: 30rpx 30rpx 0 30rpx;
+}
+.topic-user:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+.topic-face {
+  float: left;
+}
+.topic-face image{
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+
+}
+.topic-nickname {
+  float: left;
+  font-size: 13px;
+  margin: 0 15rpx;
+  max-width: 400rpx;
+  margin-top: 2rpx;
+  color: #888;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.topic-sex {
+  float: left;
+  margin-top: -2rpx;
+}
+
+.topic-sex image {
+  width: 26rpx;
+  height: 26rpx;
+}
+
+.topic-image {
+  padding: 0 30rpx;
+}
+.topic-image:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+.topic-image-item  {
+  width: 33.333%;
+  padding: 0 20rpx 0 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  float: left;
+}
+.topic-image image {
   width: 100%;
-  height:36vw;
+  height:28vw;
   margin: 0;
+  border-radius: 3px;
 }
 
 .topic-text {
-  margin: -15rpx 0 0 0;
-  padding: 0 40rpx;
-  border-left: 6rpx solid #ff605d;
+  margin: 0;
+  padding: 0 30rpx;
 }
 
 .topic-title {
   position: relative;
-  padding: 30rpx 0 10rpx 0;
+  padding: 10rpx 0 20rpx 0;
   font-size: 16px;
+  line-height: 16px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   color: #333;
 }
-.topic-title:after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  display: block;
-  width: 100%;
-  height: 1px;
-  background-color: #ddd;
-  transform: scale(1, .3);
-}
 
 .topic-desc {
-  line-height: 1.7em;
-  padding: 10rpx 0 25rpx 0;
-  font-size: 12px;
+  padding: 0rpx 0 25rpx 0;
+  font-size: 13px;
+  line-height: 13px;
+  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  color: #888;
+  color: #666;
 }
 
 .weui-loadmore__tips {
@@ -72,4 +134,31 @@
   font-size: 40px;
   font-weight: 100;
   box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+.topic-info {
+  padding: 5rpx 30rpx 20rpx 30rpx;
+}
+.topic-info:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.topic-praise,
+.topic-comment,
+.topic-time {
+  float: left;
+  font-size: 13px;
+  margin-right: 20rpx;
+  color: #888;
+}
+
+.topic-praise {
+
+}
+.topic-comment {
+
+}
+.topic-time {
+
 }

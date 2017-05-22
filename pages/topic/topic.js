@@ -3,25 +3,37 @@ Page({
     topics: [
       {
         id: 1,
-        src: '../../resources/topic.jpg',
+        nick_name: '小文',
+        avatar: '../../resources/share.jpg',
+        sex: 1,
+        src: ['../../resources/topic.jpg','../../resources/topic.jpg','../../resources/topic.jpg'],
         title: '如果在有一天',
         desc: '假如生活欺骗了你，不要悲伤，不要犹豫，不要心计。悲伤的日子将会过去，快乐的日子将会来临。'
       },
       {
         id: 2,
-        src: '../../resources/topic.jpg',
+        nick_name: '小文',
+        avatar: '../../resources/share.jpg',
+        sex: 0,
+        src: ['../../resources/topic.jpg'],
         title: '如果在有一天',
         desc: '假如生活欺骗了你，不要悲伤，不要犹豫，不要心计。'
       },
       {
         id: 3,
-        src: '../../resources/topic.jpg',
+        nick_name: '小文',
+        avatar: '../../resources/share.jpg',
+        sex: 0,
+        src: [],
         title: '如果在有一天',
         desc: '假如生活欺骗了你，不要悲伤，不要犹豫。悲伤的日子将会过去，快乐的日子将会来临。悲伤的日子将会过去，快乐的日子将会来临。悲伤的日子将会过去，快乐的日子将会来临。'
       },
       {
         id: 4,
-        src: '../../resources/topic.jpg',
+        nick_name: '小文',
+        avatar: '../../resources/share.jpg',
+        sex: 1,
+        src: ['../../resources/topic.jpg','../../resources/topic.jpg','../../resources/topic.jpg'],
         title: '如果在有一天',
         desc: '假如生活欺骗了你，不要悲伤，不要犹豫，不要心计。悲伤的日子将会过去，快乐的日子将会来临。'
       }
@@ -35,7 +47,7 @@ Page({
     setTimeout(() => {
       let arr = [{
         id: 5,
-        src: '../../resources/topic.jpg',
+        src: ['../../resources/topic.jpg'],
         title: '刷新的数据',
         desc: '这是刷新的数据00'
       }]
@@ -58,7 +70,7 @@ Page({
     setTimeout(() => {
       let arr = [{
         id: 5,
-        src: '../../resources/topic.jpg',
+        src: ['../../resources/topic.jpg'],
         title: '加载的数据',
         desc: '假如生活欺骗了你，不要悲伤，不要犹豫，不要心计。'
       }]
