@@ -5,7 +5,7 @@
         {{topic.title}}
       </view>
       <view class="topic-desc">
-        {{topic.desc}}
+        {{topic.description}}
       </view>
     </view>
   </view>

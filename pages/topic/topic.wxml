@@ -3,14 +3,14 @@
     <navigator url="../topicdetail/topicdetail?id={{topic.id}}" class="topic-item" >
       <view class="topic-user">
         <view class="topic-face">
-          <image src="../../resources/share.jpg" background-size="cover"></image>
+          <image src="{{topic.user.avatarUrl}}" background-size="cover"></image>
         </view>
         <view class="topic-nickname">
-          {{topic.nick_name}}
+          {{topic.user.nickName}}
         </view>
         <view class="topic-sex">
-          <image mode="scaleToFill" src="../../resources/icons/boy.png" wx:if="{{topic.sex === 1}}"></image>
-          <image mode="scaleToFill" src="../../resources/icons/girl.png" wx:if="{{topic.sex === 0}}"></image>
+          <image mode="scaleToFill" src="../../resources/icons/boy.png" wx:if="{{topic.user.gender === 1}}"></image>
+          <image mode="scaleToFill" src="../../resources/icons/girl.png" wx:if="{{topic.user.gender === 0}}"></image>
         </view>
       </view>
       <view class="topic-text">
@@ -18,7 +18,7 @@
           {{topic.title}}
         </view>
         <view class="topic-desc">
-          {{topic.desc}}
+          {{topic.description}}
         </view>
       </view>
       <view class="topic-image">
@@ -28,13 +28,14 @@
       </view>
       <view class="topic-info">
         <view class="topic-praise">
-          90赞
+          {{topic.praise_num}}赞
         </view>
         <view class="topic-comment">
-          108评论
+          {{topic.comment_num}}评论
         </view>
         <view class="topic-time">
-          3分钟前
+
+          {{formatDate}}
         </view>
       </view>
     </navigator>

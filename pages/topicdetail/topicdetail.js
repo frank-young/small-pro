@@ -1,11 +1,8 @@
+import Config from '../../utils/config.js'
+
 Page({
   data: {
-    topic: {
-      id: 1,
-      src: '../../resources/topic.jpg',
-      title: '如果在有一天',
-      desc: '假如生活欺骗了你，不要悲伤，不要犹豫，不要心计。悲伤的日子将会过去，快乐的日子将会来临。'
-    },
+    topic: {},
     isLoading: true,
     comments: [
       {
@@ -98,8 +95,33 @@ Page({
       }
     ]
   },
-  onLoad () {
-
+  onLoad (options) {
+    console.log(options.id)
+    this.getTopic(options.id)
+  },
+  /*
+   * 获取话题详情
+   */
+  getTopic (id) {
+    let that = this
+    that.setData({
+      isLoading: false
+    })
+    wx.request({
+      url: Config.host + 'topic/show',
+      data: {
+        session_key: wx.getStorageSync('session_key'),
+        id: id
+      },
+      method: 'POST',
+      header: {'content-type':'application/x-www-form-urlencoded'},
+      success (res){
+        that.setData({
+          topic: res.data.bizContent,
+          isLoading: true
+        })
+      }
+    })
   },
   onPullDownRefresh (){
     setTimeout(() => {

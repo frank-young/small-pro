@@ -1,85 +1,81 @@
+import Config from '../../utils/config.js'
+
 Page({
   data: {
-    topics: [
-      {
-        id: 1,
-        nick_name: '小文',
-        avatar: '../../resources/share.jpg',
-        sex: 1,
-        src: ['../../resources/topic.jpg','../../resources/topic.jpg','../../resources/topic.jpg'],
-        title: '如果在有一天',
-        desc: '假如生活欺骗了你，不要悲伤，不要犹豫，不要心计。悲伤的日子将会过去，快乐的日子将会来临。'
-      },
-      {
-        id: 2,
-        nick_name: '小文',
-        avatar: '../../resources/share.jpg',
-        sex: 0,
-        src: ['../../resources/topic.jpg'],
-        title: '如果在有一天',
-        desc: '假如生活欺骗了你，不要悲伤，不要犹豫，不要心计。'
-      },
-      {
-        id: 3,
-        nick_name: '小文',
-        avatar: '../../resources/share.jpg',
-        sex: 0,
-        src: [],
-        title: '如果在有一天',
-        desc: '假如生活欺骗了你，不要悲伤，不要犹豫。悲伤的日子将会过去，快乐的日子将会来临。悲伤的日子将会过去，快乐的日子将会来临。悲伤的日子将会过去，快乐的日子将会来临。'
-      },
-      {
-        id: 4,
-        nick_name: '小文',
-        avatar: '../../resources/share.jpg',
-        sex: 1,
-        src: ['../../resources/topic.jpg','../../resources/topic.jpg','../../resources/topic.jpg'],
-        title: '如果在有一天',
-        desc: '假如生活欺骗了你，不要悲伤，不要犹豫，不要心计。悲伤的日子将会过去，快乐的日子将会来临。'
-      }
-    ],
-    isLoading: true
+    topics: [],
+    isLoading: true,
+    offset: 0,
+    limit: 5
   },
   onLoad () {
-
+    this.getTopics(this.data.offset, this.data.limit)
   },
+  /*
+   * 获取话题
+   */
+  getTopics (offset, limit) {
+    let that = this
+    that.setData({
+      isLoading: false
+    })
+    wx.request({
+      url: Config.host + 'topic',
+      data: {
+        session_key: wx.getStorageSync('session_key'),
+        offset: offset,
+        limit: limit
+      },
+      method: 'POST',
+      header: {'content-type':'application/x-www-form-urlencoded'},
+      success (res){
+        let topics = []
+        topics = that.data.topics
+        topics.push(...res.data.bizContent)
+        that.setData({
+          topics: topics,
+          isLoading: true,
+          offset: offset + limit
+        })
+      }
+    })
+  },
+  /*
+   *  刷新话题
+   */
+  refreshTopics (offset, limit) {
+    let that = this
+    that.setData({
+      isLoading: false
+    })
+    wx.request({
+      url: Config.host + 'topic',
+      data: {
+        session_key: wx.getStorageSync('session_key'),
+        offset: offset,
+        limit: limit
+      },
+      method: 'POST',
+      header: {'content-type':'application/x-www-form-urlencoded'},
+      success (res){
+        that.setData({
+          topics: res.data.bizContent,
+          isLoading: true,
+          offset: offset + limit
+        })
+      }
+    })
+  },
+  // formatDate (d) {
+  // },
   onPullDownRefresh (){
-    setTimeout(() => {
-      let arr = [{
-        id: 5,
-        src: ['../../resources/topic.jpg'],
-        title: '刷新的数据',
-        desc: '这是刷新的数据00'
-      }]
-      let newTopics = arr.concat(this.data.topics)
-      // wx.showToast({
-      //   title: '刷新成功',
-      //   icon: 'success',
-      //   duration: 1000
-      // })
-      this.setData({
-        topics: newTopics
-      })
-      wx.stopPullDownRefresh()
-    }, 800)
+    this.refreshTopics(0, 5)
+    wx.stopPullDownRefresh()
   },
   onReachBottom () {
     this.setData({
       isLoading: false
     })
-    setTimeout(() => {
-      let arr = [{
-        id: 5,
-        src: ['../../resources/topic.jpg'],
-        title: '加载的数据',
-        desc: '假如生活欺骗了你，不要悲伤，不要犹豫，不要心计。'
-      }]
-      let newTopics = this.data.topics.concat(arr)
-      this.setData({
-        isLoading: true,
-        topics: newTopics
-      })
-    }, 500)
+    this.getTopics(this.data.offset, this.data.limit)
   },
   move (event) {
     console.log(event)
