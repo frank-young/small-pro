@@ -23,6 +23,23 @@ function verify (v) {
   return res;
 }
 
+function commentVerify (v) {
+  let res = {}
+  if (v === '') {
+    res = returnErr('评论内容不能为空')
+  } else if (v.length < 2) {
+    res = returnErr('评论内容2个字以上')
+  }  else if (v.length > 200) {
+    res = returnErr('评论内容200个字以内')
+  } else {
+    res = {
+      status: true,
+      text: '成功'
+    }
+  }
+  return res;
+}
+
 function returnErr (text){
   return {
     status: false,
@@ -31,5 +48,6 @@ function returnErr (text){
 }
 
 module.exports = {
-  verify
+  verify,
+  commentVerify
 }

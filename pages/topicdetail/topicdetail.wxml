@@ -1,5 +1,5 @@
 <view class='topic-detial'>
-  <view class="topic-item" >
+  <!-- <view class="topic-item" >
     <view class="topic-text">
       <view class="topic-title">
         {{topic.title}}
@@ -8,25 +8,80 @@
         {{topic.description}}
       </view>
     </view>
-  </view>
+  </view> -->
+  <navigator url="../topicdetail/topicdetail?id={{topic.id}}" class="topic-item" >
+    <!-- <view class="topic-user">
+      <view class="topic-face">
+        <image src="{{topic.user.avatarUrl}}" background-size="cover"></image>
+      </view>
+      <view class="topic-nickname">
+        {{topic.user.nickName}}
+      </view>
+      <view class="topic-sex">
+        <image mode="scaleToFill" src="../../resources/icons/boy.png" wx:if="{{topic.user.gender === 1}}"></image>
+        <image mode="scaleToFill" src="../../resources/icons/girl.png" wx:if="{{topic.user.gender === 0}}"></image>
+      </view>
+    </view> -->
+    <view class="comment-top" catchtap="moreCtrl">
+      <!-- hover-class="weui-cell_active" -->
+      <view class="comment-user-face">
+        <image src="{{topic.user.avatarUrl}}" background-size="cover"></image>
+      </view>
+      <view class="comment-nickname">
+        <view class="topic-nickname">
+          {{topic.user.nickName}}
+        </view>
+        <view class="topic-sex">
+          <image mode="scaleToFill" src="../../resources/icons/boy.png" wx:if="{{topic.user.gender === 1}}"></image>
+          <image mode="scaleToFill" src="../../resources/icons/girl.png" wx:if="{{topic.user.gender === 0}}"></image>
+        </view>
+      </view>
+      <view class="comment-datatime">
+        {{topic.created_at}}
+      </view>
+    </view>
+    <view class="topic-text">
+      <view class="topic-title">
+        {{topic.title}}
+      </view>
+      <view class="topic-desc">
+        {{topic.description}}
+      </view>
+    </view>
+    <view class="topic-image">
+      <view class="topic-image-item" wx:for="{{topic.src}}" wx:key="key" wx:for-item="img">
+        <image mode="scaleToFill" src="{{img}}"></image>
+      </view>
+    </view>
+  </navigator>
+
   <view class="comment-total-num">
     <view class="comment-total-text">
-        讨论 1003
+        评论 {{topic.comment_num}}
     </view>
   </view>
 
   <view class="comment">
+    <view class="comment-empty" wx:if="{{comments.length == 0}}">
+      暂无评论
+    </view>
     <view class="comment-item" wx:for="{{comments}}" wx:key="key" wx:for-item="comment" wx:for-index="index">
       <view class="comment-top" catchtap="moreCtrl">
         <!-- hover-class="weui-cell_active" -->
         <view class="comment-user-face">
-          <image src="../../resources/share.jpg" background-size="cover"></image>
+          <image src="{{topic.user.avatarUrl}}" background-size="cover"></image>
         </view>
         <view class="comment-nickname">
-          {{comment.nick_name}}
+          <view class="topic-nickname">
+            {{topic.user.nickName}}
+          </view>
+          <view class="topic-sex">
+            <image mode="scaleToFill" src="../../resources/icons/boy.png" wx:if="{{topic.user.gender === 1}}"></image>
+            <image mode="scaleToFill" src="../../resources/icons/girl.png" wx:if="{{topic.user.gender === 0}}"></image>
+          </view>
         </view>
         <view class="comment-datatime">
-          {{comment.data_time}}
+          {{comment.created_at}}
         </view>
         <view class="comment-like-btn">
           <image class="icon"
@@ -63,7 +118,29 @@
       </view>
     </view>
   </view>
-
+  <view class="foot-ctrl-wrap">
+    <view class="foot-praise">
+      <image class="icon"
+        hidden="{{topicpraise.praise_status === 1}}"
+        data-praise-status="{{topicpraise.praise_status}}"
+        src="../../resources/icons/praise.png"
+        background-size="cover"
+        catchtap="topicPraiseCtrl">
+      </image>
+      <image class="icon"
+        hidden="{{topicpraise.praise_status === 0}}"
+        data-praise-status="{{topicpraise.praise_status}}"
+        src="../../resources/icons/praise_active.png"
+        background-size="cover"
+        catchtap="topicCancelPraiseCtrl">
+      </image>
+      {{topic.praise_num}} 点赞
+    </view>
+    <view class="foot-comment" catchtap="topicCommentCtrl">
+      <image class="icon" src="../../resources/icons/comment.png" background-size="cover"></image>
+      评论
+    </view>
+  </view>
   <view class="weui-loadmore" hidden="{{isLoading}}">
       <view class="weui-loading"></view>
       <view class="weui-loadmore__tips">正在加载</view>

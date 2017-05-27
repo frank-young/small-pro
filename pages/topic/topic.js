@@ -8,7 +8,10 @@ Page({
     limit: 5
   },
   onLoad () {
-    this.getTopics(this.data.offset, this.data.limit)
+    // this.getTopics(this.data.offset, this.data.limit)
+  },
+  onShow () {
+    this.refreshTopics(0, 10)
   },
   /*
    * 获取话题

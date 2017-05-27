@@ -3,101 +3,26 @@ import Config from '../../utils/config.js'
 Page({
   data: {
     topic: {},
+    id: null,
     isLoading: true,
-    comments: [
-      {
-        id: 1,
-        topic_id: 1,
-        user_id: 1,
-        link_num: 232,
-        praise_status: 0, // 未点赞
-        nick_name: '野山椒鸡杂',
-        data_time: '5-18 13:13',
-        content: '假如生活欺骗了你',
-        replay_num: '23'
-      },
-      {
-        id: 2,
-        topic_id: 1,
-        user_id: 2,
-        link_num: 133,
-        praise_status: 1,
-        nick_name: '左右手',
-        data_time: '5-18 18:19',
-        content: '人生就是如此，会经历很多人，很多事，到最后，你会发现谁还在。',
-        replay_num: '123'
-      },
-      {
-        id: 3,
-        topic_id: 1,
-        user_id: 3,
-        link_num: 67,
-        praise_status: 0,
-        nick_name: '小文',
-        data_time: '5-18 23:33',
-        content: '人生就是如此，会经历很多人，很多事，到最后，你会发现谁还在。',
-        replay_num: '343'
-      },
-      {
-        id: 3,
-        topic_id: 1,
-        user_id: 3,
-        link_num: 67,
-        praise_status: 0,
-        nick_name: '小文',
-        data_time: '5-18 23:33',
-        content: '人生就是如此，会经历很多人，很多事，到最后，你会发现谁还在。',
-        replay_num: '343'
-      },
-      {
-        id: 3,
-        topic_id: 1,
-        user_id: 3,
-        link_num: 67,
-        praise_status: 0,
-        nick_name: '小文',
-        data_time: '5-18 23:33',
-        content: '人生就是如此，会经历很多人，很多事，到最后，你会发现谁还在。',
-        replay_num: '343'
-      },
-      {
-        id: 3,
-        topic_id: 1,
-        user_id: 3,
-        link_num: 67,
-        praise_status: 0,
-        nick_name: '小文',
-        data_time: '5-18 23:33',
-        content: '人生就是如此，会经历很多人，很多事，到最后，你会发现谁还在。',
-        replay_num: '343'
-      },
-      {
-        id: 3,
-        topic_id: 1,
-        user_id: 3,
-        link_num: 67,
-        praise_status: 0,
-        nick_name: '小文',
-        data_time: '5-18 23:33',
-        content: '人生就是如此，会经历很多人，很多事，到最后，你会发现谁还在。',
-        replay_num: '343'
-      },
-      {
-        id: 3,
-        topic_id: 1,
-        user_id: 3,
-        link_num: 67,
-        praise_status: 0,
-        nick_name: '小文',
-        data_time: '5-18 23:33',
-        content: '人生就是如此，会经历很多人，很多事，到最后，你会发现谁还在。',
-        replay_num: '343'
-      }
-    ]
+    comments: [],
+    offset: 0,
+    limit: 10,
+    topicpraise: {
+      praise_status: 0
+    }
   },
   onLoad (options) {
-    console.log(options.id)
-    this.getTopic(options.id)
+    this.setData({
+      id: options.id
+    })
+    // this.getTopic(options.id)
+    // this.getComments(options.id, this.data.offset, this.data.limit)
+  },
+  onShow () {
+    this.getTopic(this.data.id)
+    this.refreComments(this.data.id, 0, 10)
+    this.getTopicPraiseStatus(this.data.id)
   },
   /*
    * 获取话题详情
@@ -123,26 +48,88 @@ Page({
       }
     })
   },
+  /*
+   * 获取话题评论
+   */
+  getComments (topic_id, offset, limit) {
+    let that = this
+    that.setData({
+      isLoading: false
+    })
+    wx.request({
+      url: Config.host + 'comment/index',
+      data: {
+        session_key: wx.getStorageSync('session_key'),
+        topic_id,
+        offset,
+        limit
+      },
+      method: 'POST',
+      header: {'content-type':'application/x-www-form-urlencoded'},
+      success (res){
+        let comments = []
+        comments = that.data.comments
+        comments.push(...res.data.bizContent)
+        that.setData({
+          comments,
+          isLoading: true,
+          offset: offset + limit
+        })
+      }
+    })
+  },
+  /*
+   *  刷新话题评论
+   */
+  refreComments (topic_id, offset, limit) {
+    let that = this
+    wx.request({
+      url: Config.host + 'comment/index',
+      data: {
+        session_key: wx.getStorageSync('session_key'),
+        topic_id,
+        offset,
+        limit
+      },
+      method: 'POST',
+      header: {'content-type':'application/x-www-form-urlencoded'},
+      success (res){
+        that.setData({
+          comments: res.data.bizContent,
+          offset: offset + limit
+        })
+      }
+    })
+  },
+  /*
+   * 点赞状态
+   */
+  getTopicPraiseStatus (topic_id) {
+    let that = this
+    wx.request({
+      url: Config.host + 'topicpraise/status',
+      data: {
+        session_key: wx.getStorageSync('session_key'),
+        topic_id,
+      },
+      method: 'POST',
+      header: {'content-type':'application/x-www-form-urlencoded'},
+      success (res){
+        that.setData({
+          topicpraise: res.data.bizContent
+        })
+      }
+    })
+  },
   onPullDownRefresh (){
-    setTimeout(() => {
-      wx.showToast({
-        title: '刷新成功',
-        icon: 'success',
-        duration: 1000
-      })
-
-      wx.stopPullDownRefresh()
-    }, 800)
+    this.refreComments(this.data.id, 0, 10)
+    wx.stopPullDownRefresh()
   },
   onReachBottom () {
     this.setData({
       isLoading: false
     })
-    setTimeout(() => {
-      this.setData({
-        isLoading: true
-      })
-    }, 500)
+    this.getComments(this.data.id, this.data.offset, this.data.limit)
   },
   moreCtrl () {
     wx.showActionSheet({
@@ -181,6 +168,18 @@ Page({
         comments: this.data.comments
       })
     }, 500)
+  },
+  topicPraiseCtrl () {
+
+  },
+  topicCancelPraiseCtrl () {
+
+  },
+  // 话题评论
+  topicCommentCtrl () {
+    wx.navigateTo({
+      url: '../comment/comment?topic_id=' + this.data.topic.id
+    })
   },
   commentCtrl () {
     console.log('评论操作')

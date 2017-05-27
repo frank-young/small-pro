@@ -1,31 +1,54 @@
 .topic-detial {
-  /*padding: 40rpx;*/
+  padding-bottom: 120rpx;
 }
 
+/*
+ *  用户头像
+ */
+ .topic-nickname {
+   float: left;
+   font-size: 13px;
+   margin: 0 15rpx 0 0;
+   max-width: 400rpx;
+   color: #888;
+   white-space: nowrap;
+   text-overflow: ellipsis;
+   overflow: hidden;
+ }
+
+ .topic-sex {
+   float: left;
+   margin-top: 4rpx;
+ }
+
+ .topic-sex image {
+   width: 26rpx;
+   height: 26rpx;
+ }
+
+/*模块*/
 .topic-item {
   background-color: #fff;
-  box-shadow: 8rpx 8rpx 20rpx #ddd;
-  border-radius: 3px;
+  box-shadow: 0 2px 5px #eee;
   overflow: hidden;
   margin-bottom: 40rpx;
 }
 
 .topic-text {
   margin: 0;
-  padding: 0 40rpx;
-  border-left: 6rpx solid #ff605d;
+  padding: 0 30rpx;
 }
 
 .topic-title {
   position: relative;
-  padding: 30rpx 0 10rpx 0;
+  padding: 10rpx 0 10rpx 0;
   font-size: 16px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   color: #333;
 }
-.topic-title:after {
+/*.topic-title:after {
   content: '';
   position: absolute;
   left: 0;
@@ -35,11 +58,11 @@
   height: 1px;
   background-color: #ddd;
   transform: scale(1, .3);
-}
+}*/
 
 .topic-desc {
   line-height: 1.7em;
-  padding: 10rpx 0 30rpx 0;
+  padding: 0rpx 0 30rpx 0;
   font-size: 12px;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -81,6 +104,13 @@
   background-color: #fff;
   margin-top: 40rpx;
 }
+
+.comment-empty {
+  padding: 30rpx;
+  text-align: center;
+  color: #919191;
+}
+
 .comment-item {
 
 }
@@ -104,9 +134,14 @@
   height: 80rpx;
 }
 .comment-nickname {
-  margin-top: 3rpx;
+  /*margin-top: 3rpx;*/
   font-size: 13px;
   color: #333;
+}
+.comment-nickname:after {
+  content: '';
+  display: block;
+  clear: both;
 }
 .comment-datatime {
   font-size: 11px;
@@ -173,4 +208,57 @@
   line-height: 12px;
   color: #4b7494;
   font-size: 13px;
+}
+
+/*底部点餐、评论操作*/
+.foot-ctrl-wrap {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 20;
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  background-color: #fff;
+}
+.foot-ctrl-wrap:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 1px;
+  background: #ddd;
+  transform: scale(1, .3);
+}
+.foot-ctrl-wrap:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+.foot-praise,
+.foot-comment {
+  position: relative;
+  float: left;
+  width: 50%;
+  color: #919191;
+  text-align: center;
+  font-size: 14px;
+}
+
+.foot-praise {
+
+}
+.foot-praise:after {
+  content: '';
+  position: absolute;
+  top: 30rpx;
+  right: 0;
+  width: 1px;
+  height: 40rpx;
+  background: #ddd;
+  transform: scale(.3, 1);
+}
+
+.foot-comment {
+
 }
