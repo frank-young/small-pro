@@ -1,7 +1,7 @@
 {
   "backgroundTextStyle":"dark",
   "navigationBarBackgroundColor": "#ff605d",
-  "navigationBarTitleText": "话题",
+  "navigationBarTitleText": "回复",
   "navigationBarTextStyle":"white",
   "enablePullDownRefresh": true
 }

@@ -100,10 +100,10 @@
             background-size="cover"
             catchtap="cancelPraiseCtrl">
           </image>
-          {{comment.link_num}}
+          {{comment.praise_num}}
         </view>
         <view class="comment-replay-btn">
-          <image class="icon" src="../../resources/icons/comment.png" background-size="cover" catchtap="commentCtrl"></image>
+          <image class="icon" src="../../resources/icons/comment.png" background-size="cover" data-comment-id="{{comment.id}}" catchtap="replayCtrl"></image>
         </view>
         <view class="comment-content">
           {{comment.content}}
@@ -119,20 +119,23 @@
     </view>
   </view>
   <view class="foot-ctrl-wrap">
-    <view class="foot-praise">
+    <view class="foot-praise"
+      hidden="{{topicpraise.praise_status === 1}}"
+      catchtap="topicPraiseCtrl"
+      data-praise-status="{{topicpraise.praise_status}}">
       <image class="icon"
-        hidden="{{topicpraise.praise_status === 1}}"
-        data-praise-status="{{topicpraise.praise_status}}"
         src="../../resources/icons/praise.png"
-        background-size="cover"
-        catchtap="topicPraiseCtrl">
+        background-size="cover">
       </image>
+      {{topic.praise_num}} 点赞
+    </view>
+    <view class="foot-praise"
+      hidden="{{topicpraise.praise_status === 0}}"
+      catchtap="topicCancelPraiseCtrl"
+      data-praise-status="{{topicpraise.praise_status}}">
       <image class="icon"
-        hidden="{{topicpraise.praise_status === 0}}"
-        data-praise-status="{{topicpraise.praise_status}}"
         src="../../resources/icons/praise_active.png"
-        background-size="cover"
-        catchtap="topicCancelPraiseCtrl">
+        background-size="cover">
       </image>
       {{topic.praise_num}} 点赞
     </view>

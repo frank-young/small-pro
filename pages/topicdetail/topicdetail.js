@@ -121,6 +121,50 @@ Page({
       }
     })
   },
+  // 点赞操作
+  topicPraiseCtrl () {
+    let that = this
+    wx.request({
+      url: Config.host + 'topicpraise/agree',
+      data: {
+        session_key: wx.getStorageSync('session_key'),
+        topic_id: this.data.id
+      },
+      method: 'POST',
+      header: {'content-type':'application/x-www-form-urlencoded'},
+      success (res){
+        that.getTopicPraiseStatus(that.data.id)
+        that.getTopic(that.data.id)
+        that.setData({
+          topicpraise: {
+            praise_status: 1
+          }
+        })
+      }
+    })
+  },
+  // 取消点赞操作
+  topicCancelPraiseCtrl () {
+    let that = this
+    wx.request({
+      url: Config.host + 'topicpraise/cancel',
+      data: {
+        session_key: wx.getStorageSync('session_key'),
+        topic_id: this.data.id
+      },
+      method: 'POST',
+      header: {'content-type':'application/x-www-form-urlencoded'},
+      success (res){
+        that.getTopicPraiseStatus(that.data.id)
+        that.getTopic(that.data.id)
+        that.setData({
+          topicpraise: {
+            praise_status: 0
+          }
+        })
+      }
+    })
+  },
   onPullDownRefresh (){
     this.refreComments(this.data.id, 0, 10)
     wx.stopPullDownRefresh()
@@ -169,22 +213,17 @@ Page({
       })
     }, 500)
   },
-  topicPraiseCtrl () {
-
-  },
-  topicCancelPraiseCtrl () {
-
-  },
   // 话题评论
   topicCommentCtrl () {
     wx.navigateTo({
       url: '../comment/comment?topic_id=' + this.data.topic.id
     })
   },
-  commentCtrl () {
-    console.log('评论操作')
+  // 回复评论操作
+  replayCtrl (event) {
+    let id = event.target.dataset.commentId
     wx.navigateTo({
-      url: '../replay/replay'
+      url: '../replay/replay?comment_id=' + id
     })
   },
   viewReplayCtrl () {
