@@ -4,10 +4,10 @@
       <view class="comment-top" catchtap="moreCtrl">
         <!-- hover-class="weui-cell_active" -->
         <view class="comment-user-face">
-          <image src="../../resources/share.jpg" background-size="cover"></image>
+          <image src="{{comment.user.avatarUrl}}" background-size="cover"></image>
         </view>
         <view class="comment-nickname">
-          {{comment.nickName}}
+          {{comment.user.nickName}}
         </view>
         <view class="comment-datatime">
           {{comment.created_at}}
