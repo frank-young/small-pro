@@ -7,10 +7,10 @@
           <image src="../../resources/share.jpg" background-size="cover"></image>
         </view>
         <view class="comment-nickname">
-          {{comment.nick_name}}
+          {{comment.nickName}}
         </view>
         <view class="comment-datatime">
-          {{comment.data_time}}
+          {{comment.created_at}}
         </view>
         <view class="comment-like-btn">
           <image class="icon"
@@ -47,17 +47,17 @@
   </view>
 
   <view class="comment">
-    <view class="comment-item" wx:for="{{comments}}" wx:key="key" wx:for-item="comment" wx:for-index="index">
+    <view class="comment-item" wx:for="{{replayComments}}" wx:key="key" wx:for-item="comment" wx:for-index="index">
       <view class="comment-top" catchtap="moreCtrl">
         <!-- hover-class="weui-cell_active" -->
         <view class="comment-user-face">
-          <image src="../../resources/share.jpg" background-size="cover"></image>
+          <image src="{{comment.user.avatarUrl}}" background-size="cover"></image>
         </view>
         <view class="comment-nickname">
-          {{comment.nick_name}}
+          {{comment.user.nickName}}
         </view>
         <view class="comment-datatime">
-          {{comment.data_time}}
+          {{comment.created_at}}
         </view>
         <view class="comment-like-btn r-40">
           <image class="icon"
@@ -76,7 +76,7 @@
             background-size="cover"
             catchtap="cancelPraiseCtrl">
           </image>
-          {{comment.link_num}}
+          {{comment.praise_num}}
         </view>
         <view class="comment-content">
           {{comment.content}}
@@ -92,7 +92,7 @@
   </view>
   <view class="replay-textarea-wrap">
     <view class="replay-textarea">
-      回复评论2
+      回复评论
     </view>
   </view>
 </view>

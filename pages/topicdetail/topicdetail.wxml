@@ -110,7 +110,7 @@
         </view>
       </view>
       <view class="comment-bottom">
-        <view class="comment-replay-info" wx:if="{{comment.replay_num > 0}}" bindtap="viewReplayCtrl">
+        <view class="comment-replay-info" wx:if="{{comment.replay_num > 0}}" data-comment-id="{{comment.id}}" bindtap="viewReplayCtrl">
           <view class="comment-link">
             共{{comment.replay_num}}条回复 >
           </view>

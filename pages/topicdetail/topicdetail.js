@@ -21,7 +21,7 @@ Page({
   },
   onShow () {
     this.getTopic(this.data.id)
-    this.refreComments(this.data.id, 0, 10)
+    this.refreshComments(this.data.id, 0, 10)
     this.getTopicPraiseStatus(this.data.id)
   },
   /*
@@ -81,7 +81,7 @@ Page({
   /*
    *  刷新话题评论
    */
-  refreComments (topic_id, offset, limit) {
+  refreshComments (topic_id, offset, limit) {
     let that = this
     wx.request({
       url: Config.host + 'comment/index',
@@ -166,7 +166,7 @@ Page({
     })
   },
   onPullDownRefresh (){
-    this.refreComments(this.data.id, 0, 10)
+    this.refreshComments(this.data.id, 0, 10)
     wx.stopPullDownRefresh()
   },
   onReachBottom () {
@@ -226,10 +226,10 @@ Page({
       url: '../replay/replay?comment_id=' + id
     })
   },
-  viewReplayCtrl () {
-    console.log('查看回复操作')
+  viewReplayCtrl (event) {
+    let id = event.target.dataset.commentId
     wx.navigateTo({
-      url: '../replaylist/replaylist'
+      url: '../replaylist/replaylist?comment_id=' + id
     })
   }
 })
