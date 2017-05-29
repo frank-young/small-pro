@@ -1,7 +1,7 @@
 <view class='topic-detial'>
   <view class="comment-main">
     <view class="comment-item">
-      <view class="comment-top" catchtap="moreCtrl">
+      <view class="comment-top">
         <!-- hover-class="weui-cell_active" -->
         <view class="comment-user-face">
           <image src="{{comment.user.avatarUrl}}" background-size="cover"></image>
@@ -31,15 +31,15 @@
           </image>
           {{comment.link_num}}
         </view>
-        <view class="comment-replay-btn">
-          <image class="icon" src="../../resources/icons/comment.png" background-size="cover" catchtap="commentCtrl"></image>
+        <view class="comment-replay-btn" data-comment-id="{{comment.id}}" catchtap="commentCtrl">
+          <image class="icon" src="../../resources/icons/comment.png" background-size="cover" ></image>
         </view>
         <view class="comment-content">
           {{comment.content}}
         </view>
       </view>
       <view class="comment-bottom">
-          <view class="comment-link">
+          <view class="comment-link" bindtap="viewTopic">
             查看原话题
           </view>
       </view>
@@ -61,7 +61,7 @@
         </view>
         <view class="comment-like-btn r-40">
           <image class="icon"
-            hidden="{{comment.praise_status === 1}}"
+            hidden="{{comment.praise.praise_status === 1}}"
             data-praise-status="{{comment.praise_status}}"
             data-index="{{index}}"
             src="../../resources/icons/praise.png"
@@ -69,7 +69,7 @@
             catchtap="praiseCtrl">
           </image>
           <image class="icon"
-            hidden="{{comment.praise_status === 0}}"
+            hidden="{{comment.praise.praise_status === 0 || comment.praise === null}}"
             data-praise-status="{{comment.praise_status}}"
             data-index="{{index}}"
             src="../../resources/icons/praise_active.png"
@@ -91,7 +91,7 @@
     </view>
   </view>
   <view class="replay-textarea-wrap">
-    <view class="replay-textarea">
+    <view class="replay-textarea" data-comment-id="{{comment.id}}" catchtap="commentCtrl">
       回复评论
     </view>
   </view>

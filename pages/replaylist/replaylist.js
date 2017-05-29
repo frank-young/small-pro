@@ -134,10 +134,16 @@ Page({
       })
     }, 500)
   },
-  commentCtrl () {
-    console.log('评论操作')
+  commentCtrl (event) {
+    let id = event.currentTarget.dataset.commentId
     wx.navigateTo({
-      url: '../replay/replay'
+      url: '../replay/replay?comment_id=' + id
+    })
+  },
+  // 查看原话题
+  viewTopic () {
+    wx.navigateBack({
+      delta: 1
     })
   }
 })

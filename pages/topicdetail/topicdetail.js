@@ -175,14 +175,15 @@ Page({
     })
     this.getComments(this.data.id, this.data.offset, this.data.limit)
   },
-  moreCtrl () {
+  // 评论更多操作
+  moreCtrl (event) {
+    let id = event.currentTarget.dataset.commentId
     wx.showActionSheet({
       itemList: ['回复', '举报'],
       success: function(res) {
-        console.log(res.tapIndex)
         if (res.tapIndex === 0) {
           wx.navigateTo({
-            url: '../replay/replay'
+            url: '../replay/replay?comment_id=' + id
           })
         }
       },
@@ -193,7 +194,8 @@ Page({
   },
   praiseCtrl (event) {
     let index = event.target.dataset.index
-    this.data.comments[index].praise_status = 1
+    console.log(event)
+    // this.data.comments[index].praise.praise_status = 1
     setTimeout(() => {
       console.log('点赞成功')
       this.setData({
@@ -205,7 +207,7 @@ Page({
     let index = event.target.dataset.index
     console.log(event.target)
     console.log(this.data.comments[index])
-    this.data.comments[index].praise_status = 0
+    this.data.comments[index].praise.praise_status = 0
     setTimeout(() => {
       console.log('取消点赞成功')
       this.setData({
@@ -226,6 +228,7 @@ Page({
       url: '../replay/replay?comment_id=' + id
     })
   },
+  // 查看更多回复
   viewReplayCtrl (event) {
     let id = event.target.dataset.commentId
     wx.navigateTo({

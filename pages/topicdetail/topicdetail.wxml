@@ -1,27 +1,5 @@
 <view class='topic-detial'>
-  <!-- <view class="topic-item" >
-    <view class="topic-text">
-      <view class="topic-title">
-        {{topic.title}}
-      </view>
-      <view class="topic-desc">
-        {{topic.description}}
-      </view>
-    </view>
-  </view> -->
-  <navigator url="../topicdetail/topicdetail?id={{topic.id}}" class="topic-item" >
-    <!-- <view class="topic-user">
-      <view class="topic-face">
-        <image src="{{topic.user.avatarUrl}}" background-size="cover"></image>
-      </view>
-      <view class="topic-nickname">
-        {{topic.user.nickName}}
-      </view>
-      <view class="topic-sex">
-        <image mode="scaleToFill" src="../../resources/icons/boy.png" wx:if="{{topic.user.gender === 1}}"></image>
-        <image mode="scaleToFill" src="../../resources/icons/girl.png" wx:if="{{topic.user.gender === 0}}"></image>
-      </view>
-    </view> -->
+  <view class="topic-item" >
     <view class="comment-top" catchtap="moreCtrl">
       <!-- hover-class="weui-cell_active" -->
       <view class="comment-user-face">
@@ -53,7 +31,7 @@
         <image mode="scaleToFill" src="{{img}}"></image>
       </view>
     </view>
-  </navigator>
+  </view>
 
   <view class="comment-total-num">
     <view class="comment-total-text">
@@ -66,7 +44,7 @@
       暂无评论
     </view>
     <view class="comment-item" wx:for="{{comments}}" wx:key="key" wx:for-item="comment" wx:for-index="index">
-      <view class="comment-top" catchtap="moreCtrl">
+      <view class="comment-top" catchtap="moreCtrl" data-comment-id="{{comment.id}}">
         <!-- hover-class="weui-cell_active" -->
         <view class="comment-user-face">
           <image src="{{topic.user.avatarUrl}}" background-size="cover"></image>
@@ -85,7 +63,7 @@
         </view>
         <view class="comment-like-btn">
           <image class="icon"
-            hidden="{{comment.praise_status === 1}}"
+            hidden="{{comment.praise.praise_status === 1}}"
             data-praise-status="{{comment.praise_status}}"
             data-index="{{index}}"
             src="../../resources/icons/praise.png"
@@ -93,7 +71,7 @@
             catchtap="praiseCtrl">
           </image>
           <image class="icon"
-            hidden="{{comment.praise_status === 0}}"
+            hidden="{{comment.praise.praise_status === 0 || comment.praise === null}}"
             data-praise-status="{{comment.praise_status}}"
             data-index="{{index}}"
             src="../../resources/icons/praise_active.png"
@@ -102,8 +80,8 @@
           </image>
           {{comment.praise_num}}
         </view>
-        <view class="comment-replay-btn">
-          <image class="icon" src="../../resources/icons/comment.png" background-size="cover" data-comment-id="{{comment.id}}" catchtap="replayCtrl"></image>
+        <view class="comment-replay-btn" data-comment-id="{{comment.id}}" catchtap="replayCtrl">
+          <image class="icon" src="../../resources/icons/comment.png" background-size="cover" ></image>
         </view>
         <view class="comment-content">
           {{comment.content}}
