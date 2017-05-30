@@ -47,11 +47,11 @@
       <view class="comment-top" catchtap="moreCtrl" data-comment-id="{{comment.id}}">
         <!-- hover-class="weui-cell_active" -->
         <view class="comment-user-face">
-          <image src="{{topic.user.avatarUrl}}" background-size="cover"></image>
+          <image src="{{comment.user.avatarUrl}}" background-size="cover"></image>
         </view>
         <view class="comment-nickname">
           <view class="topic-nickname">
-            {{topic.user.nickName}}
+            {{comment.user.nickName}}
           </view>
           <view class="topic-sex">
             <image mode="scaleToFill" src="../../resources/icons/boy.png" wx:if="{{topic.user.gender === 1}}"></image>
@@ -66,6 +66,7 @@
             hidden="{{comment.praise.praise_status === 1}}"
             data-praise-status="{{comment.praise_status}}"
             data-index="{{index}}"
+            data-comment-id="{{comment.id}}"
             src="../../resources/icons/praise.png"
             background-size="cover"
             catchtap="praiseCtrl">
@@ -74,6 +75,7 @@
             hidden="{{comment.praise.praise_status === 0 || comment.praise === null}}"
             data-praise-status="{{comment.praise_status}}"
             data-index="{{index}}"
+            data-comment-id="{{comment.id}}"
             src="../../resources/icons/praise_active.png"
             background-size="cover"
             catchtap="cancelPraiseCtrl">

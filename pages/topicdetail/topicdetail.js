@@ -193,27 +193,54 @@ Page({
     })
   },
   praiseCtrl (event) {
+    let that = this
+    let commentId = event.target.dataset.commentId
     let index = event.target.dataset.index
-    console.log(event)
-    // this.data.comments[index].praise.praise_status = 1
-    setTimeout(() => {
-      console.log('点赞成功')
-      this.setData({
-        comments: this.data.comments
-      })
-    }, 500)
+
+    wx.request({
+      url: Config.host + 'commentpraise/agree',
+      data: {
+        session_key: wx.getStorageSync('session_key'),
+        comment_id: commentId
+      },
+      method: 'POST',
+      header: {'content-type':'application/x-www-form-urlencoded'},
+      success (res){
+        let comments = that.data.comments
+        comments[index].praise = {
+          praise_status: 1
+        }
+        comments[index].praise_num += 1
+        that.setData({
+          comments: comments
+        })
+      }
+    })
   },
   cancelPraiseCtrl (event) {
+    let that = this
+    let commentId = event.target.dataset.commentId
     let index = event.target.dataset.index
-    console.log(event.target)
-    console.log(this.data.comments[index])
-    this.data.comments[index].praise.praise_status = 0
-    setTimeout(() => {
-      console.log('取消点赞成功')
-      this.setData({
-        comments: this.data.comments
-      })
-    }, 500)
+
+    wx.request({
+      url: Config.host + 'commentpraise/cancel',
+      data: {
+        session_key: wx.getStorageSync('session_key'),
+        comment_id: commentId
+      },
+      method: 'POST',
+      header: {'content-type':'application/x-www-form-urlencoded'},
+      success (res){
+        let comments = that.data.comments
+        comments[index].praise = {
+          praise_status: 0
+        }
+        comments[index].praise_num -= 1
+        that.setData({
+          comments: comments
+        })
+      }
+    })
   },
   // 话题评论
   topicCommentCtrl () {
@@ -223,9 +250,9 @@ Page({
   },
   // 回复评论操作
   replayCtrl (event) {
-    let id = event.target.dataset.commentId
+    let commentId = event.currentTarget.dataset.commentId
     wx.navigateTo({
-      url: '../replay/replay?comment_id=' + id
+      url: '../replay/replay?comment_id=' + commentId
     })
   },
   // 查看更多回复
