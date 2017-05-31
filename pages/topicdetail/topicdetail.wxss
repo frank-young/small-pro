@@ -62,8 +62,8 @@
 
 .topic-desc {
   line-height: 1.7em;
-  padding: 0rpx 0 30rpx 0;
-  font-size: 12px;
+  padding: 0;
+  font-size: 14px;
   overflow: hidden;
   text-overflow: ellipsis;
   color: #888;
@@ -78,6 +78,9 @@
 }
 .topic-image-item {
   text-align: center;
+}
+.topic-image-item image {
+  width: 100%;
 }
 /*
  *  评论部分

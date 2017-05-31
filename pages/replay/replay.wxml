@@ -1,6 +1,6 @@
 <view class="replay">
   <form bindsubmit="submit">
-    <textarea class="replay-area" placeholder="回复评论" name="replay" auto-focus="true" value="@{{userName}} " />
+    <textarea class="replay-area" placeholder="回复评论" name="replay" auto-focus="true" value="{{userName}} " />
     <button class="replay-btn" form-type="submit"> 发送 </button>
   </form>
 </view>

@@ -10,7 +10,7 @@ Page({
   onLoad (options) {
     this.setData({
       id: options.comment_id,
-      userName: options.user_name || '',
+      userName: '@' + options.user_name || '',
       userId: options.user_id || ''
     })
   },

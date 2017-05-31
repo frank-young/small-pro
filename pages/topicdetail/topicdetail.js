@@ -24,6 +24,18 @@ Page({
     this.refreshComments(this.data.id, 0, 10)
     this.getTopicPraiseStatus(this.data.id)
   },
+  loadImage (event) {
+    console.log(event.detail)
+  },
+  /*
+   * 预览图片
+   */
+  previewImage(event){
+    wx.previewImage({
+        current: event.currentTarget.id,
+        urls: this.data.topic.image_path
+    })
+  },
   /*
    * 获取话题详情
    */

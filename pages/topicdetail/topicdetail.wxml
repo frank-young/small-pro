@@ -28,7 +28,7 @@
     </view>
     <view class="topic-image">
       <view class="topic-image-item" wx:for="{{topic.image_path}}" wx:key="key" wx:for-item="img">
-        <image mode="scaleToFill" src="{{img}}"></image>
+        <image mode="widthFix" wx:if="{{img}}" src="{{img}}" bindtap="previewImage"></image>
       </view>
     </view>
   </view>

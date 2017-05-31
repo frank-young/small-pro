@@ -89,7 +89,7 @@ Page({
       count: 9,
       sizeType: ['compressed'],
       success (res) {
-        const imageCtrl = '?imageMogr2/auto-orient/thumbnail/750x/blur/1x0/quality/75|watermark/2/text/bmFuYS1jcA==/font/5b6u6L2v6ZuF6buR/fontsize/20/fill/I0VGRUZFRg==/dissolve/70/gravity/SouthEast/dx/10/dy/10|imageslim'
+        const imageCtrl = '?imageMogr2/auto-orient/thumbnail/750x/format/jpg/interlace/1/blur/1x0/quality/75|watermark/2/text/bmFuYS1jcA==/font/5b6u6L2v6ZuF6buR/fontsize/20/fill/I0VGRUZFRg==/dissolve/70/gravity/SouthEast/dx/10/dy/10|imageslim'
         const imageThumCtrl = '?imageView2/1/w/180/h/180/format/jpg/interlace/1/q/60|imageslim'
         wx.showLoading({
           title: '图片上传中'
@@ -122,51 +122,10 @@ Page({
       }
     })
   },
-  upload(page, path) {
-    wx.showToast({
-      icon: 'loading',
-      title: "正在上传"
-    })
-    wx.uploadFile({
-      // url: Config.host + '/upload/images',
-      url: 'images.nanafly.com' + '/imageView2/0/interlace/1/q/75|watermark/2/text/bmFuYS1jcA==/font/5b6u6L2v6ZuF6buR/fontsize/20/fill/I0VGRUZFRg==/dissolve/70/gravity/SouthEast/dx/10/dy/10|imageslim',
-      filePath: path[0],
-      name: 'file',
-      header: { "Content-Type": "multipart/form-data" },
-      formData: {
-        session_key: wx.getStorageSync('session_key')
-      },
-      success (res) {
-        if (res.statusCode != 200) {
-          wx.showModal({
-            title: '提示',
-            content: '上传成功',
-            showCancel: false
-          })
-          return;
-        }
-        var data = res.data
-        page.setData({
-          src: path[0]
-        })
-      },
-      fail (e) {
-        console.log(e);
-        wx.showModal({
-          title: '提示',
-          content: '上传失败',
-          showCancel: false
-        })
-      },
-      complete () {
-        wx.hideToast();
-      }
-    })
-  },
-  previewImage(e){
+  previewImage(event){
     wx.previewImage({
-        current: e.currentTarget.id, // 当前显示图片的http链接
-        urls: this.data.files // 需要预览的图片http链接列表
+        current: event.currentTarget.id,
+        urls: this.data.files
     })
-  },
+  }
 })
