@@ -8,7 +8,7 @@ Page({
     limit: 5
   },
   onLoad () {
-    // this.getTopics(this.data.offset, this.data.limit)
+
   },
   onShow () {
     this.refreshTopics(0, 10)
@@ -31,14 +31,16 @@ Page({
       method: 'POST',
       header: {'content-type':'application/x-www-form-urlencoded'},
       success (res){
-        let topics = []
-        topics = that.data.topics
-        topics.push(...res.data.bizContent)
-        that.setData({
-          topics: topics,
-          isLoading: true,
-          offset: offset + limit
-        })
+        if (res.data.success) {
+          let topics = []
+          topics = that.data.topics
+          topics.push(...res.data.bizContent)
+          that.setData({
+            topics: topics,
+            isLoading: true,
+            offset: offset + limit
+          })
+        }
       }
     })
   },
@@ -60,11 +62,13 @@ Page({
       method: 'POST',
       header: {'content-type':'application/x-www-form-urlencoded'},
       success (res){
-        that.setData({
-          topics: res.data.bizContent,
-          isLoading: true,
-          offset: offset + limit
-        })
+        if (res.data.success) {
+          that.setData({
+            topics: res.data.bizContent,
+            isLoading: true,
+            offset: offset + limit
+          })
+        }
       }
     })
   },

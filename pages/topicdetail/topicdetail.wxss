@@ -73,6 +73,12 @@
   color: #919191;
 }
 
+.topic-image {
+  padding: 30rpx;
+}
+.topic-image-item {
+  text-align: center;
+}
 /*
  *  评论部分
  */

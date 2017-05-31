@@ -27,7 +27,7 @@
       </view>
     </view>
     <view class="topic-image">
-      <view class="topic-image-item" wx:for="{{topic.src}}" wx:key="key" wx:for-item="img">
+      <view class="topic-image-item" wx:for="{{topic.image_path}}" wx:key="key" wx:for-item="img">
         <image mode="scaleToFill" src="{{img}}"></image>
       </view>
     </view>
@@ -61,24 +61,27 @@
         <view class="comment-datatime">
           {{comment.created_at}}
         </view>
-        <view class="comment-like-btn">
+        <view class="comment-like-btn"
+          hidden="{{comment.praise.praise_status === 1}}"
+          data-praise-status="{{comment.praise_status}}"
+          data-index="{{index}}"
+          data-comment-id="{{comment.id}}"
+          catchtap="praiseCtrl">
           <image class="icon"
-            hidden="{{comment.praise.praise_status === 1}}"
-            data-praise-status="{{comment.praise_status}}"
-            data-index="{{index}}"
-            data-comment-id="{{comment.id}}"
             src="../../resources/icons/praise.png"
-            background-size="cover"
-            catchtap="praiseCtrl">
+            background-size="cover">
           </image>
+          {{comment.praise_num}}
+        </view>
+        <view class="comment-like-btn"
+          hidden="{{comment.praise.praise_status === 0 || comment.praise === null}}"
+          data-praise-status="{{comment.praise_status}}"
+          data-index="{{index}}"
+          data-comment-id="{{comment.id}}"
+          catchtap="cancelPraiseCtrl">
           <image class="icon"
-            hidden="{{comment.praise.praise_status === 0 || comment.praise === null}}"
-            data-praise-status="{{comment.praise_status}}"
-            data-index="{{index}}"
-            data-comment-id="{{comment.id}}"
             src="../../resources/icons/praise_active.png"
-            background-size="cover"
-            catchtap="cancelPraiseCtrl">
+            background-size="cover">
           </image>
           {{comment.praise_num}}
         </view>

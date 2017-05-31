@@ -12,24 +12,27 @@
         <view class="comment-datatime">
           {{comment.created_at}}
         </view>
-        <view class="comment-like-btn">
+        <view class="comment-like-btn"
+          hidden="{{comment.praise.praise_status === 1}}"
+          data-praise-status="{{comment.praise.praise_status}}"
+          data-comment-id="{{comment.id}}"
+          catchtap="praiseCtrl">
           <image class="icon"
-            hidden="{{comment.praise_status === 1}}"
-            data-praise-status="{{comment.praise_status}}"
-            data-index="{{index}}"
             src="../../resources/icons/praise.png"
-            background-size="cover"
-            catchtap="praiseCtrl">
+            background-size="cover">
           </image>
+          {{comment.praise_num}}
+        </view>
+        <view class="comment-like-btn"
+          hidden="{{comment.praise === null || comment.praise.praise_status === 0}}"
+          data-praise-status="{{comment.praise.praise_status}}"
+          data-comment-id="{{comment.id}}"
+          catchtap="cancelPraiseCtrl">
           <image class="icon"
-            hidden="{{comment.praise_status === 0}}"
-            data-praise-status="{{comment.praise_status}}"
-            data-index="{{index}}"
             src="../../resources/icons/praise_active.png"
-            background-size="cover"
-            catchtap="cancelPraiseCtrl">
+            background-size="cover">
           </image>
-          {{comment.link_num}}
+          {{comment.praise_num}}
         </view>
         <view class="comment-replay-btn" data-comment-id="{{comment.id}}" catchtap="commentCtrl">
           <image class="icon" src="../../resources/icons/comment.png" background-size="cover" ></image>
@@ -47,39 +50,24 @@
   </view>
 
   <view class="comment">
-    <view class="comment-item" wx:for="{{replayComments}}" wx:key="key" wx:for-item="comment" wx:for-index="index">
-      <view class="comment-top" catchtap="moreCtrl">
+    <view class="comment-item" wx:for="{{replayComments}}" wx:key="key" wx:for-item="replaycomment" wx:for-index="index">
+      <view class="comment-top"
+        catchtap="moreCtrl"
+        data-comment-id="{{comment.id}}"
+        data-user-name="{{comment.user.nickName}}"
+        data-user-id="{{comment.user.id}}">
         <!-- hover-class="weui-cell_active" -->
         <view class="comment-user-face">
-          <image src="{{comment.user.avatarUrl}}" background-size="cover"></image>
+          <image src="{{replaycomment.user.avatarUrl}}" background-size="cover"></image>
         </view>
         <view class="comment-nickname">
-          {{comment.user.nickName}}
+          {{replaycomment.user.nickName}}
         </view>
         <view class="comment-datatime">
-          {{comment.created_at}}
-        </view>
-        <view class="comment-like-btn r-40">
-          <image class="icon"
-            hidden="{{comment.praise.praise_status === 1}}"
-            data-praise-status="{{comment.praise_status}}"
-            data-index="{{index}}"
-            src="../../resources/icons/praise.png"
-            background-size="cover"
-            catchtap="praiseCtrl">
-          </image>
-          <image class="icon"
-            hidden="{{comment.praise.praise_status === 0 || comment.praise === null}}"
-            data-praise-status="{{comment.praise_status}}"
-            data-index="{{index}}"
-            src="../../resources/icons/praise_active.png"
-            background-size="cover"
-            catchtap="cancelPraiseCtrl">
-          </image>
-          {{comment.praise_num}}
+          {{replaycomment.created_at}}
         </view>
         <view class="comment-content">
-          {{comment.content}}
+          {{replaycomment.content}}
         </view>
       </view>
       <view class="comment-bottom">

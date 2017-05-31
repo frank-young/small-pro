@@ -22,7 +22,7 @@
         </view>
       </view>
       <view class="topic-image">
-        <view class="topic-image-item" wx:for="{{topic.src}}" wx:key="key" wx:for-item="img">
+        <view class="topic-image-item" wx:for="{{topic.thumbnail_pic}}" wx:key="key" wx:for-item="img">
           <image mode="scaleToFill" src="{{img}}"></image>
         </view>
       </view>
@@ -35,7 +35,7 @@
         </view>
         <view class="topic-time">
 
-          {{formatDate}}
+          {{topic.created_at}}
         </view>
       </view>
     </navigator>

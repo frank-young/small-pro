@@ -1,6 +1,7 @@
 <view class="replay">
   <form bindsubmit="submit">
-    <textarea class="replay-area" placeholder="这一刻的想法..." name="textarea" auto-focus="true" />
+    <input class="replay-title" name="title" placeholder="输入话题标题" auto-focus="true" confirm-type="next" maxlength="50" />
+    <textarea class="replay-area" placeholder="这一刻的想法..." name="body" />
     <view class="weui-cell">
         <view class="weui-cell__bd">
             <view class="weui-uploader">
@@ -28,6 +29,8 @@
             </view>
         </view>
     </view>
-    <button class="replay-btn" form-type="submit"> 发送 </button>
+    <view class="replay-btn-wrap">
+      <button class="replay-btn" form-type="submit"> 发送 </button>
+    </view>
   </form>
 </view>

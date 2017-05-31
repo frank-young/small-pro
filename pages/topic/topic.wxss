@@ -134,7 +134,7 @@
   line-height: 120rpx;
   font-size: 40px;
   font-weight: 100;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+  box-shadow: 3px 3px 6px rgba(0,0,0,0.15);
 }
 .topic-info {
   padding: 5rpx 30rpx 20rpx 30rpx;

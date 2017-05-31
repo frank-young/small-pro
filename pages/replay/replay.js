@@ -3,16 +3,20 @@ import Verify from '../../utils/verify.js'
 
 Page({
   data: {
-    id: null
+    id: null,
+    userName: '',
+    userId: ''
   },
   onLoad (options) {
     this.setData({
-      id: options.comment_id
+      id: options.comment_id,
+      userName: options.user_name || '',
+      userId: options.user_id || ''
     })
   },
-  submit (e) {
+  submit (event) {
     let that = this
-    let replay = e.detail.value.replay
+    let replay = event.detail.value.replay
     let verify = Verify.commentVerify(replay)
     if (verify.status) {
       wx.showLoading({

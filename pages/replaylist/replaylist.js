@@ -4,7 +4,10 @@ Page({
   data: {
     isLoading: true,
     commentId: null,
-    comment: {},
+    comment: {
+      praise: null,
+      praise_num: 0
+    },
     replayComments: []
   },
   onLoad (options) {
@@ -30,9 +33,11 @@ Page({
       method: 'POST',
       header: {'content-type':'application/x-www-form-urlencoded'},
       success (res) {
-        that.setData({
-          comment: res.data.bizContent
-        })
+        if (res.data.success) {
+          that.setData({
+            comment: res.data.bizContent
+          })
+        }
       }
     })
   },
@@ -55,14 +60,16 @@ Page({
       method: 'POST',
       header: {'content-type':'application/x-www-form-urlencoded'},
       success (res){
-        let replayComments = []
-        replayComments = that.data.replayComments
-        replayComments.push(...res.data.bizContent)
-        that.setData({
-          replayComments,
-          isLoading: true,
-          offset: offset + limit
-        })
+        if (res.data.success) {
+          let replayComments = []
+          replayComments = that.data.replayComments
+          replayComments.push(...res.data.bizContent)
+          that.setData({
+            replayComments,
+            isLoading: true,
+            offset: offset + limit
+          })
+        }
       }
     })
   },
@@ -82,10 +89,70 @@ Page({
       method: 'POST',
       header: {'content-type':'application/x-www-form-urlencoded'},
       success (res){
-        that.setData({
-          replayComments: res.data.bizContent,
-          offset: offset + limit
-        })
+        if (res.data.success) {
+          that.setData({
+            replayComments: res.data.bizContent,
+            offset: offset + limit
+          })
+        }
+      }
+    })
+  },
+  /*
+   * 评论点赞操作
+   */
+  praiseCtrl (event) {
+    let that = this
+    let commentId = event.currentTarget.dataset.commentId
+
+    wx.request({
+      url: Config.host + 'commentpraise/agree',
+      data: {
+        session_key: wx.getStorageSync('session_key'),
+        comment_id: commentId
+      },
+      method: 'POST',
+      header: {'content-type':'application/x-www-form-urlencoded'},
+      success (res){
+        if (res.data.success) {
+          let comment = that.data.comment
+          comment.praise = {
+            praise_status: 1
+          }
+          comment.praise_num += 1
+          that.setData({
+            comment: comment
+          })
+        }
+      }
+    })
+  },
+  /*
+   * 评论取消点赞操作
+   */
+  cancelPraiseCtrl (event) {
+    let that = this
+    let commentId = event.currentTarget.dataset.commentId
+
+    wx.request({
+      url: Config.host + 'commentpraise/cancel',
+      data: {
+        session_key: wx.getStorageSync('session_key'),
+        comment_id: commentId
+      },
+      method: 'POST',
+      header: {'content-type':'application/x-www-form-urlencoded'},
+      success (res){
+        if (res.data.success) {
+          let comment = that.data.comment
+          comment.praise = {
+            praise_status: 0
+          }
+          comment.praise_num -= 1
+          that.setData({
+            comment: comment
+          })
+        }
       }
     })
   },
@@ -96,14 +163,17 @@ Page({
   onReachBottom () {
     this.getReplayComments(this.data.commentId, this.data.offset, this.data.limit)
   },
-  moreCtrl () {
+  moreCtrl (event) {
+    let commentId = event.currentTarget.dataset.commentId
+    let userName = event.currentTarget.dataset.userName
+    let userId = event.currentTarget.dataset.userId
     wx.showActionSheet({
       itemList: ['回复', '举报'],
       success: function(res) {
         console.log(res.tapIndex)
         if (res.tapIndex === 0) {
           wx.navigateTo({
-            url: '../replay/replay'
+            url: '../replay/replay?comment_id=' + commentId + '&user_name=' + userName + '&user_id=' + userId
           })
         }
       },
@@ -111,28 +181,6 @@ Page({
         console.log(res.errMsg)
       }
     })
-  },
-  praiseCtrl (event) {
-    let index = event.target.dataset.index
-    this.data.comments[index].praise_status = 1
-    setTimeout(() => {
-      console.log('点赞成功')
-      this.setData({
-        comments: this.data.comments
-      })
-    }, 500)
-  },
-  cancelPraiseCtrl (event) {
-    let index = event.target.dataset.index
-    console.log(event.target)
-    console.log(this.data.comments[index])
-    this.data.comments[index].praise_status = 0
-    setTimeout(() => {
-      console.log('取消点赞成功')
-      this.setData({
-        comments: this.data.comments
-      })
-    }, 500)
   },
   commentCtrl (event) {
     let id = event.currentTarget.dataset.commentId

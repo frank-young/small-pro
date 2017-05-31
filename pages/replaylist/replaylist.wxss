@@ -148,7 +148,7 @@
 }
 .comment-like-btn image {
   transform: scale(1);
-  animation: praise .3s;
+  /*animation: praise .3s;*/
 }
 .comment-like-btn-active {
   color: #ff605d;

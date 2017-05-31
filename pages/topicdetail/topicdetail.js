@@ -41,10 +41,12 @@ Page({
       method: 'POST',
       header: {'content-type':'application/x-www-form-urlencoded'},
       success (res){
-        that.setData({
-          topic: res.data.bizContent,
-          isLoading: true
-        })
+        if (res.data.success) {
+          that.setData({
+            topic: res.data.bizContent,
+            isLoading: true
+          })
+        }
       }
     })
   },
@@ -67,14 +69,16 @@ Page({
       method: 'POST',
       header: {'content-type':'application/x-www-form-urlencoded'},
       success (res){
-        let comments = []
-        comments = that.data.comments
-        comments.push(...res.data.bizContent)
-        that.setData({
-          comments,
-          isLoading: true,
-          offset: offset + limit
-        })
+        if (res.data.success) {
+          let comments = []
+          comments = that.data.comments
+          comments.push(...res.data.bizContent)
+          that.setData({
+            comments,
+            isLoading: true,
+            offset: offset + limit
+          })
+        }
       }
     })
   },
@@ -94,10 +98,12 @@ Page({
       method: 'POST',
       header: {'content-type':'application/x-www-form-urlencoded'},
       success (res){
-        that.setData({
-          comments: res.data.bizContent,
-          offset: offset + limit
-        })
+        if (res.data.success) {
+          that.setData({
+            comments: res.data.bizContent,
+            offset: offset + limit
+          })
+        }
       }
     })
   },
@@ -115,13 +121,15 @@ Page({
       method: 'POST',
       header: {'content-type':'application/x-www-form-urlencoded'},
       success (res){
-        that.setData({
-          topicpraise: res.data.bizContent
-        })
+        if (res.data.success) {
+          that.setData({
+            topicpraise: res.data.bizContent
+          })
+        }
       }
     })
   },
-  // 点赞操作
+  // 话题点赞操作
   topicPraiseCtrl () {
     let that = this
     wx.request({
@@ -133,17 +141,19 @@ Page({
       method: 'POST',
       header: {'content-type':'application/x-www-form-urlencoded'},
       success (res){
-        that.getTopicPraiseStatus(that.data.id)
-        that.getTopic(that.data.id)
-        that.setData({
-          topicpraise: {
-            praise_status: 1
-          }
-        })
+        if (res.data.success) {
+          that.getTopicPraiseStatus(that.data.id)
+          that.getTopic(that.data.id)
+          that.setData({
+            topicpraise: {
+              praise_status: 1
+            }
+          })
+        }
       }
     })
   },
-  // 取消点赞操作
+  // 话题取消点赞操作
   topicCancelPraiseCtrl () {
     let that = this
     wx.request({
@@ -155,13 +165,15 @@ Page({
       method: 'POST',
       header: {'content-type':'application/x-www-form-urlencoded'},
       success (res){
-        that.getTopicPraiseStatus(that.data.id)
-        that.getTopic(that.data.id)
-        that.setData({
-          topicpraise: {
-            praise_status: 0
-          }
-        })
+        if (res.data.success) {
+          that.getTopicPraiseStatus(that.data.id)
+          that.getTopic(that.data.id)
+          that.setData({
+            topicpraise: {
+              praise_status: 0
+            }
+          })
+        }
       }
     })
   },
@@ -177,13 +189,13 @@ Page({
   },
   // 评论更多操作
   moreCtrl (event) {
-    let id = event.currentTarget.dataset.commentId
+    let commentId = event.currentTarget.dataset.commentId
     wx.showActionSheet({
       itemList: ['回复', '举报'],
       success: function(res) {
         if (res.tapIndex === 0) {
           wx.navigateTo({
-            url: '../replay/replay?comment_id=' + id
+            url: '../replay/replay?comment_id=' + commentId
           })
         }
       },
@@ -192,10 +204,13 @@ Page({
       }
     })
   },
+  /*
+   * 评论点赞操作
+   */
   praiseCtrl (event) {
     let that = this
-    let commentId = event.target.dataset.commentId
-    let index = event.target.dataset.index
+    let commentId = event.currentTarget.dataset.commentId
+    let index = event.currentTarget.dataset.index
 
     wx.request({
       url: Config.host + 'commentpraise/agree',
@@ -206,21 +221,26 @@ Page({
       method: 'POST',
       header: {'content-type':'application/x-www-form-urlencoded'},
       success (res){
-        let comments = that.data.comments
-        comments[index].praise = {
-          praise_status: 1
+        if (res.data.success) {
+          let comments = that.data.comments
+          comments[index].praise = {
+            praise_status: 1
+          }
+          comments[index].praise_num += 1
+          that.setData({
+            comments: comments
+          })
         }
-        comments[index].praise_num += 1
-        that.setData({
-          comments: comments
-        })
       }
     })
   },
+  /*
+   * 评论取消点赞操作
+   */
   cancelPraiseCtrl (event) {
     let that = this
-    let commentId = event.target.dataset.commentId
-    let index = event.target.dataset.index
+    let commentId = event.currentTarget.dataset.commentId
+    let index = event.currentTarget.dataset.index
 
     wx.request({
       url: Config.host + 'commentpraise/cancel',
@@ -231,14 +251,16 @@ Page({
       method: 'POST',
       header: {'content-type':'application/x-www-form-urlencoded'},
       success (res){
-        let comments = that.data.comments
-        comments[index].praise = {
-          praise_status: 0
+        if (res.data.success) {
+          let comments = that.data.comments
+          comments[index].praise = {
+            praise_status: 0
+          }
+          comments[index].praise_num -= 1
+          that.setData({
+            comments: comments
+          })
         }
-        comments[index].praise_num -= 1
-        that.setData({
-          comments: comments
-        })
       }
     })
   },
