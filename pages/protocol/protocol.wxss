@@ -1,0 +1,16 @@
+.protocol {
+  padding: 40rpx;
+}
+.title {
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 30rpx;
+  margin-bottom: 15rpx;
+  color: #333;
+}
+.desc {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.7em;
+  text-indent: 2em;
+}

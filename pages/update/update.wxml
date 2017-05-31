@@ -1,0 +1,12 @@
+<view class="container">
+  <view class="page">
+      <view class="update">
+          <view class="title">
+            v1.0.0 （2017-6-1）
+          </view>
+          <view class="desc">
+            小呐CP初始小程序版本
+          </view>
+      </view>
+  </view>
+</view>

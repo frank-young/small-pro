@@ -1,0 +1,23 @@
+<view class="container">
+  <view class="page">
+      <view class="weui-msg">
+          <view class="weui-msg__icon-area">
+              <image src="../../resources/logo.png" style="width: 60px; height: 60px;"></image>
+          </view>
+          <view class="weui-msg__text-area">
+              <view class="weui-msg__title">小呐CP v1.0.0</view>
+          </view>
+      </view>
+  </view>
+  <view class="weui-cells weui-cells_after-title">
+      <navigator url="../protocol/protocol" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+        <view class="weui-cell__bd">用户协议</view>
+        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+      </navigator>
+      <navigator url="../update/update" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+        <view class="weui-cell__bd">升级说明</view>
+        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+      </navigator>
+  </view>
+
+</view>

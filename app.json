@@ -41,7 +41,10 @@
     "pages/topicdetail/topicdetail",
     "pages/replaylist/replaylist",
     "pages/comment/comment",
-    "pages/replay/replay"
+    "pages/replay/replay",
+    "pages/aboutus/aboutus",
+    "pages/protocol/protocol",
+    "pages/update/update"
   ],
   "window":{
     "backgroundTextStyle":"light",
