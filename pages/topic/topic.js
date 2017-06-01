@@ -5,7 +5,7 @@ Page({
     topics: [],
     isLoading: true,
     offset: 0,
-    limit: 5
+    limit: 10
   },
   onLoad () {
 
@@ -72,8 +72,6 @@ Page({
       }
     })
   },
-  // formatDate (d) {
-  // },
   onPullDownRefresh (){
     this.refreshTopics(0, 5)
     wx.stopPullDownRefresh()
