@@ -10,7 +10,7 @@
           {{comment.user.nickName}}
         </view>
         <view class="comment-datatime">
-          {{comment.created_at}}
+          {{comment.date_format}}
         </view>
         <view class="comment-like-btn"
           hidden="{{comment.praise.praise_status === 1}}"
@@ -64,7 +64,7 @@
           {{replaycomment.user.nickName}}
         </view>
         <view class="comment-datatime">
-          {{replaycomment.created_at}}
+          {{replaycomment.date_format}}
         </view>
         <view class="comment-content">
           {{replaycomment.content}}

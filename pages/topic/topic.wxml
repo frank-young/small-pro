@@ -35,7 +35,7 @@
         </view>
         <view class="topic-time">
 
-          {{topic.created_at}}
+          {{topic.date_format}}
         </view>
       </view>
     </navigator>
