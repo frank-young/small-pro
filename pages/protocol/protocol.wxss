@@ -1,3 +1,6 @@
+.container {
+  background-color: #fff;
+}
 .protocol {
   padding: 40rpx;
 }

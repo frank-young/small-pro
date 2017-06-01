@@ -25,10 +25,6 @@ Page({
   },
   onLoad () {
     wx.showShareMenu()
-    wx.showLoading({
-      // image: '../../resources/icons/loading1.gif',
-      title: '加载中'
-    })
   },
   onShareAppMessage () {
     // 用户点击右上角分享

@@ -1,3 +1,6 @@
 {
-    "navigationBarTitleText": "成功"
+  "backgroundTextStyle":"light",
+  "navigationBarBackgroundColor": "#ff605d",
+  "navigationBarTitleText": "报名成功",
+  "navigationBarTextStyle":"white"
 }

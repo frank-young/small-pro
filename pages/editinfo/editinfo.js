@@ -5,7 +5,6 @@ import Questions from '../../utils/questions.js'
 import Verify from '../../utils/verify.js'
 
 var app = getApp()
-const SUCCESS = true
 
 Page({
   data: {
@@ -118,7 +117,7 @@ Page({
       method: 'POST',
       header: {'content-type':'application/x-www-form-urlencoded'},
       success: function(res){
-        if (res.data.success = SUCCESS) {
+        if (res.data.success) {
           let info = res.data.bizContent
           that.setData({
             info: info,
@@ -130,6 +129,7 @@ Page({
             cityIndex: info.city_index,
             questions: that.questionsChecked(info.questions)
           })
+          wx.hideLoading()
         }
       }
     })
@@ -149,7 +149,7 @@ Page({
   formSubmit (e) {
     e.detail.value.session_key = wx.getStorageSync('session_key')
     let verify = Verify.verify(e.detail.value)
-    if (verify.status === SUCCESS) {
+    if (verify.status) {
       wx.showLoading({
         title: '提交中',
       })
@@ -159,7 +159,7 @@ Page({
         method: 'PUT',
         header: {'content-type':'application/x-www-form-urlencoded'},
         success: function(res){
-          if (res.data.success === SUCCESS) {
+          if (res.data.success) {
             wx.showToast({
               title: '提交成功',
               icon: 'success',
