@@ -1,0 +1,15 @@
+.manager {
+
+}
+
+.term-info {
+  background-color: #fff;
+  padding: 30rpx;
+  text-align: center;
+  font-size: 20px;
+  color: #666;
+}
+.term-info-num {
+  color: #ff605d;
+  font-size: 28px;
+}

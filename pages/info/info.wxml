@@ -1,10 +1,10 @@
 <view class="container">
-  <view class="userinfo">
+  <!-- <view class="userinfo">
     <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
     <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-  </view>
+  </view> -->
   <view class="icon-box">
-      <icon type="warn" size="22"></icon>
+      <icon type="warn" size="22" color="#ff605d"></icon>
       <view class="icon-box__ctn">
           <view class="icon-box__desc">您的资料将严格保密，请放心填写</view>
       </view>
@@ -137,7 +137,7 @@
 
     <view class="head-title" bindtap="openAlert">以下根据Aco测评进行测试<text class="help-tips">?</text></view>
     <view class="icon-box">
-        <icon type="info" size="22" color="#06c003"></icon>
+        <icon type="info" size="22" color="#ff605d"></icon>
         <view class="icon-box__ctn">
             <view class="icon-box__success">测试大概需要5分钟，坚持填写哟～</view>
         </view>
@@ -147,7 +147,7 @@
       <view class="weui-cells weui-cells_after-title">
           <radio-group name="{{'questions[' + item.value + ']' }}">
               <label class="weui-cell weui-check__label" wx:for="{{item.answers}}" wx:key="{{item}}">
-                  <radio class="radio-ctrl" value="{{item.score}}" checked="{{item.checked}}"/>
+                  <radio class="radio-ctrl" value="{{item.score}}" color="#ff605d" checked="{{item.checked}}"/>
                   <view class="weui-cell__bd">{{item.text}}</view>
               </label>
           </radio-group>

@@ -1,0 +1,14 @@
+<view class="manager">
+  <view class="weui-cells__title">报名状态</view>
+  <view class="term-info">
+    第<text class="term-info-num"> {{term}} </text>期报活动
+  </view>
+  <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_switch">
+          <view class="weui-cell__bd">是否允许报名</view>
+          <view class="weui-cell__ft">
+              <switch checked="{{isChecked}}" color="#ff605d" bindchange="changeTermStatus" />
+          </view>
+      </view>
+  </view>
+</view>

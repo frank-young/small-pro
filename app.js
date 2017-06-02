@@ -15,11 +15,14 @@ App({
         that.login()
       }
     })
-    this.login()
+    if (wx.getStorageSync('session_key') === '') {
+      that.login()
+    }
+    // this.login()
   },
-  login: function() {
+  login () {
     wx.login({
-      success: function(loginData) {
+      success(loginData) {
         if (loginData.code) {
           wx.getUserInfo({
             success (userData) {

@@ -1,5 +1,4 @@
 import Config from '../../utils/config.js'
-const SUCCESS = true
 
 Page({
   data: {
@@ -12,6 +11,13 @@ Page({
      * 跳转任务链接
      */
     index: 0
+  },
+  onShow () {
+    if (wx.getStorageSync('session_key') !== '') {
+      this._getSelfTask()
+      this.defaultTaskArr()
+      this.termStatus()
+    }
   },
   apply () {
     let url = this.data.url
@@ -44,13 +50,6 @@ Page({
       url: '../task/task?index=' + that.data.index
     })
   },
-  onReady () {
-    if (wx.getStorageSync('session_key') !== '') {
-      this._getSelfTask()
-      this.defaultTaskArr()
-      this.termStatus()
-    }
-  },
   href () {
     let that = this
     wx.navigateTo({
@@ -67,7 +66,7 @@ Page({
       },
       header: {'content-type':'application/x-www-form-urlencoded'},
       success (res){
-        if (res.data.success === SUCCESS) {
+        if (res.data.success) {
           let taskArr = JSON.parse(res.data.bizContent.task_arr)
           wx.setStorageSync('task_arr', taskArr)
           wx.setStorageSync('group_id', res.data.bizContent.group_id)
@@ -88,9 +87,9 @@ Page({
   },
   termStatus (){
     let that = this
-    wx.showLoading({
-      title: '加载中',
-    })
+    // wx.showLoading({
+    //   title: '加载中',
+    // })
     wx.request({
       url: Config.host + 'term/status',
       data: {
@@ -99,7 +98,7 @@ Page({
       method: 'POST',
       header: {'content-type':'application/x-www-form-urlencoded'},
       success: function(res){
-        if (res.data.success === SUCCESS) {
+        if (res.data.success) {
           if (res.data.bizContent === 1) {
             that.setData({
               text: '立即报名',
@@ -121,7 +120,6 @@ Page({
               url: '../match/match'
             })
           } else if (res.data.bizContent === 5) {
-            console.log(wx.getStorageSync('task_arr').length - 1)
             that.setData({
               text: '查看任务',
               url: '../task/task?index=' + that.data.index
@@ -136,7 +134,7 @@ Page({
             content: '服务器开小差了，程序猿哥哥又要被扣工资啦😦，请退出后重新进入',
           })
         }
-        wx.hideLoading()
+        // wx.hideLoading()
       }
     })
   },

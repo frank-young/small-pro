@@ -73,7 +73,7 @@ Page({
     })
   },
   onPullDownRefresh (){
-    this.refreshTopics(0, 5)
+    this.refreshTopics(0, 10)
     wx.stopPullDownRefresh()
   },
   onReachBottom () {

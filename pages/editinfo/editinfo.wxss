@@ -16,7 +16,7 @@ icon{
     margin-right: 13px;
 }
 .icon-box{
-    margin: 8px 0 15px 0;
+    margin: 30rpx 0 30rpx 0;
     padding: 8px 15px;
     display: flex;
     align-items: center;

@@ -91,9 +91,6 @@ Page({
       success (res) {
         const imageCtrl = '?imageMogr2/auto-orient/thumbnail/750x/format/jpg/interlace/1/blur/1x0/quality/75|watermark/2/text/bmFuYS1jcA==/font/5b6u6L2v6ZuF6buR/fontsize/20/fill/I0VGRUZFRg==/dissolve/70/gravity/SouthEast/dx/10/dy/10|imageslim'
         const imageThumCtrl = '?imageView2/1/w/180/h/180/format/jpg/interlace/1/q/60|imageslim'
-        wx.showLoading({
-          title: '图片上传中'
-        })
 
         for (let i = 0; i < res.tempFilePaths.length; i++) {
           let filePath = res.tempFilePaths[i];
@@ -118,7 +115,6 @@ Page({
             uptoken: that.data.uptoken
           })
         }
-        wx.hideLoading()
       }
     })
   },

@@ -55,12 +55,12 @@ Page({
      * 获取默认信息
      */
     info: {
-      'name': '',
-      'phone': '',
-      'wechat_id': '',
-      'school': '',
-      'dislike': '',
-      'evaluate': ''
+      name: '',
+      phone: '',
+      wechat_id: '',
+      school: '',
+      dislike: '',
+      evaluate: ''
     }
   },
   // 设置性别

@@ -1,5 +1,4 @@
 import Config from '../../utils/config.js'
-const SUCCESS = true
 
 Page({
   data: {
@@ -40,7 +39,7 @@ Page({
           method: 'POST',
           header: {'content-type':'application/x-www-form-urlencoded'},
           success: function(res){
-            if (res.data.success === SUCCESS) {
+            if (res.data.success) {
               wx.showToast({
                 title: '分享成功',
                 icon: 'success',

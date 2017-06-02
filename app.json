@@ -2,8 +2,8 @@
   "tabBar": {
     "color": "#9a9a9a",
     "selectedColor": "#ff605d",
-    "borderStyle": "white",
-    "backgroundColor": "#F8F8F8",
+    "borderStyle": "black",
+    "backgroundColor": "#FFFFFF",
     "list": [
         {
         "pagePath": "pages/topic/topic",
@@ -42,6 +42,7 @@
     "pages/replaylist/replaylist",
     "pages/comment/comment",
     "pages/replay/replay",
+    "pages/manager/manager",
     "pages/aboutus/aboutus",
     "pages/protocol/protocol",
     "pages/update/update"
