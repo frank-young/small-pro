@@ -6,7 +6,7 @@
             <view class="userinfo-text">
               <text class="userinfo-tip">你的CP</text>
               <text class="userinfo-nike-name">{{matchInfo.nickName}}</text>
-              <text class="userinfo-age">21</text>
+              <text class="userinfo-age">{{matchInfo.age}}</text>
             </view>
           </view>
           <!-- <view class="weui-msg__desc">姓名：{{matchInfo.name}}</view> -->
