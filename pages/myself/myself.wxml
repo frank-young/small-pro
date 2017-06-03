@@ -25,6 +25,22 @@
       </navigator>
   </view>
   <view class="weui-cells weui-cells_after-title">
+      <navigator url="../applyroom/applyroom" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+        <view class="weui-cell__hd">
+          <image src="../../resources/icons/help.png" class="icon"></image>
+        </view>
+        <view class="weui-cell__bd">申请房主</view>
+        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+      </navigator>
+      <navigator url="../applyroomslist/applyroomslist" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+        <view class="weui-cell__hd">
+          <image src="../../resources/icons/help.png" class="icon"></image>
+        </view>
+        <view class="weui-cell__bd">房主申请列表</view>
+        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+      </navigator>
+  </view>
+  <view class="weui-cells weui-cells_after-title">
       <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
         <view class="weui-cell__hd">
           <image src="../../resources/icons/help.png" class="icon"></image>

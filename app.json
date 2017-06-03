@@ -45,7 +45,9 @@
     "pages/manager/manager",
     "pages/aboutus/aboutus",
     "pages/protocol/protocol",
-    "pages/update/update"
+    "pages/update/update",
+    "pages/applyroom/applyroom",
+    "pages/applyroomslist/applyroomslist"
   ],
   "window":{
     "backgroundTextStyle":"light",

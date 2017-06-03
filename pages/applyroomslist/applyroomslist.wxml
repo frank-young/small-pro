@@ -1,0 +1,13 @@
+<view class="container">
+  <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_access" wx:for="{{applyRooms}}" wx:key="key" wx:for-item="applyRoom">
+        <view class="weui-cell__hd">
+            <image class="userinfo-avatar" src="{{applyRoom.user.avatarUrl}}" background-size="cover"></image>
+        </view>
+        <view class="weui-cell__bd">{{applyRoom.user.nickName}}</view>
+        <view class="weui-cell__ft">
+          <button class="btn-line" bindtap="selfHint" hover-class="btn-hover">同意</button>
+        </view>
+      </view>
+  </view>
+</view>

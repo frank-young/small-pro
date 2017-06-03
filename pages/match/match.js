@@ -53,9 +53,9 @@ Page({
   },
   drawArc(offset) {
     const ctx = wx.createCanvasContext('myCanvas')
-    ctx.setFontSize(20)
+    ctx.setFontSize(28)
     ctx.setFillStyle('#ffffff')
-    ctx.fillText(100 - offset + '%', 67, 72)
+    ctx.fillText(100 - offset + '%', 72, 72)
 
     ctx.beginPath()
     ctx.arc(100, 75, 60, 1 * Math.PI, 2 * Math.PI)

@@ -127,7 +127,6 @@ Page({
       header: {'content-type':'application/x-www-form-urlencoded'},
       success (res){
         if (res.data.success === SUCCESS) {
-          console.log('成功调用')
           let info = res.data.bizContent
           that.setData({
             info: info,

@@ -1,6 +1,6 @@
 {
-  "backgroundTextStyle":"light",
+  "backgroundTextStyle":"dark",
   "navigationBarBackgroundColor": "#ff605d",
-  "navigationBarTitleText": "CP信息",
+  "navigationBarTitleText": "申请房主",
   "navigationBarTextStyle":"white"
 }
