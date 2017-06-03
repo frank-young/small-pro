@@ -1,21 +1,9 @@
-/**index.wxss**/
-.userinfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 .userinfo-avatar {
   width: 100rpx;
   height: 100rpx;
   margin: 20rpx;
   border-radius: 50%;
   border: 1rpx solid #999;
-}
-
-.userinfo-nickname {
-  color: #aaa;
-  font-weight: 100;
 }
 
 .icon {
@@ -33,4 +21,16 @@
   background-color: transparent;
   font-size: 10px;
   border-radius: 10rpx;
+}
+
+.mr-20 {
+  margin-right: 20rpx;
+}
+
+.tag-line {
+  padding: 10rpx 20rpx;
+}
+.btn-success {
+  color: #1AAD19 !important;
+  border-color: #1AAD19 !important;
 }

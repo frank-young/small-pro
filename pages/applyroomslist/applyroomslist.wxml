@@ -4,9 +4,27 @@
         <view class="weui-cell__hd">
             <image class="userinfo-avatar" src="{{applyRoom.user.avatarUrl}}" background-size="cover"></image>
         </view>
-        <view class="weui-cell__bd">{{applyRoom.user.nickName}}</view>
-        <view class="weui-cell__ft">
-          <button class="btn-line" bindtap="selfHint" hover-class="btn-hover">同意</button>
+        <view class="weui-cell__bd">
+          <view>
+            {{applyRoom.name}}
+          </view>
+          <view>
+            {{applyRoom.phone}}
+          </view>
+        </view>
+        <block wx:if="{{applyRoom.is_agree === '0'}}">
+          <view class="weui-cell__ft mr-20" >
+            <button class="btn-line btn-success" data-openid="{{applyRoom.openid}}" bindtap="agree" hover-class="btn-hover">同意</button>
+          </view>
+          <view class="weui-cell__ft" wx:if="{{applyRoom.is_agree === '0'}}">
+            <button class="btn-line" data-openid="{{applyRoom.openid}}" bindtap="notAgree" hover-class="btn-hover">拒绝</button>
+          </view>
+        </block>
+        <view class="weui-cell__ft" wx:elif="{{applyRoom.is_agree === '1'}}">
+          <text class="btn-line btn-success tag-line" >已同意</text>
+        </view>
+        <view class="weui-cell__ft" wx:elif="{{applyRoom.is_agree === '2'}}">
+          <text class="btn-line tag-line" >已拒绝</text>
         </view>
       </view>
   </view>
