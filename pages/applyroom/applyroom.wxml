@@ -1,5 +1,6 @@
-<view class="replay">
-  <form bindsubmit="submit">
+<view class="apply-wrap">
+  <block wx:if="{{!applyroom.is_agree}}">
+    <form bindsubmit="submit">
     <view class="weui-cells weui-cells_after-title">
         <view class="weui-cell weui-cell_input">
             <view class="weui-cell__hd weui-cell__hd_in-select-after">
@@ -32,4 +33,32 @@
         </view>
     </view>
   </form>
+  </block>
+  <block wx:if="{{applyroom.is_agree === '0'}}">
+    <view class="apply-box">
+      <icon type="info" size="40" />
+      <view class="apply-box-text">等待审核</view>
+    </view>
+    <view class="apply-btn-wrap">
+      <button form-type="button" bindtap="back">返回</button>
+    </view>
+  </block>
+  <block wx:if="{{applyroom.is_agree === '1'}}">
+    <view class="apply-box">
+      <icon type="success" size="40" />
+      <view class="apply-box-text">通过审核</view>
+    </view>
+    <view class="apply-btn-wrap">
+      <button form-type="button" bindtap="back">返回</button>
+    </view>
+  </block>
+  <block wx:if="{{applyroom.is_agree === '2'}}">
+    <view class="apply-box">
+      <icon type="warn" size="40" />
+      <view class="apply-box-text">已被拒绝</view>
+    </view>
+    <view class="apply-btn-wrap">
+      <button form-type="button" bindtap="back">返回</button>
+    </view>
+  </block>
 </view>

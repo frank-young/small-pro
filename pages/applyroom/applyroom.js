@@ -2,17 +2,32 @@ import Config from '../../utils/config.js'
 
 Page({
   data: {
-    /*
-     * 文件上传操作
-     */
-    files: [],  // 压缩图片，高度压缩，缩略图
-    viewFiles: [],  // 预览图，也就是显示的时候的图，轻微压缩
-    uptoken: '',
-    disabledUpload: false,
-    isDelete: true
+    applyroom: {}
   },
   onLoad () {
-
+    this.getApplyRoomStatus()
+  },
+  getApplyRoomStatus () {
+    let that = this
+    wx.showLoading({
+      title: '加载中'
+    })
+    wx.request({
+      url: Config.host + 'applyroom/status',
+      data: {
+        session_key: wx.getStorageSync('session_key')
+      },
+      method: 'POST',
+      header: {'content-type':'application/x-www-form-urlencoded'},
+      success (res){
+        if (res.data.success) {
+          that.setData({
+            applyroom: res.data.bizContent
+          })
+          wx.hideLoading()
+        }
+      }
+    })
   },
   submit (event) {
     let that = this,
@@ -43,6 +58,11 @@ Page({
           })
         }
       }
+    })
+  },
+  back () {
+    wx.navigateBack({
+      delta: 1
     })
   }
 })
