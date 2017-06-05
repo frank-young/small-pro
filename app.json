@@ -47,7 +47,10 @@
     "pages/protocol/protocol",
     "pages/update/update",
     "pages/applyroom/applyroom",
-    "pages/applyroomslist/applyroomslist"
+    "pages/applyroomslist/applyroomslist",
+    "pages/rooms/rooms",
+    "pages/addroom/addroom",
+    "pages/editroom/editroom"
   ],
   "window":{
     "backgroundTextStyle":"light",

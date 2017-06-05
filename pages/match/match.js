@@ -71,5 +71,15 @@ Page({
     ctx.stroke()
 
     ctx.draw()
+  },
+  toAttendance () {
+    wx.navigateTo({
+      url: '../attendance/attendance'
+    })
+  },
+  toDetail () {
+    wx.navigateTo({
+      url: '../detail/detail'
+    })
   }
 })

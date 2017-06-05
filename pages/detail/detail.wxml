@@ -29,12 +29,12 @@
           <!-- <button class="weui-btn" bindtap="gowx" type="primary" hover-class="btn-hover">进群</button> -->
       </view>
       <view class="shadow-box">
-        <view class="weui-msg__title">房间信息</view>
+        <view class="weui-msg__title">房间-{{room.name}}</view>
         <view class="weui-cell weui-cell_access">
           <view class="weui-cell__hd">
             <image src="../../resources/icons/wechat.png" class="icon"></image>
           </view>
-          <view class="weui-cell__bd">房主 {{matchInfo.wechat_id}}</view>
+          <view class="weui-cell__bd">房主 {{room.wx_id}}</view>
           <view class="weui-cell__ft">
             <button class="btn-line" bindtap="copyRoomWxid" hover-class="btn-hover">复制</button>
           </view>
@@ -52,16 +52,14 @@
           <view class="weui-cell__hd">
             <image src="../../resources/icons/room.png" class="icon"></image>
           </view>
-          <view class="weui-cell__bd">{{matchInfo.room_num}}号房间 二维码</view>
+          <view class="weui-cell__bd">房间二维码</view>
           <view class="weui-cell__ft weui-cell__ft_in-access"></view>
         </view>
       </view>
     </view>
     <view class="weui-msg__opr-area task-wrap">
         <view class="weui-btn-area">
-            <navigator url="../attendance/attendance" hover-class="navigator-hover">
-              <button class="weui-btn" type="primary" hover-class="btn-hover">做任务</button>
-            </navigator>
+            <button class="weui-btn" type="primary" hover-class="btn-hover" bindtap="toIndex">返回首页</button>
         </view>
     </view>
 </view>

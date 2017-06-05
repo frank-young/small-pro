@@ -2,10 +2,16 @@ import Config from '../../utils/config.js'
 
 Page({
   data: {
-    src: 'http://frank.s1.natapp.link/qrcode.jpg',
-    roomWxId: 'frankyoung826'
+    matchInfo: {},
+    room: {}
   },
   onLoad () {
+    this.getMatch()
+  },
+  /*
+   *  获取匹配信息
+   */
+  getMatch () {
     let that = this;
     wx.showLoading({
       title: '加载中',
@@ -18,13 +24,46 @@ Page({
       method: 'POST',
       header: {'content-type':'application/x-www-form-urlencoded'},
       success (res){
-        that.setData({
-          matchInfo: res.data.bizContent
-        })
+        if (res.data.success) {
+          that.setData({
+            matchInfo: res.data.bizContent
+          })
+          that.getRoom(res.data.bizContent.room_num)
+        }
+      },
+      complete () {
         wx.hideLoading()
       }
     })
   },
+  /*
+   *  获取房间信息
+   */
+  getRoom (num) {
+    let that = this;
+    wx.request({
+      url: Config.host + 'room/num',
+      data: {
+        session_key: wx.getStorageSync('session_key'),
+        num
+      },
+      method: 'POST',
+      header: {'content-type':'application/x-www-form-urlencoded'},
+      success (res){
+        if (res.data.success) {
+          that.setData({
+            room: res.data.bizContent
+          })
+        }
+      },
+      complete () {
+        wx.hideLoading()
+      }
+    })
+  },
+  /*
+   *  复制cp微信号
+   */
   copyWxid () {
     let that = this
     wx.setClipboardData({
@@ -44,10 +83,13 @@ Page({
       }
     })
   },
+  /*
+   *  复制房主微信号
+   */
   copyRoomWxid () {
     let that = this
     wx.setClipboardData({
-      data: that.data.roomWxId,
+      data: that.data.room.wx_id,
       success (res) {
         wx.getClipboardData({
           success (res) {
@@ -63,6 +105,9 @@ Page({
       }
     })
   },
+  /*
+   *  个人号解释
+   */
   selfHint () {
     wx.showModal({
       title: '个人号码解释',
@@ -75,7 +120,32 @@ Page({
   showImage () {
     let that = this
     wx.previewImage({
-      urls: [that.data.src]
+      urls: that.data.room.qrcode_path
+    })
+    // wx.authorize({
+    //     scope: 'scope.writePhotosAlbum',
+    //     success () {
+    //       wx.saveImageToPhotosAlbum({
+    //         filePath: that.data.room.qrcode_path[0],
+    //         success (res) {
+    //           wx.showToast({
+    //             title: '保存成功',
+    //             duration: 2000
+    //           })
+    //         },
+    //         fail () {
+    //           wx.showToast({
+    //             title: '保存失败',
+    //             duration: 2000
+    //           })
+    //         }
+    //       })
+    //     }
+    // })
+  },
+  toIndex () {
+    wx.switchTab({
+      url: '../index/index'
     })
   }
 })

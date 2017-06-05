@@ -1,15 +1,38 @@
-<view class="addtopic">
+<view class="addroom">
   <form bindsubmit="submit">
-    <input class="addtopic-title" name="title" placeholder="输入话题标题" auto-focus="true" confirm-type="next" maxlength="50" />
-    <textarea class="addtopic-area" placeholder="这一刻的想法..." name="body" />
+    <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd weui-cell__hd_in-select-after">
+                <view class="weui-label">房间名称</view>
+            </view>
+            <view class="weui-cell__bd">
+                <input class="weui-input" placeholder="房间名称" name="name"/>
+            </view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd weui-cell__hd_in-select-after">
+                <view class="weui-label">房间编号</view>
+            </view>
+            <view class="weui-cell__bd">
+                <input type="digit" class="weui-input" placeholder="输入房间编号" maxlength="6" name="num" />
+            </view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd weui-cell__hd_in-select-after">
+                <view class="weui-label">房主微信</view>
+            </view>
+            <view class="weui-cell__bd">
+                <input class="weui-input" placeholder="输入房主微信" name="wx_id" />
+            </view>
+        </view>
+    </view>
     <view class="weui-cell">
         <view class="weui-cell__bd">
             <view class="weui-uploader">
                 <view class="weui-uploader__hd">
                     <view class="weui-uploader__title">
-                        选择图片
+                        选择二维码
                     </view>
-                    <view class="weui-uploader__info">{{files.length}}/9</view>
                 </view>
                 <view class="weui-uploader__bd">
                     <view class="weui-uploader__files" id="uploaderFiles">
@@ -29,8 +52,8 @@
             </view>
         </view>
     </view>
-    <view class="addtopic-btn-wrap">
-      <button class="addtopic-btn" form-type="submit"> 发送 </button>
+    <view class="addroom-btn-wrap">
+      <button class="addroom-btn" form-type="submit"> 确认 </button>
     </view>
   </form>
 </view>

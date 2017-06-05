@@ -1,0 +1,50 @@
+.userinfo-avatar {
+  width: 80rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  margin: 30rpx 30rpx 30rpx 0;
+  border-radius: 50%;
+  background-color: #ff605d;
+  text-align: center;
+  color: #fff;
+  font-size: 18px;
+}
+
+.weui-cell  {
+  padding: 10rpx 40rpx;
+}
+
+.btn-line {
+  background-color: transparent;
+  font-size: 10px;
+  border-radius: 10rpx;
+}
+
+.mr-20 {
+  margin-right: 20rpx;
+}
+
+.tag-line {
+  padding: 10rpx 20rpx;
+}
+
+.weui-cell__bd {
+  font-size: 14px;
+}
+
+.create-room {
+  position: fixed;
+  right: 40rpx;
+  bottom: 30rpx;
+  z-index: 10;
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  background-color: #ff605d;
+  color: #fff;
+  text-align: center;
+  line-height: 120rpx;
+  font-size: 40px;
+  font-weight: 100;
+  box-shadow: 3px 3px 6px rgba(0,0,0,0.15);
+}

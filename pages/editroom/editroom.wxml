@@ -1,0 +1,56 @@
+<view class="addroom">
+  <form bindsubmit="submit">
+    <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd weui-cell__hd_in-select-after">
+                <view class="weui-label">房间名称</view>
+            </view>
+            <view class="weui-cell__bd">
+                <input class="weui-input" placeholder="房间名称" name="name" value="{{room.name}}"/>
+            </view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd weui-cell__hd_in-select-after">
+                <view class="weui-label">房间编号</view>
+            </view>
+            <view class="weui-cell__bd">
+                <input type="digit" class="weui-input" placeholder="输入房间编号" maxlength="6" name="num" value="{{room.num}}" />
+            </view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd weui-cell__hd_in-select-after">
+                <view class="weui-label">房主微信</view>
+            </view>
+            <view class="weui-cell__bd">
+                <input class="weui-input" placeholder="输入房主微信" name="wx_id" value="{{room.wx_id}}" />
+            </view>
+        </view>
+    </view>
+    <view class="weui-cell">
+        <view class="weui-cell__bd">
+            <view class="weui-uploader">
+                <view class="weui-uploader__hd">
+                    <view class="weui-uploader__title">
+                        选择二维码
+                    </view>
+                </view>
+                <view class="weui-uploader__bd">
+                    <view class="weui-uploader__files" id="uploaderFiles">
+                        <block wx:for-items="{{files}}" wx:key="{{index}}">
+                            <view class="weui-uploader__file"  catchlongtap="showDeleteBox" id="{{item}}">
+                                <image class="weui-uploader__img" catchtap="previewImage" src="{{item}}" mode="aspectFill" />
+                            </view>
+                        </block>
+                    </view>
+                    <view class="weui-uploader__input-box" hidden="{{disabledUpload}}">
+                        <view class="weui-uploader__input" bindtap="chooseImage"></view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="addroom-btn-wrap">
+      <button class="addroom-btn" form-type="submit"> 确认 </button>
+    </view>
+  </form>
+</view>

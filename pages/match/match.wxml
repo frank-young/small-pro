@@ -39,14 +39,10 @@
       </view>
       <view class="weui-msg__opr-area signin-wrap" >
           <view class="weui-btn-area" wx:if="{{!isAttendance}}">
-              <navigator url="../attendance/attendance" hover-class="navigator-hover">
-                <button class="weui-btn" type="primary" hover-class="btn-hover">去签到</button>
-              </navigator>
+            <button class="weui-btn" type="primary" hover-class="btn-hover" bindtap="toAttendance">去签到</button>
           </view>
           <view class="weui-btn-area" wx:if="{{isAttendance}}">
-              <navigator url="../detail/detail" hover-class="navigator-hover">
-                <button class="weui-btn" type="primary" hover-class="btn-hover">查看CP信息</button>
-              </navigator>
+            <button class="weui-btn" type="primary" hover-class="btn-hover" bindtap="toDetail">查看CP信息</button>
           </view>
       </view>
     </view>

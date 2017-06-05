@@ -1,0 +1,7 @@
+{
+  "backgroundTextStyle":"light",
+  "navigationBarBackgroundColor": "#ff605d",
+  "navigationBarTitleText": "房间列表",
+  "navigationBarTextStyle":"white",
+  "enablePullDownRefresh": true
+}

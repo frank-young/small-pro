@@ -1,14 +1,14 @@
-.addtopic {
+.addroom {
   /*padding: 30rpx;*/
 }
-.addtopic-title {
+.addroom-title {
   padding: 30rpx 30rpx;
   margin-top: 30rpx;
   font-size: 16px;
   line-height: 16px;
   background-color: #fff;
 }
-.addtopic-area {
+.addroom-area {
   width: 100%;
   height: 340rpx;
   padding: 20rpx 30rpx;
@@ -21,14 +21,10 @@
   box-sizing: border-box;
 }
 
-.weui-cell {
+.addroom-btn-wrap {
   padding: 30rpx;
 }
-
-.addtopic-btn-wrap {
-  padding: 30rpx;
-}
-.addtopic-btn {
+.addroom-btn {
   width: 100%;
   border-radius: 0;
 }

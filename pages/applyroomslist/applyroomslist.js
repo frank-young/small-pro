@@ -124,6 +124,9 @@ Page({
             duration: 2000
           })
         }
+      },
+      complete () {
+          wx.hideLoading()
       }
     })
   },

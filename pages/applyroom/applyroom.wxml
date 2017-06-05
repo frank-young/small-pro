@@ -18,6 +18,14 @@
                 <input type="digit" class="weui-input" placeholder="输入手机号" maxlength="11" name="phone" />
             </view>
         </view>
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd weui-cell__hd_in-select-after">
+                <view class="weui-label">微信号</view>
+            </view>
+            <view class="weui-cell__bd">
+                <input class="weui-input" placeholder="输入正确微信号" name="wx_id" />
+            </view>
+        </view>
     </view>
     <view class="weui-cells__title">备注</view>
     <view class="weui-cells weui-cells_after-title">
@@ -46,7 +54,9 @@
   <block wx:if="{{applyroom.is_agree === '1'}}">
     <view class="apply-box">
       <icon type="success" size="40" />
-      <view class="apply-box-text">通过审核</view>
+      <view class="apply-box-text">恭喜你，已成为小呐CP的房主</view>
+      <view class="apply-box-text">请添加管理员微信</view>
+      <view class="apply-box-text">yangjunalns</view>
     </view>
     <view class="apply-btn-wrap">
       <button form-type="button" bindtap="back">返回</button>
