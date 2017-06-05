@@ -72,6 +72,13 @@
         <view class="weui-cell__bd">房主申请列表</view>
         <view class="weui-cell__ft weui-cell__ft_in-access"></view>
       </navigator>
+      <navigator url="../managertasks/managertasks" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+        <view class="weui-cell__hd">
+          <image src="../../resources/icons/help.png" class="icon"></image>
+        </view>
+        <view class="weui-cell__bd">任务管理</view>
+        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+      </navigator>
   </view>
 
 </view>

@@ -36,9 +36,13 @@ Page({
     })
     this._getCompleteTask()
     this.getQiniuToken()
-    this._getTaskInfo()
     this._isShowPrevBtn()
     this._isShowNextBtn()
+  },
+  onShow () {
+    if (this.data.taskArr.length !== 0) {
+      this._getTaskInfo()
+    }
   },
   /*
    * 获取任务信息

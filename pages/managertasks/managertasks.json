@@ -1,7 +1,7 @@
 {
   "backgroundTextStyle":"dark",
   "navigationBarBackgroundColor": "#ff605d",
-  "navigationBarTitleText": "房主申请列表",
+  "navigationBarTitleText": "任务管理列表",
   "navigationBarTextStyle":"white",
   "enablePullDownRefresh": true
 }

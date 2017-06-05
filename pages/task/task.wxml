@@ -1,5 +1,5 @@
 <view class="head-spilt-box"></view>
-<view class="page__bd task">
+<view class="page__bd task" wx:if="{{taskArr.length !== 0}}">
     <view class="shadow-box">
       <view class="head-title">{{task.title}}</view>
       <view class="item-text">{{task.body}}</view>
@@ -49,4 +49,19 @@
             </view>
         </view>
     </view>
+</view>
+
+<view class="page__bd task" wx:if="{{taskArr.length === 0}}">
+  <view class="shadow-box">
+    <view class="head-title">任务未发布</view>
+    <view class="item-text">任务将在明天晚上8:00发布</view>
+  </view>
+</view>
+
+<view class="page__bd task" wx:if="{{taskArr.length === 7}}">
+  <view class="shadow-box">
+    <view class="head-title">完成任务</view>
+    <view class="item-text">恭喜你和你的CP完成了本次一周CP活动</view>
+    <view class="item-text">我们邀请你们进入一周CP微信群，见证更多的奇迹。</view>
+  </view>
 </view>

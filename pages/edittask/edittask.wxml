@@ -1,0 +1,32 @@
+<view class="edittask">
+  <form bindsubmit="submit">
+    <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd weui-cell__hd_in-select-after">
+                <view class="weui-label">任务名称</view>
+            </view>
+            <view class="weui-cell__bd">
+                <input class="weui-input" placeholder="任务名称" name="title" value="{{task.title}}" />
+            </view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd weui-cell__hd_in-select-after">
+                <view class="weui-label">第几天任务</view>
+            </view>
+            <view class="weui-cell__bd">
+                <input type="digit" class="weui-input" placeholder="输入第几天任务" maxlength="2" name="num" value="{{task.num}}" />
+            </view>
+        </view>
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell">
+                <view class="weui-cell__bd">
+                    <textarea name="body" class="weui-textarea" placeholder-style="line-height: 1.6em;" value="{{task.body}}" placeholder="输入任务内容" style="height: 7em" />
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="edittask-btn-wrap">
+      <button class="edittask-btn" form-type="submit"> 确认 </button>
+    </view>
+  </form>
+</view>

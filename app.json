@@ -50,7 +50,10 @@
     "pages/applyroomslist/applyroomslist",
     "pages/rooms/rooms",
     "pages/addroom/addroom",
-    "pages/editroom/editroom"
+    "pages/editroom/editroom",
+    "pages/managertasks/managertasks",
+    "pages/addtask/addtask",
+    "pages/edittask/edittask"
   ],
   "window":{
     "backgroundTextStyle":"light",
