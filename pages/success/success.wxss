@@ -1,1 +1,6 @@
-/**success.wxss**/
+.weui-msg__desc {
+  font-size: 18px;
+}
+.term-info-text {
+  color: #ff605d;
+}

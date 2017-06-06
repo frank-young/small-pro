@@ -1,0 +1,8 @@
+.term-date {
+  font-size: 16px;
+
+}
+
+.term-date-text {
+  color: #ff605d;
+}

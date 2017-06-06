@@ -1,6 +1,8 @@
-//index.js
+import Config from '../../utils/config.js'
+
 Page({
   data: {
+    term: {}
   },
   editInfo () {
     wx.navigateTo({
@@ -13,11 +15,27 @@ Page({
     })
   },
   onLoad () {
-  },
-  onReady (){
-    // 生命周期函数--监听页面初次渲染完成
+    this.getTermInfo()
   },
   onShow (){
     // 生命周期函数--监听页面显示
+  },
+  getTermInfo () {
+    let that = this
+    wx.request({
+      url: Config.host + 'manager/term/date/info',
+      data: {
+        session_key: wx.getStorageSync('session_key')
+      },
+      method: 'POST',
+      header: {'content-type':'application/x-www-form-urlencoded'},
+      success (res){
+        if (res.data.success) {
+          that.setData({
+            term: res.data.bizContent
+          })
+        }
+      }
+    })
   }
 })

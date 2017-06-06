@@ -2,6 +2,8 @@ import Config from '../../utils/config.js'
 
 Page({
   data: {
+    term: {},
+    hideTerm: false,
     /*
      * 按钮部分
      */
@@ -11,6 +13,9 @@ Page({
      * 跳转任务链接
      */
     index: 0
+  },
+  onLoad () {
+    this.getTermInfo()
   },
   onShow () {
     if (wx.getStorageSync('session_key') !== '') {
@@ -102,7 +107,8 @@ Page({
           if (res.data.bizContent === 1) {
             that.setData({
               text: '立即报名',
-              url: '../info/info'
+              url: '../info/info',
+              hideTerm: true
             })
           } else if (res.data.bizContent === 2) {
             that.setData({
@@ -135,6 +141,24 @@ Page({
           })
         }
         // wx.hideLoading()
+      }
+    })
+  },
+  getTermInfo () {
+    let that = this
+    wx.request({
+      url: Config.host + 'manager/term/date/info',
+      data: {
+        session_key: wx.getStorageSync('session_key')
+      },
+      method: 'POST',
+      header: {'content-type':'application/x-www-form-urlencoded'},
+      success (res){
+        if (res.data.success) {
+          that.setData({
+            term: res.data.bizContent
+          })
+        }
       }
     })
   },
