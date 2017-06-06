@@ -4,16 +4,6 @@ Page({
   data: {
     term: {}
   },
-  editInfo () {
-    wx.navigateTo({
-      url: '../editinfo/editinfo'
-    })
-  },
-  returnIndex () {
-    wx.navigateTo({
-      url: '../index/index'
-    })
-  },
   onLoad () {
     this.getTermInfo()
   },
@@ -36,6 +26,16 @@ Page({
           })
         }
       }
+    })
+  },
+  editInfo () {
+    wx.navigateTo({
+      url: '../editinfo/editinfo'
+    })
+  },
+  toIndex () {
+    wx.switchTab({
+      url: '../index/index'
     })
   }
 })
