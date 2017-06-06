@@ -139,3 +139,11 @@
   right: 40rpx;
   transform: rotate(45deg);
 }
+.task-wrap {
+  position: fixed;
+  bottom: -25px;
+  width: 100%;
+  padding-bottom: 10px;
+  background-color: #fff;
+  box-shadow: 0 0 1px #ddd;
+}

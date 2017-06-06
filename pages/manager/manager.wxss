@@ -13,3 +13,27 @@
   color: #ff605d;
   font-size: 28px;
 }
+
+.term-number {
+
+}
+.term-number:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.number-box {
+  float: left;
+  padding: 0 30rpx 30rpx 30rpx;
+  width: 50%;
+  text-align: center;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+.boy {
+
+}
+.girl {
+
+}

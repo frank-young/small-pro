@@ -28,7 +28,7 @@
                                     <view class="icon-box" hidden="{{isDelete}}" catchtap="deleteImage">
                                        <icon type="clear" size="22" color="#F43530"></icon>
                                     </view>
-                                    <image class="weui-uploader__img" catchtap="previewImage" src="{{item}}" mode="aspectFill" />
+                                    <image class="weui-uploader__img" catchtap="previewImage" data-src="{{item}}" src="{{item}}" mode="aspectFill" />
                                 </view>
                             </block>
                         </view>
@@ -54,14 +54,26 @@
 <view class="page__bd task" wx:if="{{taskArr.length === 0}}">
   <view class="shadow-box">
     <view class="head-title">任务未发布</view>
-    <view class="item-text">任务将在明天晚上8:00发布</view>
+    <view class="item-text">任务将在晚上8:00发布</view>
+    <view class="item-text">这段时间请添加你的CP的微信，并一起签到，进入微信房间，和小伙伴一起玩耍～</view>
+  </view>
+  <view class="weui-msg__opr-area task-wrap">
+      <view class="weui-btn-area">
+          <button class="weui-btn" type="primary" hover-class="btn-hover" bindtap="toIndex">返回首页</button>
+      </view>
   </view>
 </view>
 
-<view class="page__bd task" wx:if="{{taskArr.length === 7}}">
+<view class="page__bd task" wx:if="{{taskArr.length >= 8}}">
   <view class="shadow-box">
     <view class="head-title">完成任务</view>
     <view class="item-text">恭喜你和你的CP完成了本次一周CP活动</view>
-    <view class="item-text">我们邀请你们进入一周CP微信群，见证更多的奇迹。</view>
+    <view class="item-text">我们所期望的不仅仅是这一次活动，我们更喜欢你能通过这种方式找到你心中的他（她）。同时我们也邀请你进入一周CP微信群，让我们一起来见证更多的奇迹。</view>
+    <view class="item-text">添加微信：frankyoung826，备注cp</view>
+  </view>
+  <view class="weui-msg__opr-area task-wrap">
+      <view class="weui-btn-area">
+          <button class="weui-btn" type="primary" hover-class="btn-hover" bindtap="toIndex">返回首页</button>
+      </view>
   </view>
 </view>

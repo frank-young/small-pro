@@ -32,7 +32,7 @@ Page({
    */
   previewImage(event){
     wx.previewImage({
-        current: event.currentTarget.id,
+        current: event.currentTarget.dataset.src,
         urls: this.data.topic.image_path
     })
   },

@@ -18,7 +18,7 @@
                                 <view class="icon-box" hidden="{{isDelete}}" catchtap="deleteImage">
                                    <icon type="clear" size="22" color="#F43530"></icon>
                                 </view>
-                                <image class="weui-uploader__img" catchtap="previewImage" src="{{item}}" mode="aspectFill" />
+                                <image class="weui-uploader__img" catchtap="previewImage" data-src="{{item}}" src="{{item}}" mode="aspectFill" />
                             </view>
                         </block>
                     </view>

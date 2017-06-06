@@ -8,7 +8,7 @@ Page({
       desc: '小呐一周CP，独创的匹配算法，给你带来的幸福的体验',
       path: '/pages/index/index'
     },
-    src: '../../resources/share.jpg',
+    src: 'http://images.nanafly.com/images/share.jpg',
     isShow: false
   },
   shareTip () {

@@ -1,7 +1,15 @@
 <view class="manager">
   <view class="weui-cells__title">报名状态</view>
   <view class="term-info">
-    第<text class="term-info-num"> {{term}} </text>期报活动
+    第<text class="term-info-num"> {{term.term}} </text>期报活动
+  </view>
+  <view class="term-number">
+    <view class="number-box boy">
+      男：{{term.boy_num}}
+    </view>
+    <view class="number-box girl">
+      女：{{term.girl_num}}
+    </view>
   </view>
   <view class="weui-cells weui-cells_after-title">
       <view class="weui-cell weui-cell_switch">

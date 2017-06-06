@@ -3,7 +3,7 @@ import Config from '../../utils/config.js'
 Page({
   data: {
     isChecked: false,
-    term: ''
+    term: {}
   },
   onLoad () {
     this.getTermStatus()
@@ -20,7 +20,7 @@ Page({
       success (res){
         if (res.data.success) {
           that.setData({
-            term: res.data.bizContent.term,
+            term: res.data.bizContent,
             isChecked: res.data.bizContent.status === 1 ? true : false
           })
         }

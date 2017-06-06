@@ -111,7 +111,6 @@ Page({
         if (res.data.success === SUCCESS) {
           let image_path = res.data.bizContent.image_path
           if (image_path !== null) {
-            console.log(res.data.bizContent.image_path)
             that.setData({
               files: image_path,
               isComplete: false
@@ -143,85 +142,45 @@ Page({
     })
   },
   chooseImage (e) {
-      var that = this
+      let that = this
       wx.chooseImage({
-      count: 9,
+      count: 1,
       sizeType: ['compressed'],
       sourceType: ['album'],
       success (res) {
-        let filePath = res.tempFilePaths[0];
-        that.setData({
-          files: that.data.files.concat(res.tempFilePaths),
-          isComplete: false
-        })
-        that._doTask(that.data.files)
-        // QiniuUploader.upload(filePath, (qiniuRes) => {
-        //   that.setData({
-        //     files: that.data.files.concat(qiniuRes.imageURL)
-        //   })
-        //
-        //   if (that.data.files.length >= 9) {
-        //     that.setData({
-        //       disabledUpload: true
-        //     })
-        //   }
-        // },
-        // (error) => {
-		    //     console.log('error: ' + error);
-        // },
-        // {
-        //   uploadURL: 'https://upload-z1.qbox.me',
-        //   domain: 'http://images.nanafly.com/',
-        //   uptoken: that.data.uptoken
-        // });
-      }
-    })
-  },
-  upload(page, path) {
-    wx.showToast({
-      icon: 'loading',
-      title: "正在上传"
-    })
-    wx.uploadFile({
-      // url: Config.host + '/upload/images',
-      url: 'images.nanafly.com' + '/imageView2/0/interlace/1/q/75|watermark/2/text/bmFuYS1jcA==/font/5b6u6L2v6ZuF6buR/fontsize/20/fill/I0VGRUZFRg==/dissolve/70/gravity/SouthEast/dx/10/dy/10|imageslim',
-      filePath: path[0],
-      name: 'file',
-      header: { "Content-Type": "multipart/form-data" },
-      formData: {
-        session_key: wx.getStorageSync('session_key')
-      },
-      success (res) {
-        if (res.statusCode != 200) {
-          wx.showModal({
-            title: '提示',
-            content: '上传成功',
-            showCancel: false
+        const imageCtrl = '?imageMogr2/auto-orient/thumbnail/750x/format/jpg/interlace/1/blur/1x0/quality/75|watermark/2/text/bmFuYS1jcA==/font/5b6u6L2v6ZuF6buR/fontsize/20/fill/I0VGRUZFRg==/dissolve/70/gravity/SouthEast/dx/10/dy/10|imageslim'
+
+        // for (let i = 0; i < res.tempFilePaths.length; i++) {
+          let filePath = res.tempFilePaths[0];
+          QiniuUploader.upload(filePath, (qiniuRes) => {
+            that.setData({
+              files: that.data.files.concat(qiniuRes.imageURL + imageCtrl),
+              isComplete: false
+            })
+            that._doTask(that.data.files)
+            if (that.data.files.length >= 9) {
+              that.setData({
+                disabledUpload: true
+              })
+            }
+          },
+          (error) => {
+  		        console.log('error: ' + error);
+          },
+          {
+            uploadURL: 'https://upload-z1.qbox.me',
+            domain: 'http://images.nanafly.com/',
+            uptoken: that.data.uptoken
           })
-          return;
-        }
-        var data = res.data
-        page.setData({
-          src: path[0]
-        })
-      },
-      fail (e) {
-        console.log(e);
-        wx.showModal({
-          title: '提示',
-          content: '上传失败',
-          showCancel: false
-        })
-      },
-      complete () {
-        wx.hideToast();
+        // }
+
       }
     })
   },
   previewImage(e){
       wx.previewImage({
-          current: e.currentTarget.id, // 当前显示图片的http链接
-          urls: this.data.files // 需要预览的图片http链接列表
+          current: e.currentTarget.dataset.src,
+          urls: this.data.files
       })
   },
   showDeleteBox () {
@@ -279,6 +238,11 @@ Page({
     let that = this
     wx.redirectTo({
       url: '../task/task?index=' + (Number(that.data.index) + 1)
+    })
+  },
+  toIndex () {
+    wx.switchTab({
+      url: '../index/index'
     })
   }
 })
