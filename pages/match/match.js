@@ -10,7 +10,7 @@ Page({
   onLoad () {
     let that = this;
     wx.showLoading({
-      title: '加载中',
+      title: '加载中'
     })
     this.isAttendance()
     this.setUserInfo()
@@ -25,10 +25,27 @@ Page({
       method: 'POST',
       header: {'content-type':'application/x-www-form-urlencoded'},
       success (res){
-        that.setData({
-          matchInfo: res.data.bizContent
-        })
-        that.drawArc(res.data.bizContent.offset)
+        if (res.data.success) {
+          that.setData({
+            matchInfo: res.data.bizContent
+          })
+          that.drawArc(res.data.bizContent.offset)
+        } else {
+          wx.showModal({
+            title: '匹配失败😦',
+            showCancel: false,
+            confirmText: '知道啦',
+            confirmColor: '#f8614a',
+            content: '匹配未匹配成功，sorry，本次活动暂时未找到适合你的CP，不要灰心，我们一直都在帮你寻找哟😯，返回后报名参加下次活动',
+            success () {
+              wx.switchTab({
+                url: '../index/index'
+              })
+            }
+          })
+        }
+      },
+      complete () {
         wx.hideLoading()
       }
     })
@@ -55,7 +72,7 @@ Page({
     const ctx = wx.createCanvasContext('myCanvas')
     ctx.setFontSize(28)
     ctx.setFillStyle('#ffffff')
-    ctx.fillText(100 - offset + '%', 72, 72)
+    ctx.fillText(Number(100 - offset).toFixed(2) + '%', 58, 72)
 
     ctx.beginPath()
     ctx.arc(100, 75, 60, 1 * Math.PI, 2 * Math.PI)

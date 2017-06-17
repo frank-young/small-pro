@@ -13,7 +13,7 @@
         </view>
         <view class="weui-cell__ft">
           <view class="weui-cell__ft mr-20" >
-            <button class="btn-line btn-success" data-openid="{{task.id}}" bindtap="agree" hover-class="btn-hover">发布</button>
+            <button class="btn-line btn-success" data-id="{{task.id}}" catchtap="publish" hover-class="btn-hover">发布</button>
           </view>
         </view>
       </navigator>

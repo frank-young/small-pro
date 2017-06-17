@@ -77,6 +77,31 @@ Page({
       url: '../addtask/addtask'
     })
   },
+  // 发布任务
+  publish (event) {
+    let id = event.currentTarget.dataset.id
+    let that = this
+    wx.request({
+      url: Config.host + 'taskmanager/publish',
+      data: {
+        session_key: wx.getStorageSync('session_key'),
+        id
+      },
+      method: 'POST',
+      header: {'content-type':'application/x-www-form-urlencoded'},
+      success (res){
+        if (res.data.success) {
+          wx.showModal({
+            title: '发布成功',
+            showCancel: false,
+            confirmText: '确定',
+            confirmColor: '#f8614a',
+            content: '任务发布成功'
+          })
+        }
+      }
+    })
+  },
   onPullDownRefresh (){
     this.refreshRooms(0, 10)
     wx.stopPullDownRefresh()
