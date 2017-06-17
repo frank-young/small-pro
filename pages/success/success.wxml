@@ -14,7 +14,7 @@
         </view>
         <view class="weui-msg__opr-area">
             <view class="weui-btn-area">
-                <button class="weui-btn" bindtap="returnIndex" type="default">返回主页</button>
+                <button class="weui-btn" bindtap="toIndex" type="default">返回主页</button>
             </view>
         </view>
     </view>
