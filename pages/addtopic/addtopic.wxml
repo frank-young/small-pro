@@ -1,7 +1,7 @@
 <view class="addtopic">
   <form bindsubmit="submit">
-    <input class="addtopic-title" name="title" placeholder="输入话题标题" auto-focus="true" confirm-type="next" maxlength="50" />
-    <textarea class="addtopic-area" placeholder="这一刻的想法..." name="body" />
+    <input class="addtopic-title" name="title" placeholder="请输入话题标题" auto-focus="true" confirm-type="next" maxlength="50" />
+    <textarea class="addtopic-area" placeholder="请输入话题内容..." name="body" />
     <view class="weui-cell">
         <view class="weui-cell__bd">
             <view class="weui-uploader">

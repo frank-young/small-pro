@@ -9,16 +9,18 @@ App({
     wx.checkSession({
       success: function(){
         // 应该是不采取操作
-        console.log('success')
+        console.log('已经登录...')
       },
       fail: function(){
         that.login()
       }
     })
     if (wx.getStorageSync('session_key') === '') {
+      console.log('session_key为空')
       that.login()
     }
     // this.login()
+    this.showTopBarText()
   },
   login () {
     wx.login({
@@ -36,6 +38,7 @@ App({
                 header: {'content-type':'application/x-www-form-urlencoded'},
                 success (res){
                   wx.setStorageSync('session_key', res.data.bizContent)
+                  console.log(res.data.bizContent)
                 }
               })
             },
@@ -78,6 +81,11 @@ App({
         }
       })
     }
+  },
+  showTopBarText () {
+    wx.setTopBarText({
+      text: '亲爱的～'
+    })
   },
   globalData:{
     userInfo:null
